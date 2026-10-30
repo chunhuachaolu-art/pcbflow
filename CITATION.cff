@@ -25,3 +25,4 @@ abstract: >-
   Chinese technical reports covering about one hundred pre-registered experiment
   batches. Main finding: the LLM is most useful as an evaluator of routing results;
   most other roles produced negative or null results under matched controls.
+doi: "10.5281/zenodo.23805537"
