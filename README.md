@@ -1,5 +1,7 @@
 # pcbflow：一次 LLM for EDA 的个人尝试（终版归档）
 
+[![DOI](https://zenodo.org/badge/1439661232.svg)](https://zenodo.org/badge/latestdoi/1439661232)
+
 > **English abstract.** pcbflow is a solo research project (Sep–Oct 2026) that asked one question:
 > *where, if anywhere, does a large language model actually help in a PCB routing pipeline?*
 > It contains a from-scratch deterministic router (**V5 engine**), a seven-stage KiCad design-flow
@@ -104,7 +106,7 @@ cd ../tools/pcbflow && python -m pytest -q -p no:cacheprovider -p pcbflow_public
 
 ## 引用
 
-见 [`CITATION.cff`](CITATION.cff)。Zenodo DOI 在首次公开发布时生成。
+见 [`CITATION.cff`](CITATION.cff)。Zenodo DOI：[10.5281/zenodo.23805537](https://doi.org/10.5281/zenodo.23805537)（v1.0.0）。
 
 ## 状态
 
