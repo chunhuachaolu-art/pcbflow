@@ -1,0 +1,52 @@
+{
+ "schema_version": "3.0",
+ "space_id": "SS-SMOKE4L-R1",
+ "profile_id": "smoke-4l",
+ "parameters": [
+  {
+   "name": "route_grid_mm",
+   "kind": "float",
+   "domain": {
+    "values": [
+     0.0
+    ],
+    "min": 0.4,
+    "max": 0.8,
+    "step": 0.1
+   },
+   "unit": "mm",
+   "normalization": "min_max",
+   "tolerance": 0.0
+  },
+  {
+   "name": "via_penalty",
+   "kind": "integer",
+   "domain": {
+    "values": [
+     0
+    ],
+    "min": 1,
+    "max": 10
+   },
+   "unit": "dimensionless",
+   "normalization": "none",
+   "tolerance": 0
+  }
+ ],
+ "max_parameter_count": 2,
+ "min_samples_per_kind": 5,
+ "max_step": 0.1,
+ "outlier_policy": "blocked",
+ "confidence_interval": null,
+ "explore_real_execution_ratio": 0.2,
+ "optimizer": "deterministic_grid_enumeration",
+ "record_env": {
+  "python": "stdlib_only",
+  "numpy": "not_used",
+  "blas": "not_used",
+  "threads": "1",
+  "float_strategy": "ieee754_double_json_repr",
+  "parallel_merge": "none",
+  "randomness": "none_full_enumeration"
+ }
+}

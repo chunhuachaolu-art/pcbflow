@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software, board design or the technical reports, please cite it as below."
+title: "pcbflow: a personal attempt at LLM for EDA — PCB routing engine, design-flow compiler, STM32H743 core board and technical reports (final archive)"
+type: software
+authors:
+  - family-names: Zhao
+    given-names: Danqi
+    affiliation: "Heilongjiang Institute of Technology, School of Mechanical and Electrical Engineering"
+version: "1.0.0"
+date-released: "2026-10-30"
+license: Apache-2.0
+repository-code: "https://github.com/chunhuachaolu-art/pcbflow"
+keywords:
+  - PCB routing
+  - electronic design automation
+  - large language models
+  - LLM for EDA
+  - KiCad
+  - negative results
+  - pre-registration
+abstract: >-
+  Solo research project asking where a large language model actually helps in a
+  PCB routing pipeline. Contains a from-scratch deterministic router (V5 engine),
+  a seven-stage KiCad design-flow compiler, an STM32H743 4-layer core board and six
+  Chinese technical reports covering about one hundred pre-registered experiment
+  batches. Main finding: the LLM is most useful as an evaluator of routing results;
+  most other roles produced negative or null results under matched controls.

@@ -1,0 +1,49 @@
+FAILED tests/test_baseline_snapshot.py::test_collected_count_matches_baseline_total
+FAILED tests/test_fd1.py::test_checker_registry_authority_and_scan - Attribut...
+FAILED tests/test_fd1.py::test_waiver_ledger_red_lines - assert 0 == 4
+FAILED tests/test_fd1.py::test_cli_check_signoff_wired - AttributeError: 'Non...
+FAILED tests/test_fd2.py::test_check_binding_approved_and_via_model_gap - Ass...
+FAILED tests/test_g2a_ffext_r2_extgate.py::test_existing_profile_prefix_counts_unchanged
+FAILED tests/test_g3_rows_r2_materialize.py::test_rows_r1_frozen_collection_unchanged
+FAILED tests/test_g3_rows_r2_materialize.py::test_metrics_r1_frozen_collection_unchanged
+FAILED tests/test_holdout_r1.py::test_zero_flag_none_convention - Failed: 缺...
+FAILED tests/test_holdout_r1.py::test_chain_replay_registered_counts - Failed...
+FAILED tests/test_holdout_r1.py::test_run_record_consistency - Failed: 缺盘上...
+FAILED tests/test_holdout_r1.py::test_dev_record_loads_letter_from_run_record
+FAILED tests/test_p3_schema_registry.py::test_compile_products_replay[constraints]
+FAILED tests/test_p3_schema_registry.py::test_compile_products_replay[coverage]
+FAILED tests/test_p3_schema_registry.py::test_compile_products_replay[impedance_targets]
+FAILED tests/test_p3_schema_registry.py::test_envelope_instances_replay - ass...
+FAILED tests/test_p3_schema_registry.py::test_envelope_negative_variants - as...
+FAILED tests/test_profile_g0.py::test_config_snapshot_sha_pinned - AssertionE...
+FAILED tests/test_protocol_v2_freeze.py::test_v1_zero_byte_anchor_untouched
+FAILED tests/test_r1_calibration_adoption.py::test_build_bundle_r4_pure_and_valid
+FAILED tests/test_r1_calibration_adoption.py::test_build_bundle_r4_evidence_missing_fail_closed
+FAILED tests/test_r1_calibration_adoption.py::test_r4_ledger_chain_verify_and_checkpoint
+FAILED tests/test_r1_calibration_adoption.py::test_apr_0011_flips_no_machine_predicate
+FAILED tests/test_r1_calibration_adoption.py::test_r4_artifacts_on_disk_consistent
+FAILED tests/test_r2_calibration_round3.py::test_reader_raw_files_valid_json_and_structure
+FAILED tests/test_repair_p5_gap_checklist.py::TestIdempotenceAndRegeneration::test_double_run_byte_exact
+FAILED tests/test_repair_p5_gap_checklist.py::TestIdempotenceAndRegeneration::test_committed_artifact_regenerates_from_current_sources
+FAILED tests/test_s17_queue_close_and_approvals_r2.py::test_build_bundle_r2_pure_and_valid
+FAILED tests/test_s17_queue_close_and_approvals_r2.py::test_build_bundle_r2_evidence_missing_fail_closed
+FAILED tests/test_s17_queue_close_and_approvals_r2.py::test_r1_artifacts_untouched_names_present
+FAILED tests/test_s20_approvals_r3_and_calibration_v2.py::test_build_bundle_r3_pure_and_valid
+FAILED tests/test_s20_approvals_r3_and_calibration_v2.py::test_build_bundle_r3_evidence_missing_fail_closed
+FAILED tests/test_s20_approvals_r3_and_calibration_v2.py::test_r1_r2_artifacts_untouched_names_present
+FAILED tests/test_tl5_s10_batch.py::test_judge_negative_identity_mismatch_board
+FAILED tests/test_v4_1_e6_prl.py::test_holdout_r1_incident_captured_restored_fail_closed
+FAILED tests/test_v4_1_e6_prl.py::test_normal_call_negative_control_no_false_positive
+FAILED tests/test_v4_1_e6_prl.py::test_changed_sidecar_bytes_restored - Permi...
+FAILED tests/test_v4_1_e6_prl.py::test_pre_existing_protected_prl_untouched_not_deleted
+FAILED tests/test_v4_1_e6_prl.py::test_call_cap_fail_closed - PermissionError...
+FAILED tests/test_v4_2_jq.py::test_templates_file_exists_and_schema - Asserti...
+FAILED tests/test_v4exec_p10_render_png_viewspec.py::test_render_png_default_path_golden_bytes
+FAILED tests/test_v4exec_p10_render_png_viewspec.py::test_render_png_viewspec_deterministic_and_filtered
+FAILED pcbflow/v4exp/tests/test_v4exp_e1_runner.py::TestDeterminism::test_double_run_byte_exact
+FAILED pcbflow/v4exp/tests/test_v4exp_e1_runner.py::TestDeterminism::test_replay_all_same_and_detects_tampering
+ERROR tests/test_g1_corpus_r2_materialize.py
+ERROR tests/test_v4_2_m0.py - AssertionError: missing reuse scenario anchors:...
+ERROR tests/test_v4_2_rep.py - ValueError: missing board snapshot: /home/clau...
+ERROR tests/test_verify1_campaign.py
+44 failed, 2589 passed, 986 skipped, 4 xfailed, 5 warnings, 4 errors in 801.20s (0:13:21)

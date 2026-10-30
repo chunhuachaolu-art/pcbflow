@@ -1,0 +1,44 @@
+{
+ "schema_version": "3.0",
+ "artifact_kind": "stackup",
+ "project_id": "smoke-4l",
+ "layers": [
+  {
+   "name": "F.Cu",
+   "thickness_mm": 0.035,
+   "copper_oz": 1.0
+  },
+  {
+   "name": "prepreg-1",
+   "thickness_mm": 0.21,
+   "epsilon_r": 4.2
+  },
+  {
+   "name": "In1.Cu",
+   "thickness_mm": 0.035,
+   "copper_oz": 1.0
+  },
+  {
+   "name": "core",
+   "thickness_mm": 1.0,
+   "epsilon_r": 4.5
+  },
+  {
+   "name": "In2.Cu",
+   "thickness_mm": 0.035,
+   "copper_oz": 1.0
+  },
+  {
+   "name": "prepreg-2",
+   "thickness_mm": 0.21,
+   "epsilon_r": 4.2
+  },
+  {
+   "name": "B.Cu",
+   "thickness_mm": 0.035,
+   "copper_oz": 1.0
+  }
+ ],
+ "finish": "ENIG",
+ "notes": "smoke 合成叠层；阻抗筛查口径 IPC-2141 一阶（screening 级）"
+}

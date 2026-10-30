@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "v5.compiled_rules.v1",
+  "title": "v5.compiled_rules.v1 理念编译产物 schema（V5.0-DEV-TASKBOOK §3.8 L0.5）",
+  "type": "object",
+  "required": ["artifact", "board_id", "board_sha256", "rules", "check_only", "conflict_graph", "coverage"],
+  "additionalProperties": false,
+  "properties": {
+    "artifact": {"const": "v5.compiled_rules.v1"},
+    "board_id": {"type": "string", "minLength": 1},
+    "board_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "rules": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/compiled_rule"}
+    },
+    "check_only": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["principle_id", "reason"],
+        "additionalProperties": false,
+        "properties": {
+          "principle_id": {"type": "string", "minLength": 1},
+          "reason": {"const": "explicit check_only"}
+        }
+      }
+    },
+    "conflict_graph": {
+      "type": "object",
+      "required": ["nodes", "edges"],
+      "additionalProperties": false,
+      "properties": {
+        "nodes": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "edges": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/conflict_edge"}
+        }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "required": ["total", "compiled", "check_only", "coverage_pct", "evidence_insufficient"],
+      "additionalProperties": false,
+      "properties": {
+        "total": {"type": "integer", "minimum": 0},
+        "compiled": {"type": "integer", "minimum": 0},
+        "check_only": {"type": "integer", "minimum": 0},
+        "coverage_pct": {"type": "number", "minimum": 0, "maximum": 100},
+        "evidence_insufficient": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    }
+  },
+  "definitions": {
+    "compiled_rule": {
+      "type": "object",
+      "required": ["compiled_rule_id", "principle_id", "generator_target", "predicate", "action", "priority", "conflicts_with", "fallback", "proof_obligations", "enforcement"],
+      "additionalProperties": false,
+      "properties": {
+        "compiled_rule_id": {"type": "string", "minLength": 1},
+        "principle_id": {"type": "string", "minLength": 1},
+        "generator_target": {"enum": ["ordering", "allocation", "layer_plan", "corridor"]},
+        "predicate": {
+          "type": "object",
+          "required": ["rule_kind"],
+          "note": "开放对象：rule_kind + 生成器特定键（L0.5 只锁 rule_kind；各 kind 的具体形状由对应生成器在 P2+ 定义）",
+          "properties": {"rule_kind": {"type": "string", "minLength": 1}}
+        },
+        "action": {
+          "type": "object",
+          "required": ["strategy", "priority"],
+          "additionalProperties": false,
+          "properties": {
+            "strategy": {"type": "string", "minLength": 1},
+            "priority": {"type": "integer", "minimum": 0}
+          }
+        },
+        "priority": {"type": "integer", "minimum": 0},
+        "conflicts_with": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "fallback": {"type": "string", "minLength": 1},
+        "proof_obligations": {"type": "array", "items": {"type": "string"}},
+        "enforcement": {"enum": ["generation", "check", "both"]}
+      }
+    },
+    "conflict_edge": {
+      "type": "object",
+      "required": ["a", "b", "basis", "winner", "loser", "resolution"],
+      "additionalProperties": false,
+      "properties": {
+        "a": {"type": "string", "minLength": 1},
+        "b": {"type": "string", "minLength": 1},
+        "basis": {"const": "declared"},
+        "winner": {"type": "string", "minLength": 1},
+        "loser": {"type": "string", "minLength": 1},
+        "resolution": {"enum": ["priority", "yields_to"]}
+      }
+    }
+  }
+}

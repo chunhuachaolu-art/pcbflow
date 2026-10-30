@@ -1,0 +1,19 @@
+pcbflow — final archive (2026-10-30)
+Copyright 2026 Zhao Danqi (赵丹琪)
+
+Licensing layers
+----------------
+* Code (engine/, tools/, firmware/, scripts anywhere): Apache License 2.0 — see LICENSE.
+* STM32H743 core board design files (design/coreboard/kicad/, bom/, pinmap/):
+  CERN-OHL-P-2.0 — see design/coreboard/LICENSE and design/coreboard/LICENSE.BOARD.
+* Technical reports, figures and documentation (papers/, docs/, *.md):
+  Creative Commons Attribution 4.0 International (CC BY 4.0) — see papers/LICENSE.
+
+Not included / third-party
+--------------------------
+* Third-party KiCad boards used as experiment corpus are NOT redistributed.
+  Sources, pinned commits and per-board licenses: tools/pcbflow/datasets-manifests/SOURCES.json
+* KiCad QA test boards (GPL-3.0-or-later) and KiCad demo boards are NOT redistributed;
+  see docs/THIRD-PARTY.md.
+* KiCad (pcbnew / kicad-cli) and Freerouting are invoked as external programs only.
+* Optional dependency PyMuPDF (AGPL-3.0) is used only by figure/render scripts.

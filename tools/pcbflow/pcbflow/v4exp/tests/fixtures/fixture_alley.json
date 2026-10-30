@@ -1,0 +1,31 @@
+{
+  "schema": "pcbflow.v4exp.board/1",
+  "scenario_id": "fix-alley-order",
+  "split": "development",
+  "family": "synthetic",
+  "seed": 7,
+  "board": {"bbox_mm": [0.0, 0.0, 20.0, 12.0], "layers": ["F.Cu", "B.Cu"]},
+  "rules": {
+    "grid_mm": 0.25,
+    "clearance_mm": 0.3,
+    "width_mm": {"default": 0.3, "clock": 0.4},
+    "via": {"pad_mm": 0.6, "hole_mm": 0.3},
+    "allowed_layers": {"default": ["F.Cu", "B.Cu"], "clock": ["F.Cu"]}
+  },
+  "pads": [
+    {"pad_id": "PA1", "net_id": "n1", "x_mm": 10.0, "y_mm": 0.5, "w_mm": 1.2, "h_mm": 1.2, "layer": "F.Cu"},
+    {"pad_id": "PB1", "net_id": "n1", "x_mm": 10.0, "y_mm": 11.5, "w_mm": 1.2, "h_mm": 1.2, "layer": "F.Cu"},
+    {"pad_id": "PA2", "net_id": "n2", "x_mm": 0.5, "y_mm": 6.0, "w_mm": 1.2, "h_mm": 1.2, "layer": "F.Cu"},
+    {"pad_id": "PB2", "net_id": "n2", "x_mm": 19.5, "y_mm": 6.0, "w_mm": 1.2, "h_mm": 1.2, "layer": "F.Cu"}
+  ],
+  "nets": [
+    {"net_id": "n1", "net_class": "default", "endpoints": ["PA1", "PB1"]},
+    {"net_id": "n2", "net_class": "clock", "endpoints": ["PA2", "PB2"]}
+  ],
+  "keepouts": [
+    {"keepout_id": "k-margin-bottom", "rect_mm": [-2.0, -2.0, 22.0, 0.0], "layers": ["F.Cu"]},
+    {"keepout_id": "k-margin-top", "rect_mm": [-2.0, 12.0, 22.0, 14.0], "layers": ["F.Cu"]}
+  ],
+  "relations": [],
+  "label": "satisfiable-order-dependent"
+}

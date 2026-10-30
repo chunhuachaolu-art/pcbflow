@@ -1,0 +1,30 @@
+{
+  "schema": "pcbflow.v4exp.board/1",
+  "scenario_id": "fix-enclosed-f5",
+  "split": "development",
+  "family": "f5",
+  "seed": 4,
+  "board": {"bbox_mm": [0.0, 0.0, 20.0, 12.0], "layers": ["F.Cu", "B.Cu"]},
+  "rules": {
+    "grid_mm": 0.25,
+    "clearance_mm": 0.3,
+    "width_mm": {"default": 0.3, "clock": 0.4},
+    "via": {"pad_mm": 0.6, "hole_mm": 0.3},
+    "allowed_layers": {"default": ["F.Cu", "B.Cu"], "clock": ["F.Cu"]}
+  },
+  "pads": [
+    {"pad_id": "PIN", "net_id": "n1", "x_mm": 6.0, "y_mm": 6.0, "w_mm": 1.2, "h_mm": 1.2, "layer": "F.Cu"},
+    {"pad_id": "POUT", "net_id": "n1", "x_mm": 15.0, "y_mm": 6.0, "w_mm": 1.2, "h_mm": 1.2, "layer": "F.Cu"}
+  ],
+  "nets": [
+    {"net_id": "n1", "net_class": "default", "endpoints": ["PIN", "POUT"]}
+  ],
+  "keepouts": [
+    {"keepout_id": "ring-n", "rect_mm": [4.0, 4.0, 11.0, 5.0], "layers": ["F.Cu", "B.Cu"]},
+    {"keepout_id": "ring-s", "rect_mm": [4.0, 7.0, 11.0, 8.0], "layers": ["F.Cu", "B.Cu"]},
+    {"keepout_id": "ring-w", "rect_mm": [4.0, 4.0, 5.0, 8.0], "layers": ["F.Cu", "B.Cu"]},
+    {"keepout_id": "ring-e", "rect_mm": [10.0, 4.0, 11.0, 8.0], "layers": ["F.Cu", "B.Cu"]}
+  ],
+  "relations": [],
+  "label": "unsatisfiable"
+}

@@ -1,0 +1,79 @@
+{
+ "schema_version": "3.0",
+ "project_id": "smoke-2l",
+ "profile_id": "smoke-2l",
+ "eda": {
+  "name": "kicad",
+  "version": null
+ },
+ "inputs": {
+  "board": "inputs/board.kicad_pcb",
+  "schematic": null,
+  "netlist": null,
+  "placement": null,
+  "stackup": null,
+  "constraints": "inputs/constraints.json",
+  "structures": null,
+  "toolchain_lock": "../../toolchain_lock.json",
+  "identity_map": null
+ },
+ "backtest": {
+  "opens": null,
+  "reference_layout": null,
+  "reference_route": null,
+  "drc_baseline": null,
+  "datasets": null
+ },
+ "policy": {
+  "profile": null,
+  "core_policy": null,
+  "feedforward_policy": null,
+  "optimization_policy": null,
+  "model_policy": null
+ },
+ "external_authority": {
+  "impedance": null,
+  "si": null,
+  "pi": null,
+  "thermal": null,
+  "emc": null,
+  "dfm": null
+ },
+ "params": [
+  {
+   "name": "route_grid_mm",
+   "kind": "enum",
+   "domain": {
+    "values": [
+     0.4,
+     0.5,
+     0.6
+    ]
+   },
+   "unit": "mm",
+   "source": "scope:route.grid"
+  }
+ ],
+ "critical_nets": [
+  "CLK_MAIN",
+  "DIFF_P",
+  "DIFF_N"
+ ],
+ "dataset_splits": null,
+ "outputs": {
+  "root": "out/v3-smoke-2l",
+  "preserve_history": true
+ },
+ "toolchain": {
+  "lock_path": "../../toolchain_lock.json",
+  "executable_allowlist": [
+   "kicad-cli"
+  ],
+  "backend_declarations": []
+ },
+ "path_base": "manifest_dir",
+ "compatibility": {
+  "mode": "explicit_manifest",
+  "warning": false
+ }
+}

@@ -1,0 +1,309 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "v5.pkg.v1",
+  "title": "v5.pkg.v1 盲包 schema（V5.0-DEV-TASKBOOK §3.2）",
+  "type": "object",
+  "required": ["schema_version", "board_id", "board_sha256", "generator", "generator_version", "board_brief", "zones", "partition_table", "j_items", "routing_ladder", "output_contract"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "v5.pkg.v1"},
+    "board_id": {"type": "string", "minLength": 1},
+    "board_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "generator": {"type": "string", "minLength": 1},
+    "generator_version": {"type": "string", "minLength": 1},
+    "provenance": {
+      "type": "object",
+      "required": ["generator", "generator_version", "board_sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "generator": {"type": "string", "minLength": 1},
+        "generator_version": {"type": "string", "minLength": 1},
+        "board_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "board_brief": {
+      "type": "object",
+      "required": ["workspace", "stackup", "cost_model", "hard_rules", "scan_disclosure", "endpoint_disclosure"],
+      "additionalProperties": false,
+      "properties": {
+        "workspace": {
+          "type": "object",
+          "required": ["x_min", "y_min", "x_max", "y_max"],
+          "additionalProperties": false,
+          "properties": {
+            "x_min": {"type": "number"}, "y_min": {"type": "number"},
+            "x_max": {"type": "number"}, "y_max": {"type": "number"}
+          }
+        },
+        "stackup": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["id", "kind", "preferred_direction", "available"],
+            "additionalProperties": false,
+            "properties": {
+              "id": {"type": "string", "minLength": 1},
+              "kind": {"enum": ["signal", "plane"]},
+              "preferred_direction": {"enum": ["h", "v", "any"]},
+              "available": {"type": "boolean"}
+            }
+          }
+        },
+        "cost_model": {
+          "type": "object",
+          "required": ["weights", "ordinal_note", "width_adjust_in_interval_penalty", "width_adjust_note"],
+          "additionalProperties": false,
+          "properties": {
+            "weights": {
+              "type": "object",
+              "required": ["detour_rate", "direction_rate", "via_cost", "return_cost"],
+              "additionalProperties": false,
+              "properties": {
+                "detour_rate": {"type": "number"},
+                "direction_rate": {"type": "number"},
+                "via_cost": {"type": "number"},
+                "return_cost": {"type": "number"}
+              }
+            },
+            "ordinal_note": {"type": "string", "minLength": 1},
+            "width_adjust_in_interval_penalty": {"type": "number"},
+            "width_adjust_note": {"type": "string", "minLength": 1}
+          }
+        },
+        "hard_rules": {
+          "type": "object",
+          "required": ["R1", "R2", "R3", "R4", "R5", "R6"],
+          "additionalProperties": false,
+          "properties": {
+            "R1": {
+              "type": "object", "required": ["k_a", "floor_mm"],
+              "additionalProperties": false,
+              "properties": {"k_a": {"type": "number"}, "floor_mm": {"type": "number"}}
+            },
+            "R2": {
+              "type": "object", "required": ["min_distance_mm", "max_parallel_mm"],
+              "additionalProperties": false,
+              "properties": {"min_distance_mm": {"type": "number"}, "max_parallel_mm": {"type": "number"}}
+            },
+            "R3": {
+              "type": "object", "required": ["unsplittable"],
+              "additionalProperties": false,
+              "properties": {"unsplittable": {"type": "boolean"}}
+            },
+            "R4": {
+              "type": "object", "required": ["return_via_required", "max_distance_mm"],
+              "additionalProperties": false,
+              "properties": {"return_via_required": {"type": "boolean"}, "max_distance_mm": {"type": "number"}}
+            },
+            "R5": {
+              "type": "object", "required": ["min_clearance_mm"],
+              "additionalProperties": false,
+              "properties": {"min_clearance_mm": {"type": "number", "minimum": 0}}
+            },
+            "R6": {
+              "type": "object", "required": ["plane_forbidden", "keepout_zones_forbidden"],
+              "additionalProperties": false,
+              "properties": {"plane_forbidden": {"type": "boolean"}, "keepout_zones_forbidden": {"type": "boolean"}}
+            }
+          }
+        },
+        "scan_disclosure": {"type": "string", "minLength": 1},
+        "endpoint_disclosure": {"type": "string", "minLength": 1}
+      }
+    },
+    "zones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["zone_id", "kind", "rect", "layers"],
+        "additionalProperties": false,
+        "properties": {
+          "zone_id": {"type": "string", "minLength": 1},
+          "kind": {"enum": ["keepout", "sensitive", "corridor"]},
+          "rect": {
+            "type": "object", "required": ["x_min", "y_min", "x_max", "y_max"],
+            "additionalProperties": false,
+            "properties": {
+              "x_min": {"type": "number"}, "y_min": {"type": "number"},
+              "x_max": {"type": "number"}, "y_max": {"type": "number"}
+            }
+          },
+          "layers": {"enum": ["all", "signal"]},
+          "capacity": {"type": "number", "minimum": 0},
+          "note": {"type": "string"}
+        }
+      }
+    },
+    "partition_table": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["partition_id", "ptype", "net_ids", "geometry", "layer_policy", "width_prior", "current_a", "speed_class", "source_partitions", "note"],
+        "additionalProperties": false,
+        "properties": {
+          "partition_id": {"type": "string", "minLength": 1},
+          "ptype": {"type": "string", "minLength": 1},
+          "net_ids": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "planned_width": {"type": "number", "minimum": 0},
+          "bottleneck": {
+            "type": "object",
+            "required": ["span", "usable_width"],
+            "additionalProperties": false,
+            "properties": {
+              "span": {
+                "type": "array", "minItems": 2, "maxItems": 2,
+                "items": {"type": "number"}
+              },
+              "usable_width": {"type": "number", "minimum": 0}
+            }
+          },
+          "sources_detail": {
+            "type": "array", "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["partition_id"],
+              "additionalProperties": false,
+              "properties": {
+                "partition_id": {"type": "string", "minLength": 1},
+                "planned_width": {"type": "number", "minimum": 0},
+                "bottleneck": {
+                  "type": "object",
+                  "required": ["span", "usable_width"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "span": {
+                      "type": "array", "minItems": 2, "maxItems": 2,
+                      "items": {"type": "number"}
+                    },
+                    "usable_width": {"type": "number", "minimum": 0}
+                  }
+                },
+                "note": {"type": "string"}
+              }
+            }
+          },
+          "geometry": {
+            "type": "object",
+            "required": ["endpoints"],
+            "additionalProperties": false,
+            "properties": {
+              "endpoints": {
+                "type": "array", "minItems": 2,
+                "items": {
+                  "type": "array", "minItems": 2, "maxItems": 2,
+                  "items": {"type": "number"}
+                }
+              },
+              "centerline": {
+                "type": "array", "minItems": 2, "maxItems": 2,
+                "items": {
+                  "type": "array", "minItems": 2, "maxItems": 2,
+                  "items": {"type": "number"}
+                }
+              },
+              "occupancy_band": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "occupancy_mm": {"type": "number", "minimum": 0},
+                  "copper_band": {
+                    "type": "array", "minItems": 2, "maxItems": 2,
+                    "items": {"type": "number"}
+                  }
+                }
+              }
+            }
+          },
+          "layer_policy": {"type": "string", "minLength": 1},
+          "width_prior": {
+            "type": "object",
+            "required": ["w_min", "w_max"],
+            "additionalProperties": false,
+            "properties": {
+              "w_min": {"type": "number", "minimum": 0},
+              "w_max": {"type": "number", "minimum": 0}
+            }
+          },
+          "current_a": {"type": "number", "minimum": 0},
+          "speed_class": {"type": "string", "minLength": 1},
+          "source_partitions": {
+            "type": "array", "minItems": 1,
+            "items": {"type": "string", "minLength": 1}
+          },
+          "note": {"type": "string"}
+        }
+      }
+    },
+    "j_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["jid", "kind", "subjects_partitions", "zone", "joint_group", "statement", "source_conflicts"],
+        "additionalProperties": false,
+        "properties": {
+          "jid": {"type": "string", "pattern": "^J-[1-9][0-9]*$"},
+          "kind": {"enum": ["disposition", "joint"]},
+          "subjects_partitions": {
+            "type": "array", "minItems": 1,
+            "items": {"type": "string", "minLength": 1}
+          },
+          "zone": {"type": ["string", "null"]},
+          "joint_group": {"type": ["string", "null"]},
+          "statement": {"type": "string", "minLength": 1},
+          "source_conflicts": {
+            "type": "array", "minItems": 1,
+            "items": {"type": "string", "minLength": 1}
+          }
+        }
+      }
+    },
+    "routing_ladder": {"const": "时钟 > 高速串行 > 并行总线 > 电源 > 低速杂项；同档位先占用稀缺资源（走廊）者在前；仍平手按分区编号字典序"},
+    "output_contract": {
+      "type": "object",
+      "required": ["channels", "note"],
+      "additionalProperties": false,
+      "properties": {
+        "channels": {
+          "type": "object",
+          "required": ["ranked_options", "ranked_combos", "routing_order", "defect_scan", "principle_objection"],
+          "additionalProperties": false,
+          "properties": {
+            "ranked_options": {
+              "type": "array", "minItems": 1,
+              "items": {
+                "type": "object", "required": ["label"],
+                "additionalProperties": false,
+                "properties": {"label": {"type": "string", "minLength": 1}}
+              }
+            },
+            "ranked_combos": {
+              "type": "array", "minItems": 1,
+              "items": {
+                "type": "object", "required": ["label"],
+                "properties": {"label": {"type": "string", "minLength": 1}}
+              }
+            },
+            "routing_order": {
+              "type": "array", "minItems": 1,
+              "items": {"type": "string", "minLength": 1}
+            },
+            "defect_scan": {
+              "type": "array", "minItems": 1,
+              "items": {
+                "type": "object", "required": ["subject", "rule", "note"],
+                "additionalProperties": false,
+                "properties": {
+                  "subject": {"type": "string", "minLength": 1},
+                  "rule": {"type": "string", "minLength": 1},
+                  "note": {"type": "string", "minLength": 1}
+                }
+              }
+            },
+            "principle_objection": {"type": "string"}
+          }
+        },
+        "note": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

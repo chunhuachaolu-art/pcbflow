@@ -1,0 +1,35 @@
+{
+ "board": "multinetclasses_drc",
+ "source_file": "qa/tests/pcbnew/drc/test_drc_multi_netclasses.cpp",
+ "load_line": "55 (tests 列表)",
+ "assertions": [
+  {
+   "lines": "50,86-105",
+   "quote": "std::vector<std::pair<wxString, int>> tests = { { \"multinetclasses_drc\", 2 } }; ... if( violations.size() == test.second ) {...} else { BOOST_ERROR( ... \"violations found %d expected %d\" ) }",
+   "expect": {
+    "family": "total_error",
+    "op": "==",
+    "count": 2
+   }
+  }
+ ],
+ "cpp_severity_setup": {
+  "ignore": [
+   "DRCE_INVALID_OUTLINE",
+   "DRCE_UNCONNECTED_ITEMS",
+   "DRCE_COPPER_SLIVER",
+   "DRCE_STARVED_THERMAL",
+   "DRCE_DRILL_OUT_OF_RANGE",
+   "DRCE_VIA_DIAMETER",
+   "DRCE_LIB_FOOTPRINT_ISSUES",
+   "DRCE_LIB_FOOTPRINT_MISMATCH"
+  ],
+  "forced_error": [
+   "DRCE_TRACK_WIDTH"
+  ],
+  "lines": "62-74",
+  "count_scope": "ERROR 级全部码合计（期望恰 2，应为 track_width 族 .kicad_dru max 规则触发）"
+ },
+ "family_note": "期望 2 条来自 .kicad_dru track_width (max ...) 表达式规则——v5 R1=最小线宽语义（check_width planned<required_min），max 规则+netclass 表达式=面外披露；kicad-cli 侧对账 2。",
+ "pinned_commit": "3d83cce19567965def8a8397381f067e1a2e77ff"
+}

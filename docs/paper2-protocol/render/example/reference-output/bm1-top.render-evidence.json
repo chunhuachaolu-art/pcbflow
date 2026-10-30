@@ -1,0 +1,78 @@
+{
+ "artifact": "render-reproduce-evidence",
+ "board": {
+  "label": "bm1",
+  "source_file_name": "bm1.routed.kicad_pcb",
+  "source_sha256": "5a8d7670f6051e49f7d0160a43dcdf516bdf4212270d6c14307e93a2016531e5",
+  "work_copy": "bm1.kicad_pcb",
+  "work_copy_sha256": "5a8d7670f6051e49f7d0160a43dcdf516bdf4212270d6c14307e93a2016531e5"
+ },
+ "board_px_bounds": {
+  "background_model": "vertical_gradient_row_sampled",
+  "background_rgb": [
+   255,
+   255,
+   255
+  ],
+  "image_height": 6003,
+  "image_width": 8195,
+  "x0": 2653,
+  "x1": 5379,
+  "y0": 2326,
+  "y1": 3676
+ },
+ "crop_box": [
+  2533,
+  2206,
+  5500,
+  3797
+ ],
+ "declared_date": "2026-09-12",
+ "determinism_rerun_byte_identical": true,
+ "export_command": [
+  "kicad-cli",
+  "pcb",
+  "export",
+  "pdf",
+  "--mode-single",
+  "--scale",
+  "1",
+  "--check-zones",
+  "--drill-shape-opt",
+  "2",
+  "--layers",
+  "F.Cu,F.Mask,F.Silkscreen,Edge.Cuts,F.Courtyard",
+  "-o",
+  "bm1-top.pdf",
+  "bm1.kicad_pcb"
+ ],
+ "full_page_wh": [
+  8195,
+  6003
+ ],
+ "instrument": {
+  "compose_margin_pt": 40.0,
+  "crop_margin_px": 120,
+  "kicad_cli_basename": "kicad-cli.exe",
+  "kicad_cli_version": "10.0.5",
+  "pipeline": "kicad-cli pcb export pdf --mode-single --scale 1 --check-zones --drill-shape-opt 2 [--mirror] -> fitz 40pt compose -> dpi640 rasterize -> row-background board bounds -> +120px crop",
+  "raster_dpi": 640
+ },
+ "kicad_prl_sidecars_in_workdir": [
+  "bm1.kicad_prl"
+ ],
+ "layers": "F.Cu,F.Mask,F.Silkscreen,Edge.Cuts,F.Courtyard",
+ "mirror": false,
+ "output_png": {
+  "bytes": 296414,
+  "file": "bm1-top.png",
+  "sha256": "18582b25ca36f0410d2f5752957396d48758204fa53e4bc4670c7630dfb590de"
+ },
+ "pdf": {
+  "cross_run_assertion": "none (kicad-cli PDF bytes are not cross-run deterministic; raster is)",
+  "file": "bm1-top.pdf",
+  "pdf_sha256_run_local": "3770cc090a1488b8a92a79fe37b9ecab13a12380db6a1a0e5b778fd8e85279a1"
+ },
+ "recolor_r14b": null,
+ "view": "top"
+}

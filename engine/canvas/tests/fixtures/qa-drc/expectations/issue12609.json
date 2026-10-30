@@ -1,0 +1,30 @@
+{
+ "board": "issue12609",
+ "source_file": "qa/tests/pcbnew/drc/test_drc_regressions.cpp",
+ "load_line": "59 (tests 列表项)",
+ "assertions": [
+  {
+   "lines": "59,100-104",
+   "quote": "\"issue12609\",  // Arc collison edge case ... if( violations.empty() ) { BOOST_CHECK_EQUAL( 1, 1 ); } else { BOOST_ERROR( ... \"DRC regression: %s ... violations found (expected 0)\" ) }",
+   "expect": {
+    "family": "total_error",
+    "op": "==",
+    "count": 0
+   }
+  }
+ ],
+ "cpp_severity_setup": {
+  "ignore": [
+   "DRCE_INVALID_OUTLINE",
+   "DRCE_UNCONNECTED_ITEMS",
+   "DRCE_COPPER_SLIVER",
+   "DRCE_STARVED_THERMAL",
+   "DRCE_LIB_FOOTPRINT_ISSUES",
+   "DRCE_LIB_FOOTPRINT_MISMATCH"
+  ],
+  "lines": "75-88",
+  "count_scope": "ERROR 级全部 DRC 码合计（handler 只收 severity==ERROR，line 94-100）"
+ },
+ "family_note": "回归板期望 0：面内族（clearance/hole/edge/keepout/width）逐族 0 断言，面外差异披露。",
+ "pinned_commit": "3d83cce19567965def8a8397381f067e1a2e77ff"
+}

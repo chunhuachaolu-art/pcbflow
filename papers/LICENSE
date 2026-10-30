@@ -1,0 +1,10 @@
+The technical reports (papers/*.pdf, papers/src/*.md), their figures (papers/src/figs/)
+and the documentation under docs/ are licensed under the Creative Commons
+Attribution 4.0 International License (CC BY 4.0).
+
+Full legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Figure-generation scripts (papers/src/figs/scripts/*.py) are code and are licensed
+under the Apache License 2.0 (see ../LICENSE).
+
+Attribution: Zhao Danqi (赵丹琪), "pcbflow: a personal attempt at LLM for EDA", 2026.

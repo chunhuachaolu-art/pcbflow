@@ -1,0 +1,37 @@
+{
+ "schema_version": "3.0",
+ "space_id": "SS-SMOKE2L-R1",
+ "profile_id": "smoke-2l",
+ "parameters": [
+  {
+   "name": "route_grid_mm",
+   "kind": "enum",
+   "domain": {
+    "values": [
+     0.4,
+     0.5,
+     0.6
+    ]
+   },
+   "unit": "mm",
+   "normalization": "none",
+   "tolerance": 0.0
+  }
+ ],
+ "max_parameter_count": 1,
+ "min_samples_per_kind": 1,
+ "max_step": 0.1,
+ "outlier_policy": "blocked",
+ "confidence_interval": null,
+ "explore_real_execution_ratio": 1.0,
+ "optimizer": "deterministic_grid_enumeration",
+ "record_env": {
+  "python": "stdlib_only",
+  "numpy": "not_used",
+  "blas": "not_used",
+  "threads": "1",
+  "float_strategy": "ieee754_double_json_repr",
+  "parallel_merge": "none",
+  "randomness": "none_full_enumeration"
+ }
+}

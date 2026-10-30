@@ -1,0 +1,54 @@
+{
+ "board": "keepout_disallow/keepout_disallow",
+ "source_file": "qa/tests/pcbnew/drc/test_drc_keepout_disallow.cpp",
+ "load_line": 47,
+ "assertions": [
+  {
+   "lines": "100-102",
+   "quote": "BOOST_CHECK_MESSAGE( viaViolations == 2, ... )",
+   "expect": {
+    "family": "keepout_allowed_items",
+    "op": "==",
+    "count": 2,
+    "item": "via"
+   }
+  },
+  {
+   "lines": "103-105",
+   "quote": "BOOST_CHECK_MESSAGE( trackViolations == 1, ... )",
+   "expect": {
+    "family": "keepout_allowed_items",
+    "op": "==",
+    "count": 1,
+    "item": "track"
+   }
+  },
+  {
+   "lines": "106-108",
+   "quote": "BOOST_CHECK_MESSAGE( violations.size() == 3, \"Expected exactly 3 DRCE_ALLOWED_ITEMS violations\" )",
+   "expect": {
+    "family": "keepout_allowed_items",
+    "op": "==",
+    "count": 3
+   }
+  }
+ ],
+ "cpp_severity_setup": {
+  "ignore": [
+   "DRCE_INVALID_OUTLINE",
+   "DRCE_UNCONNECTED_ITEMS",
+   "DRCE_LIB_FOOTPRINT_ISSUES",
+   "DRCE_LIB_FOOTPRINT_MISMATCH",
+   "DRCE_DRILL_OUT_OF_RANGE",
+   "DRCE_VIA_DIAMETER",
+   "DRCE_COPPER_SLIVER",
+   "DRCE_STARVED_THERMAL"
+  ],
+  "forced_error": [
+   "DRCE_ALLOWED_ITEMS"
+  ],
+  "lines": "53-61"
+ },
+ "family_note": "DRCE_ALLOWED_ITEMS=禁布区禁项族；v5.drc 同族=check_keepout（R6）。",
+ "pinned_commit": "3d83cce19567965def8a8397381f067e1a2e77ff"
+}

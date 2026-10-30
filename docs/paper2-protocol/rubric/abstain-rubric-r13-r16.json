@@ -1,0 +1,553 @@
+{
+ "algorithm_spec": {
+  "failure_modes_covered": "naive 词表重数（对全语料数关键词出现次数）对不上注册算法——必须按本步骤顺序做逐旗互斥裁决（r25 教训：开源件必须包含算法本身，不能只给词表）。",
+  "match_recording": "分类同时记录全部词表命中（matched 块）作为审计证据；命中记录不影响互斥裁决顺序。",
+  "steps_in_implementation_order": [
+   {
+    "condition": "blackdot_terms 任一命中 AND uncertainty_terms 任一命中",
+    "family": "existence_blackdot",
+    "note": "黑点族先于 contact：黑点旗中的接触措辞描述点-盘邻接，弃权主因为黑点性质/存在性不明（预注册理由，见 priority_adjudication_note）",
+    "order": 1
+   },
+   {
+    "condition": "contact_terms 任一命中 AND contact_doubt_patterns (P1–P7) 任一命中 AND text_primary 全未命中",
+    "family": "contact",
+    "note": "文本主因（丝印/文字域）旗不归 contact——其「叠压」属文字叠印语境",
+    "order": 2
+   },
+   {
+    "condition": "explicit_existence_terms 任一命中",
+    "family": "existence_other",
+    "note": "显式存在性/性质具名疑因，先于 semantic_confusion（预注册优先级 3>4）",
+    "order": 3
+   },
+   {
+    "condition": "semantic_terms 任一命中（且步骤 1–3 全未命中）",
+    "family": "semantic_confusion",
+    "note": "仅当旗无任何显式存在性/性质语言、而以设计含义/归类/层归属为唯一具名疑因",
+    "order": 4
+   },
+   {
+    "condition": "generic_existence_patterns (G1–G8) 任一命中（且步骤 1–4 全未命中）",
+    "family": "existence_other",
+    "note": "仅泛化不确定性语言（无法确认/判断等）无具名疑因者归 existence_other 兜底",
+    "order": 5
+   },
+   {
+    "condition": "以上皆未命中（残余类）",
+    "family": "other",
+    "note": "",
+    "order": 6
+   }
+  ],
+  "unit_of_classification": "每条 abstain=true 旗标的 location_evidence 全文（辅以 category 但 category 不参与关键词判定）；互斥单族输出。"
+ },
+ "artifact": "abstain-rubric-r13-r16",
+ "declared_date": "2026-09-12",
+ "input_availability_note": "注册链重放需要 r13–r16 的 48 件 reader-raw 与 4 件 calibration-run 文件；这些冻结判读件属内部工作仓，不随本包发布（PR-2）。随包 replay_r13_r16.py 按 dev-repo 默认布局开箱即跑；外部复现者可用本件 registered_chain 聚合值对任意同布局语料做对拍。",
+ "package": "PAPER-P2-3 protocol & rubric release (Wave 3, Paper 2)",
+ "registered_chain": {
+  "abstain_flag_total": 132,
+  "chain_replay_rule": "rubric 对新语料套用前，先把分类器在注册基期（r13–r16）语料上重放：逐轮家族计数、逐实例 (abstain, flags) 与注册值逐一相等才允许套用（fail-closed：不符即 FAIL 停止、不放宽任何关键词）。",
+  "field_semantics": "view=视角(top/bottom)；board=applied|prep1 两板；instance=i1..i3 派次；每轮覆盖 12 件 reader 文件（2 板 × 2 视 × 3 实例）",
+  "grand_families": {
+   "contact": 38,
+   "existence_blackdot": 43,
+   "existence_other": 48,
+   "other": 0,
+   "semantic_confusion": 3
+  },
+  "instances": [
+   "i1",
+   "i2",
+   "i3"
+  ],
+  "per_instance": [
+   {
+    "abstain_count": 7,
+    "flag_count": 10,
+    "instance": "i1",
+    "round": "r13",
+    "view": "top"
+   },
+   {
+    "abstain_count": 6,
+    "flag_count": 7,
+    "instance": "i2",
+    "round": "r13",
+    "view": "top"
+   },
+   {
+    "abstain_count": 2,
+    "flag_count": 7,
+    "instance": "i3",
+    "round": "r13",
+    "view": "top"
+   },
+   {
+    "abstain_count": 3,
+    "flag_count": 3,
+    "instance": "i1",
+    "round": "r13",
+    "view": "bottom"
+   },
+   {
+    "abstain_count": 4,
+    "flag_count": 4,
+    "instance": "i2",
+    "round": "r13",
+    "view": "bottom"
+   },
+   {
+    "abstain_count": 3,
+    "flag_count": 4,
+    "instance": "i3",
+    "round": "r13",
+    "view": "bottom"
+   },
+   {
+    "abstain_count": 5,
+    "flag_count": 6,
+    "instance": "i1",
+    "round": "r14",
+    "view": "top"
+   },
+   {
+    "abstain_count": 6,
+    "flag_count": 8,
+    "instance": "i2",
+    "round": "r14",
+    "view": "top"
+   },
+   {
+    "abstain_count": 7,
+    "flag_count": 10,
+    "instance": "i3",
+    "round": "r14",
+    "view": "top"
+   },
+   {
+    "abstain_count": 4,
+    "flag_count": 4,
+    "instance": "i1",
+    "round": "r14",
+    "view": "bottom"
+   },
+   {
+    "abstain_count": 3,
+    "flag_count": 3,
+    "instance": "i2",
+    "round": "r14",
+    "view": "bottom"
+   },
+   {
+    "abstain_count": 7,
+    "flag_count": 7,
+    "instance": "i3",
+    "round": "r14",
+    "view": "bottom"
+   },
+   {
+    "abstain_count": 10,
+    "flag_count": 11,
+    "instance": "i1",
+    "round": "r15",
+    "view": "top"
+   },
+   {
+    "abstain_count": 8,
+    "flag_count": 10,
+    "instance": "i2",
+    "round": "r15",
+    "view": "top"
+   },
+   {
+    "abstain_count": 7,
+    "flag_count": 8,
+    "instance": "i3",
+    "round": "r15",
+    "view": "top"
+   },
+   {
+    "abstain_count": 3,
+    "flag_count": 4,
+    "instance": "i1",
+    "round": "r15",
+    "view": "bottom"
+   },
+   {
+    "abstain_count": 3,
+    "flag_count": 4,
+    "instance": "i2",
+    "round": "r15",
+    "view": "bottom"
+   },
+   {
+    "abstain_count": 5,
+    "flag_count": 5,
+    "instance": "i3",
+    "round": "r15",
+    "view": "bottom"
+   },
+   {
+    "abstain_count": 6,
+    "flag_count": 9,
+    "instance": "i1",
+    "round": "r16",
+    "view": "top"
+   },
+   {
+    "abstain_count": 13,
+    "flag_count": 14,
+    "instance": "i2",
+    "round": "r16",
+    "view": "top"
+   },
+   {
+    "abstain_count": 8,
+    "flag_count": 12,
+    "instance": "i3",
+    "round": "r16",
+    "view": "top"
+   },
+   {
+    "abstain_count": 5,
+    "flag_count": 5,
+    "instance": "i1",
+    "round": "r16",
+    "view": "bottom"
+   },
+   {
+    "abstain_count": 4,
+    "flag_count": 5,
+    "instance": "i2",
+    "round": "r16",
+    "view": "bottom"
+   },
+   {
+    "abstain_count": 3,
+    "flag_count": 4,
+    "instance": "i3",
+    "round": "r16",
+    "view": "bottom"
+   }
+  ],
+  "per_round": {
+   "r13": {
+    "abstain": 25,
+    "abstain_rate": 0.714286,
+    "families": {
+     "contact": 8,
+     "existence_blackdot": 9,
+     "existence_other": 8,
+     "other": 0,
+     "semantic_confusion": 0
+    },
+    "flags": 35,
+    "non_abstain": 10
+   },
+   "r14": {
+    "abstain": 32,
+    "abstain_rate": 0.842105,
+    "families": {
+     "contact": 15,
+     "existence_blackdot": 14,
+     "existence_other": 3,
+     "other": 0,
+     "semantic_confusion": 0
+    },
+    "flags": 38,
+    "non_abstain": 6
+   },
+   "r15": {
+    "abstain": 36,
+    "abstain_rate": 0.857143,
+    "families": {
+     "contact": 5,
+     "existence_blackdot": 8,
+     "existence_other": 22,
+     "other": 0,
+     "semantic_confusion": 1
+    },
+    "flags": 42,
+    "non_abstain": 6
+   },
+   "r16": {
+    "abstain": 39,
+    "abstain_rate": 0.795918,
+    "families": {
+     "contact": 10,
+     "existence_blackdot": 12,
+     "existence_other": 15,
+     "other": 0,
+     "semantic_confusion": 2
+    },
+    "flags": 49,
+    "non_abstain": 10
+   }
+  },
+  "per_round_view": {
+   "r13|bottom": {
+    "abstain": 10,
+    "abstain_rate": 0.909091,
+    "families": {
+     "contact": 0,
+     "existence_blackdot": 8,
+     "existence_other": 2,
+     "other": 0,
+     "semantic_confusion": 0
+    },
+    "flags": 11,
+    "non_abstain": 1
+   },
+   "r13|top": {
+    "abstain": 15,
+    "abstain_rate": 0.625,
+    "families": {
+     "contact": 8,
+     "existence_blackdot": 1,
+     "existence_other": 6,
+     "other": 0,
+     "semantic_confusion": 0
+    },
+    "flags": 24,
+    "non_abstain": 9
+   },
+   "r14|bottom": {
+    "abstain": 14,
+    "abstain_rate": 1.0,
+    "families": {
+     "contact": 2,
+     "existence_blackdot": 10,
+     "existence_other": 2,
+     "other": 0,
+     "semantic_confusion": 0
+    },
+    "flags": 14,
+    "non_abstain": 0
+   },
+   "r14|top": {
+    "abstain": 18,
+    "abstain_rate": 0.75,
+    "families": {
+     "contact": 13,
+     "existence_blackdot": 4,
+     "existence_other": 1,
+     "other": 0,
+     "semantic_confusion": 0
+    },
+    "flags": 24,
+    "non_abstain": 6
+   },
+   "r15|bottom": {
+    "abstain": 11,
+    "abstain_rate": 0.846154,
+    "families": {
+     "contact": 0,
+     "existence_blackdot": 7,
+     "existence_other": 4,
+     "other": 0,
+     "semantic_confusion": 0
+    },
+    "flags": 13,
+    "non_abstain": 2
+   },
+   "r15|top": {
+    "abstain": 25,
+    "abstain_rate": 0.862069,
+    "families": {
+     "contact": 5,
+     "existence_blackdot": 1,
+     "existence_other": 18,
+     "other": 0,
+     "semantic_confusion": 1
+    },
+    "flags": 29,
+    "non_abstain": 4
+   },
+   "r16|bottom": {
+    "abstain": 12,
+    "abstain_rate": 0.857143,
+    "families": {
+     "contact": 0,
+     "existence_blackdot": 10,
+     "existence_other": 2,
+     "other": 0,
+     "semantic_confusion": 0
+    },
+    "flags": 14,
+    "non_abstain": 2
+   },
+   "r16|top": {
+    "abstain": 27,
+    "abstain_rate": 0.771429,
+    "families": {
+     "contact": 10,
+     "existence_blackdot": 2,
+     "existence_other": 13,
+     "other": 0,
+     "semantic_confusion": 2
+    },
+    "flags": 35,
+    "non_abstain": 8
+   }
+  },
+  "registered_contact_chain": {
+   "r13": 8,
+   "r14": 15,
+   "r15": 5,
+   "r16": 10
+  },
+  "rounds": [
+   "r13",
+   "r14",
+   "r15",
+   "r16"
+  ],
+  "total_flags": 164,
+  "views": [
+   "top",
+   "bottom"
+  ]
+ },
+ "release_note": "本件为发布副本：rubric 块逐字取自冻结分型件 abstain-typology-r13-r16.json（sha256 6dadac8d72cfbb358fc37fe82ec710f5f3421efcaedb4041b28b53283681bc80）；registered_chain 为该件 matrix 聚合值（仅计数，无任何判读文本；reader-raw 冻结判读不随本包发布）。分类算法以随包 abstain_classifier.py 为权威实现，本件 algorithm_spec 为其文字化规格；replay_r13_r16.py 对注册链重放对拍。",
+ "rubric": {
+  "basis": "location_evidence 全文（辅以 category），机械套用常量关键词表",
+  "category_auxiliary_note": "category 仅作辅助核对，未参与关键词判定",
+  "evidence_excerpt_cap_chars": 360,
+  "families": {
+   "contact": "理由含接触/贴近/相切/交叠/叠压等接触词并与接触怀疑模式组合（对结构间接触/交叠是否存在不可分辨）",
+   "existence_blackdot": "对象为黑点/黑圆/钻孔点/圆点/小圆点/实心圆等黑点族且性质/存在性不明（r16 已知 12 旗应全部落入本类；判正常不入的派次单列）",
+   "existence_other": "其他存在性/性质不明（非黑点族、非接触）",
+   "other": "以上皆未命中的残余类",
+   "semantic_confusion": "明确以设计含义不明/无法归类/语义不明为弃权主因（无任何显式存在性/性质语言时）"
+  },
+  "field_semantics": "view=视角(top/bottom)；board=板/applied|prep1 两板；instance=i1..i3 派次",
+  "keyword_tables": {
+   "blackdot_terms": [
+    "黑点",
+    "黑圆",
+    "黑色圆",
+    "黑色钻孔",
+    "黑色孔",
+    "钻孔点",
+    "钻孔圆点",
+    "圆孔状",
+    "孔状圆点",
+    "黑圆点",
+    "小黑点",
+    "圆点",
+    "实心圆",
+    "实心黑",
+    "黑色实心",
+    "实心深色",
+    "深色实心",
+    "黑色图元",
+    "小暗点",
+    "黑色填充"
+   ],
+   "contact_doubt_patterns": {
+    "P1": "无法(?:负责任)?(?:地区?分|分辨|区分)[^。；]{0,12}(?:真实)?(?:接触|交叠|重叠|贴近|相切)",
+    "P2": "(?<![未非无可])(?:接触|交叠|重叠|贴近|相切|贴接|贴邻|叠压|紧贴|相接|搭接)[^。；]{0,15}无法[^。；]{0,8}(?:确认|区分|分辨|判断)",
+    "P3": "是否(?:达到)?(?:真实)?(?:接触|交叠|重叠)",
+    "P4": "是否[^。；]{0,16}(?:接触|交叠|重叠)",
+    "P5": "接触性(?:判据|不可分辨|存在性不确定|存在性弃权)",
+    "P6": "(?:接触|交叠|重叠)(?:与否|是否存在|是否真实存在)",
+    "P7": "无法[^。；]{0,8}确认[^。；]{0,12}(?:接触|交叠|重叠|贴近)"
+   },
+   "contact_terms": [
+    "接触",
+    "贴近",
+    "相切",
+    "交叠",
+    "叠压",
+    "贴邻",
+    "贴接",
+    "相接",
+    "紧贴",
+    "贴至",
+    "搭接",
+    "贴合",
+    "重叠"
+   ],
+   "explicit_existence_terms": [
+    "存在性",
+    "性质",
+    "不明",
+    "现象存在",
+    "关注现象",
+    "何种",
+    "无法确认其是否",
+    "无法确认是否",
+    "是否为",
+    "是否真实存在",
+    "是否存在",
+    "存在不确定",
+    "无法排除"
+   ],
+   "generic_existence_patterns": {
+    "G1": "是[^。；，]{0,30}还是",
+    "G2": "无法[^。；]{0,10}确认",
+    "G3": "无法[^。；]{0,10}判断",
+    "G4": "无法[^。；]{0,10}判定",
+    "G5": "不足以负责任",
+    "G6": "无法[^。；]{0,6}区分",
+    "G7": "无法[^。；]{0,6}分辨",
+    "G8": "无法[^。；]{0,8}追踪确认"
+   },
+   "semantic_terms": [
+    "设计含义",
+    "无法归类",
+    "归类不确定",
+    "归类无法",
+    "语义不明",
+    "图层归属",
+    "归属层",
+    "各属",
+    "属courtyard层还是"
+   ],
+   "text_primary_pattern": "位号(?![）)])",
+   "text_primary_terms": [
+    "文字",
+    "丝印",
+    "字形",
+    "辨读",
+    "叠印",
+    "连印",
+    "字号",
+    "位号文字",
+    "黄色位号",
+    "小字",
+    "笔画"
+   ],
+   "uncertainty_terms": [
+    "无法",
+    "不可",
+    "不明",
+    "不能",
+    "未能",
+    "不确定",
+    "不可分辨"
+   ]
+  },
+  "priority_adjudication_note": "实现顺序=existence_blackdot → contact → existence_other(显式) → semantic_confusion → existence_other(泛化兜底) → other。黑点族对象判定先于 contact 组合：预注册期望 r16 已知 12 黑点旗全部落入 existence_blackdot，且黑点旗中的接触措辞描述点-盘邻接、其弃权主因为黑点性质/存在性不明而非结构间接触；contact 保留给以结构间（courtyard/轮廓/占位框/焊盘等非黑点对象）接触/交叠存在性为主因的旗。文本主因（丝印/文字域）旗不归 contact——其「叠压」属文字叠印语境。existence_other(显式) 先于 semantic_confusion（预注册优先级 3>4）；仅当旗无任何显式存在性/性质语言、而以设计含义/归类/层归属为唯一具名疑因时按 rubric「为主因」措辞归 semantic_confusion；仅泛化不确定性语言（无法确认/判断等）无具名疑因者归 existence_other 兜底。",
+  "priority_as_registered": [
+   "contact",
+   "existence_blackdot",
+   "existence_other",
+   "semantic_confusion",
+   "other"
+  ],
+  "unit": "abstain=true 旗标（逐旗；非弃权旗不分型、仅入分母对照）"
+ },
+ "schema_version": "1.0",
+ "source_frozen_file": {
+  "declared_date": "2026-09-08",
+  "evaluation_domain": "development",
+  "kind": "abstain_typology_posthoc_r13_r16",
+  "path_in_dev_repo": "out/v3-tl2/calibration/abstain-typology-r13-r16.json",
+  "posthoc_disclaimer": "本件=development 域事后分析（post-hoc），非校准轮、无字母裁决、无门语义；不得回写 r13–r16 任何 run/dev-record；判据/阈值/GT 零改动、零触碰；零新盲读、零新渲染；48 件 reader-raw 只读零改动；发现仅作后续处置轴选择证据（分辨率倍增仪器轮/黑点类专项/判据侧），只述事实、不替用户拍板。",
+  "schema_version": "3.0",
+  "sha256": "6dadac8d72cfbb358fc37fe82ec710f5f3421efcaedb4041b28b53283681bc80"
+ }
+}

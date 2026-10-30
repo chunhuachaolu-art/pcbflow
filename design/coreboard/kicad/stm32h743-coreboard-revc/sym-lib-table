@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "coreboard-lib")(type "KiCad")(uri "${KIPRJMOD}/coreboard-lib.kicad_sym")(options "")(descr ""))
+  (lib (name "coreboard-revc-memory")(type "KiCad")(uri "${KIPRJMOD}/coreboard-revc-memory.kicad_sym")(options "")(descr "Rev-C verified SDRAM symbols"))
+)

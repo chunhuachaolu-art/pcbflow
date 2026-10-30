@@ -1,0 +1,47 @@
+{
+ "freerouting": {
+  "note": "locked_when_called",
+  "optional": true,
+  "version": null
+ },
+ "jdk": {
+  "note": "locked_when_called",
+  "optional": true,
+  "version": null
+ },
+ "kicad_cli": {
+  "path": "F:\\kicad\\bin\\kicad-cli.exe",
+  "version": "10.0.5"
+ },
+ "kicad_python": {
+  "numpy": "2.4.2",
+  "path": "F:\\kicad\\bin\\python.exe",
+  "pcbnew": "10.0.5",
+  "version": "3.11.5"
+ },
+ "kipy": {
+  "note": "not_installed_in_kicad_python",
+  "version": null
+ },
+ "notes": [
+  "probes executed in-session via shell; pcbflow .py runs no subprocess (Mimosa hook)",
+  "freerouting/jdk locked only when actually called (SPEC §2.3)"
+ ],
+ "numpy": {
+  "version": "2.5.0"
+ },
+ "os": "Windows 10.0.22631 x64",
+ "pcbnew": {
+  "version": "10.0.5"
+ },
+ "python": {
+  "version": "3.12.10"
+ },
+ "schema_version": "1.1",
+ "schema_versions": {
+  "constraints": "1.1",
+  "coverage": "1.1",
+  "envelope": "1.1",
+  "impedance_targets": "1.1"
+ }
+}

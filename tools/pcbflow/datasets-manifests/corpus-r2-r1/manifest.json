@@ -1,0 +1,1585 @@
+{
+ "dataset_id": "corpus-r2-r1",
+ "generated": "2026-09-12",
+ "method": {
+  "source": "out/v3-corpus-r2-research/downloads/ pinned-SHA snapshots (GitHub Blobs API, byte-verified against tree.json at ingestion)",
+  "copy_verification": "per-file sha256 recomputed after copy; board file bytes == tree.json size == inventory evidence.file_bytes",
+  "gates": {
+   "dedup": "normalized-name scan vs 103 existing board dirs (pcbench-r1 81 + kicad-demos-r1 15 + pcbbenchmarks-r1 2 + holdout-candidates-r1 5); byte-level sha256 compare on family suspects (OtterCastAudioV2/OtterCastAmp, tinytapeout-demo/tiny_tapeout, jetson-nano/jetson-agx-thor, axiom/cat-trainer) — all non-identical",
+   "conversion": "pcbflow sexpr_min.parse on all 37 (incl. H5 addendum board); pcbflow corpus_convert.parse_kicad5_board on 20171130 bucket (9/9 pass); pre-2021 non-20171130 buckets (4/20171114/20210424) text-selfcheck + bucket registration; audit-parser evidence counters re-derived and matched 37/37 (incl. H5 addendum board)"
+  },
+  "rendering": "zero rendering, zero kicad-cli, zero image generation (holdout pool boards: zero-read-image discipline)"
+ },
+ "counts": {
+  "boards": 37,
+  "board_dirs": 37,
+  "raw_files": 114,
+  "license_files": 40,
+  "total_files": 114,
+  "total_bytes": 181805116,
+  "by_tier": {
+   "train/val-candidate": 31,
+   "holdout-pool": 6
+  },
+  "by_license_spdx": {
+   "Apache-2.0": 16,
+   "CERN-OHL-1.2": 6,
+   "CERN-OHL-S-2.0": 5,
+   "CERN-OHL-P-2.0": 2,
+   "CC-BY-SA-4.0": 3,
+   "CERN-OHL-W-2.0": 3,
+   "GPL-3.0": 1,
+   "MIT": 1
+  },
+  "by_version_bucket": {
+   "20171114": 1,
+   "20171130": 9,
+   "20221018": 9,
+   "4": 1,
+   "20260206": 4,
+   "20241229": 7,
+   "20211014": 5,
+   "20210424": 1
+  },
+  "by_layers": {
+   "6": 4,
+   "2": 16,
+   "4": 15,
+   "8": 2
+  },
+  "holdout_pool": [
+   "H1:kria-k26-devboard",
+   "H2:sdi-mipi-bridge",
+   "H3:hackrf-one",
+   "H4:pslab-v6",
+   "H5:scalenode-cm4-baseboard",
+   "H6:jetson-nano-baseboard"
+  ],
+  "never_holdout": [
+   "tt06-fpga-ice40up5k",
+   "tinytapeout-demo",
+   "ottercast-audio-v2"
+  ],
+  "conversion_gate_required": [
+   "teres-pcb1-a64-main-rev-c",
+   "esp32-devkit-lipo-rev-c",
+   "ice40hx1k-evb-rev-b",
+   "alvium-flex-csi-100mm-double-same-side",
+   "dc-scm-rot-jumper-card",
+   "axiom-micro-mainboard",
+   "throwing-star-pro",
+   "anavi-fume-extractor",
+   "badge-pcb",
+   "vga-panel-breakout",
+   "stm32-ds2480-emu",
+   "badgeleds-do-electronics"
+  ],
+  "gate_results": {
+   "PASS": 37
+  },
+  "dedup_results": {
+   "no-collision": 37
+  },
+  "root_files": [
+   "manifest.json",
+   "PROVENANCE.md"
+  ],
+  "total_files_with_root": 116
+ },
+ "boards": [
+  {
+   "board_id": "teres-pcb1-a64-main-rev-c",
+   "dir": "raw/OLIMEX__teres-pcb1-a64-main-rev-c",
+   "files": [
+    "TERES_PCB1-A64-MAIN_Rev.C.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 2810987,
+   "board_file_sha256": "7ba40451dc452f0bc74f8b9e1414a06b9174c18a39acc8b4c211567def7b9eae",
+   "repo": "OLIMEX/DIY-LAPTOP",
+   "path_in_repo": "HARDWARE/A64-TERES/TERES-PCB1-A64-MAIN/Rev.C/TERES_PCB1-A64-MAIN_Rev.C.kicad_pcb",
+   "pinned_sha": "36193de48e5ff86c6fa309eb75bd450a9f88c4c7",
+   "commit_date": "2026-01-16T06:08:20Z",
+   "license": {
+    "spdx": "Apache-2.0",
+    "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+   },
+   "layers": 6,
+   "kicad_version_token": "20171114",
+   "net_count": 285,
+   "routed_reference": true,
+   "disposition": "retain",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": true,
+    "bucket": "20171114",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "olimex-teres-a64-laptop"
+  },
+  {
+   "board_id": "esp32-devkit-lipo-rev-c",
+   "dir": "raw/OLIMEX__esp32-devkit-lipo-rev-c",
+   "files": [
+    "ESP32-DevKit-Lipo_Rev_C.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 498794,
+   "board_file_sha256": "3e7cd18fe5abcb4a93fd3e95934a74b7d396bcf0992da7861c70d9e87191558e",
+   "repo": "OLIMEX/ESP32-DevKit-LiPo",
+   "path_in_repo": "HARDWARE/ESP32-DevKit-LiPo-Rev.C/ESP32-DevKit-Lipo_Rev_C.kicad_pcb",
+   "pinned_sha": "1ebbbb5ceaa84b1d67631d8d542d7f6128c19fc1",
+   "commit_date": "2025-06-17T05:38:42Z",
+   "license": {
+    "spdx": "Apache-2.0",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+   },
+   "layers": 2,
+   "kicad_version_token": "20171130",
+   "net_count": 33,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": true,
+    "bucket": "20171130",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "olimex-esp32-devkit-lipo"
+  },
+  {
+   "board_id": "usb-gigabit-rev-e",
+   "dir": "raw/OLIMEX__usb-gigabit-rev-e",
+   "files": [
+    "USB-GIGABIT_Rev_E.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 901535,
+   "board_file_sha256": "9575bc4e67fd7f524e01df221945cbebf04ddfefbc9074a5fe615050a9062c5b",
+   "repo": "OLIMEX/USB-GIGABIT",
+   "path_in_repo": "HARDWARE/USB-GIGABIT-Rev.E/USB-GIGABIT_Rev_E.kicad_pcb",
+   "pinned_sha": "e30a671f84527391f9f351bd8a0563ab36cceb6f",
+   "commit_date": "2026-01-20T07:18:26Z",
+   "license": {
+    "spdx": "CERN-OHL-1.2",
+    "sha256": "c5354185b244372d53415468825c594f2fb7189b6b9de79d466c0270904851ff"
+   },
+   "layers": 4,
+   "kicad_version_token": "20221018",
+   "net_count": 51,
+   "routed_reference": true,
+   "disposition": "retain",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20221018",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "olimex-usb-gigabit"
+  },
+  {
+   "board_id": "ice40hx1k-evb-rev-b",
+   "dir": "raw/OLIMEX__ice40hx1k-evb-rev-b",
+   "files": [
+    "iCE40HX1K-EVB_Rev_B.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 862307,
+   "board_file_sha256": "18407352cb5c31bc5c93804af764220f158017b8d2e7f2da5585a5155d188ca1",
+   "repo": "OLIMEX/iCE40HX1K-EVB",
+   "path_in_repo": "iCE40HX1K-EVB_Rev_B.kicad_pcb",
+   "pinned_sha": "91f3b5aff50258ddb40c021a21d4fd871633fc80",
+   "commit_date": "2026-01-15T09:10:53Z",
+   "license": {
+    "spdx": "Apache-2.0",
+    "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+   },
+   "layers": 4,
+   "kicad_version_token": "4",
+   "net_count": 17,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": true,
+    "bucket": "4",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "olimex-ice40hx1k-evb"
+  },
+  {
+   "board_id": "om-flexgrid-v4-rigid-pcb",
+   "dir": "raw/Open-Muscle__om-flexgrid-v4-rigid-pcb",
+   "files": [
+    "OM-FlexGrid-Rigid-PCB.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 818335,
+   "board_file_sha256": "e4039062c4ede74c51b600bcb862d41b4fc7d3441b6ae44c7788b0311909af4c",
+   "repo": "Open-Muscle/OpenMuscle-FlexGrid",
+   "path_in_repo": "KiCad/OM-FlexGrid V4/OM-FlexGrid-Rigid-PCB/OM-FlexGrid-Rigid-PCB.kicad_pcb",
+   "pinned_sha": "912e6e615c1f123141933a465c620f1a636692f0",
+   "commit_date": "2026-06-24T16:00:21Z",
+   "license": {
+    "spdx": "CERN-OHL-S-2.0",
+    "sha256": "74b9eb311539e8cacf59f31401a47fb653d544a1594103b823888d3b57a3b9eb"
+   },
+   "layers": 4,
+   "kicad_version_token": "20260206",
+   "net_count": 87,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20260206",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "openmuscle-flexgrid"
+  },
+  {
+   "board_id": "tt06-fpga-ice40up5k",
+   "dir": "raw/TinyTapeout__tt06-fpga-ice40up5k",
+   "files": [
+    "metadata.json",
+    "tt06-fpga-ICE40UP5k.kicad_pcb"
+   ],
+   "bytes": 3153697,
+   "board_file_sha256": "33b2baff175e5eac382fb3af35d252aba5029887315d10ff2dd9d6d41777d8cd",
+   "repo": "TinyTapeout/breakout-pcb",
+   "path_in_repo": "ASIC-simulator/tt06-fpga-ICE40UP5k/tt06-fpga-ICE40UP5k.kicad_pcb",
+   "pinned_sha": "8f4da3fccdb7348227462bc8bb8abfdb75b8f4b0",
+   "commit_date": "2026-08-19T17:14:59Z",
+   "license": {
+    "spdx": "Apache-2.0",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+   },
+   "layers": 4,
+   "kicad_version_token": "20241229",
+   "net_count": 73,
+   "routed_reference": true,
+   "disposition": "retain",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": true,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20241229",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "tt-breakout-pcb"
+  },
+  {
+   "board_id": "tinytapeout-demo",
+   "dir": "raw/TinyTapeout__tinytapeout-demo",
+   "files": [
+    "metadata.json",
+    "tinytapeout-demo.kicad_pcb"
+   ],
+   "bytes": 7931785,
+   "board_file_sha256": "773a0e295ca6cc31a088088ec29efa98ee67ee6bcbaac98d281f5433c45320db",
+   "repo": "TinyTapeout/tt-demo-pcb",
+   "path_in_repo": "tinytapeout-demo.kicad_pcb",
+   "pinned_sha": "bbf3dd1f771d5aed249b07ddf130b3ddc8261d60",
+   "commit_date": "2026-08-29T09:24:50Z",
+   "license": {
+    "spdx": "Apache-2.0",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+   },
+   "layers": 4,
+   "kicad_version_token": "20241229",
+   "net_count": 148,
+   "routed_reference": true,
+   "disposition": "retain-conditional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": true,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20241229",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "tt-demo-carrier"
+  },
+  {
+   "board_id": "alvium-flex-csi-100mm-double-same-side",
+   "dir": "raw/antmicro__alvium-flex-csi-100mm-double-same-side",
+   "files": [
+    "antmicro-alvium-flex-csi-adapter-100mm-double-same-side.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 592633,
+   "board_file_sha256": "7270c9edc647ed75caa524c80244157f0c9535668f8b9f218e343a34db774338",
+   "repo": "antmicro/alvium-flexible-csi-adapter",
+   "path_in_repo": "100mm-double-same-side/antmicro-alvium-flex-csi-adapter-100mm-double-same-side.kicad_pcb",
+   "pinned_sha": "7c5c0b478f7f18a83ab69071e3e5975728fc81a4",
+   "commit_date": "2023-03-31T16:50:05Z",
+   "license": {
+    "spdx": "Apache-2.0",
+    "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+   },
+   "layers": 2,
+   "kicad_version_token": "20171130",
+   "net_count": 14,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": true,
+    "bucket": "20171130",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "antmicro-alvium-flex-csi-adapter"
+  },
+  {
+   "board_id": "dc-scm-rot-jumper-card",
+   "dir": "raw/antmicro__dc-scm-rot-jumper-card",
+   "files": [
+    "dc-scm-rot-jumper-card.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 272747,
+   "board_file_sha256": "b163f63024c698478903a1cf54efa7dddfdb8d7eadda33e50cb5afb4612ef089",
+   "repo": "antmicro/dc-scm-rot-jumper-card",
+   "path_in_repo": "dc-scm-rot-jumper-card.kicad_pcb",
+   "pinned_sha": "c9ae62e1924d879fc68ec40821711d3e858a50e0",
+   "commit_date": "2022-01-13T17:25:25Z",
+   "license": {
+    "spdx": "Apache-2.0",
+    "sha256": "4cd7d3248b2348062616497d280121473d0c2dd4325609f34b57ba349b07aff8"
+   },
+   "layers": 2,
+   "kicad_version_token": "20171130",
+   "net_count": 47,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": true,
+    "bucket": "20171130",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "antmicro-dc-scm-rot-jumper-card"
+  },
+  {
+   "board_id": "jetson-nano-baseboard",
+   "dir": "raw/antmicro__jetson-nano-baseboard",
+   "files": [
+    "jetson-nano-baseboard.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 26873626,
+   "board_file_sha256": "8fc7b361091f1ab5b2026f65fc0c0ea42e16caa705cd52e63c3c48e6ba887252",
+   "repo": "antmicro/jetson-nano-baseboard",
+   "path_in_repo": "jetson-nano-baseboard.kicad_pcb",
+   "pinned_sha": "d8d0b2d71ab4cc4bcdb204a09f78be40d4c8cda3",
+   "commit_date": "2025-12-31T12:57:23Z",
+   "license": {
+    "spdx": "Apache-2.0",
+    "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+   },
+   "layers": 8,
+   "kicad_version_token": "20241229",
+   "net_count": 488,
+   "routed_reference": true,
+   "disposition": "retain",
+   "tier_designation": "holdout-pool",
+   "holdout": {
+    "pool_id": "H6",
+    "caveat": "与语料 kicaddemo-jetson-agx-thor-baseboard 同厂商同产品线（不同代际/repo）——采纳时接受厂商亲和性混杂",
+    "prefreeze_approved_date": "2026-09-12"
+   },
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20241229",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "antmicro-jetson-nano-baseboard"
+  },
+  {
+   "board_id": "kria-k26-devboard",
+   "dir": "raw/antmicro__kria-k26-devboard",
+   "files": [
+    "kria-k26-devboard.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 54223295,
+   "board_file_sha256": "9af35d1d14843ddbd92c07785cb08615d4ef0ff47af4b278eb5c67d6c92b8602",
+   "repo": "antmicro/kria-k26-devboard",
+   "path_in_repo": "kria-k26-devboard.kicad_pcb",
+   "pinned_sha": "9ead4dfc5b29fa9308206ccdfe013dd8f6d93b67",
+   "commit_date": "2025-01-23T13:37:44Z",
+   "license": {
+    "spdx": "Apache-2.0",
+    "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+   },
+   "layers": 8,
+   "kicad_version_token": "20221018",
+   "net_count": 804,
+   "routed_reference": true,
+   "disposition": "retain",
+   "tier_designation": "holdout-pool",
+   "holdout": {
+    "pool_id": "H1",
+    "caveat": null,
+    "prefreeze_approved_date": "2026-09-12"
+   },
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20221018",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "antmicro-kria-k26-devboard"
+  },
+  {
+   "board_id": "m2-pcie-adapter",
+   "dir": "raw/antmicro__m2-pcie-adapter",
+   "files": [
+    "m2-pcie-adapter.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 1867882,
+   "board_file_sha256": "36533460dd1e940f87672a101aca968ff0e2cc1687a26e02b32b2177f95414f5",
+   "repo": "antmicro/m2-pcie-adapter",
+   "path_in_repo": "m2-pcie-adapter.kicad_pcb",
+   "pinned_sha": "11844f18ce14393043affde9e7aa8d51c0cd3ba7",
+   "commit_date": "2025-11-19T15:52:09Z",
+   "license": {
+    "spdx": "Apache-2.0",
+    "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+   },
+   "layers": 4,
+   "kicad_version_token": "20241229",
+   "net_count": 65,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20241229",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "antmicro-m2-pcie-adapter"
+  },
+  {
+   "board_id": "ov9281-dual-camera-board",
+   "dir": "raw/antmicro__ov9281-dual-camera-board",
+   "files": [
+    "metadata.json",
+    "ov9281-dual-camera-board.kicad_pcb"
+   ],
+   "bytes": 5746433,
+   "board_file_sha256": "9a73c217474afa28fb8cb29f26af0eab4f69481db1f7559e9a1aa26540d7f382",
+   "repo": "antmicro/ov9281-camera-board",
+   "path_in_repo": "ov9281-dual-camera-board.kicad_pcb",
+   "pinned_sha": "ea69666fa06f66a0691e50eebff9356cc2a08e32",
+   "commit_date": "2025-11-18T14:43:56Z",
+   "license": {
+    "spdx": "Apache-2.0",
+    "sha256": "143d552f75f2f7534e00f0662f1c60ea9429d5aa3739f0937c5ce700159494b3"
+   },
+   "layers": 4,
+   "kicad_version_token": "20241229",
+   "net_count": 124,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20241229",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "antmicro-ov9281-camera-board"
+  },
+  {
+   "board_id": "sdi-mipi-bridge",
+   "dir": "raw/antmicro__sdi-mipi-bridge",
+   "files": [
+    "metadata.json",
+    "sdi-mipi-bridge.kicad_pcb"
+   ],
+   "bytes": 12769933,
+   "board_file_sha256": "41749fed319c279746f92c10ec1d408660afaeee313a8f63bb22f2285e9adfd2",
+   "repo": "antmicro/sdi-mipi-bridge-hw",
+   "path_in_repo": "sdi-mipi-bridge.kicad_pcb",
+   "pinned_sha": "0d08a865eba70ac02bfe16601bbf6d719d5c9d41",
+   "commit_date": "2024-04-02T09:13:13Z",
+   "license": {
+    "spdx": "Apache-2.0",
+    "sha256": "a811694afc28d400996148898d4f17099d2a21bc902c522f210df5ed6a0e335c"
+   },
+   "layers": 6,
+   "kicad_version_token": "20221018",
+   "net_count": 175,
+   "routed_reference": true,
+   "disposition": "retain",
+   "tier_designation": "holdout-pool",
+   "holdout": {
+    "pool_id": "H2",
+    "caveat": null,
+    "prefreeze_approved_date": "2026-09-12"
+   },
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20221018",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "antmicro-sdi-mipi-bridge"
+  },
+  {
+   "board_id": "si-simulation-test-board",
+   "dir": "raw/antmicro__si-simulation-test-board",
+   "files": [
+    "metadata.json",
+    "si-simulation-test-board.kicad_pcb"
+   ],
+   "bytes": 6812959,
+   "board_file_sha256": "ad22910fb65d87b9506a860a2fc9a6ad8ddb0af7743be3a9df40e4edd2c2a318",
+   "repo": "antmicro/signal-integrity-test-board",
+   "path_in_repo": "si-simulation-test-board.kicad_pcb",
+   "pinned_sha": "de0b5922c372481bb146cbd1d0a9f3b7e97c124a",
+   "commit_date": "2025-03-21T08:01:33Z",
+   "license": {
+    "spdx": "Apache-2.0",
+    "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+   },
+   "layers": 4,
+   "kicad_version_token": "20211014",
+   "net_count": 13,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20211014",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "antmicro-si-test-board"
+  },
+  {
+   "board_id": "thunderbolt-pcie-adapter",
+   "dir": "raw/antmicro__thunderbolt-pcie-adapter",
+   "files": [
+    "metadata.json",
+    "thunderbolt-pcie-adapter.kicad_pcb"
+   ],
+   "bytes": 17892323,
+   "board_file_sha256": "547136e29d3159e1601139e48ee33c31974cf621d3c3135da898d60227600bd2",
+   "repo": "antmicro/thunderbolt-pcie-adapter",
+   "path_in_repo": "thunderbolt-pcie-adapter.kicad_pcb",
+   "pinned_sha": "0ae5bbe967dff2b973bcf84522a081cee28a156c",
+   "commit_date": "2024-07-09T14:52:15Z",
+   "license": {
+    "spdx": "Apache-2.0",
+    "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+   },
+   "layers": 6,
+   "kicad_version_token": "20221018",
+   "net_count": 268,
+   "routed_reference": true,
+   "disposition": "retain",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20221018",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "antmicro-thunderbolt-pcie-adapter"
+  },
+  {
+   "board_id": "axiom-micro-mainboard",
+   "dir": "raw/apertus-open-source-cinema__axiom-micro-mainboard",
+   "files": [
+    "metadata.json",
+    "pcb.kicad_pcb"
+   ],
+   "bytes": 1286793,
+   "board_file_sha256": "02514f4f89a24062e9738f892b6a41821f94f33fd06e7c541d40a157584bfabe",
+   "repo": "apertus-open-source-cinema/axiom-micro-mainboard",
+   "path_in_repo": "pcb/pcb.kicad_pcb",
+   "pinned_sha": "1d688d99a979af44bdfc66ea4415afde374277e7",
+   "commit_date": "2020-05-04T22:17:16Z",
+   "license": {
+    "spdx": "CERN-OHL-S-2.0",
+    "sha256": "26fef21ea832d3d54760ee1d7ead42ad48a1ea686f192f750c038ccb1b48a4ce"
+   },
+   "layers": 4,
+   "kicad_version_token": "20171130",
+   "net_count": 51,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": true,
+    "bucket": "20171130",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "apertus-axiom-micro"
+  },
+  {
+   "board_id": "pslab-v6",
+   "dir": "raw/fossasia__pslab-v6",
+   "files": [
+    "PSLab.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 3584622,
+   "board_file_sha256": "e80cea8ba899d833bb75c1efa9f81df7552c5c65fd1c82508afefe22fd010389",
+   "repo": "fossasia/pslab-hardware",
+   "path_in_repo": "schematics/PSLab.kicad_pcb",
+   "pinned_sha": "404aae216963ea0708e15bb84bde670a94ad3d83",
+   "commit_date": "2026-08-16T05:48:02Z",
+   "license": {
+    "spdx": "Apache-2.0",
+    "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+   },
+   "layers": 4,
+   "kicad_version_token": "20221018",
+   "net_count": 173,
+   "routed_reference": true,
+   "disposition": "retain",
+   "tier_designation": "holdout-pool",
+   "holdout": {
+    "pool_id": "H4",
+    "caveat": null,
+    "prefreeze_approved_date": "2026-09-12"
+   },
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20221018",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "pslab-hardware"
+  },
+  {
+   "board_id": "hackrf-one",
+   "dir": "raw/greatscottgadgets__hackrf-one",
+   "files": [
+    "hackrf-one.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 4614936,
+   "board_file_sha256": "558d73553c7c2b2ae77dad541c87e671f3b2e982306f25e6fabed8d1e879e438",
+   "repo": "greatscottgadgets/hackrf",
+   "path_in_repo": "hardware/hackrf-one/hackrf-one.kicad_pcb",
+   "pinned_sha": "393dc91be7e0cd17af61600d7ce31d8a54a2f404",
+   "commit_date": "2026-09-03T15:05:08Z",
+   "license": {
+    "spdx": "CERN-OHL-P-2.0",
+    "sha256": "2ee68e63fd7f724c9d6a42a517bec9d451dca2234c9024882cc4faeaed95e499"
+   },
+   "layers": 4,
+   "kicad_version_token": "20211014",
+   "net_count": 379,
+   "routed_reference": true,
+   "disposition": "retain",
+   "tier_designation": "holdout-pool",
+   "holdout": {
+    "pool_id": "H3",
+    "caveat": null,
+    "prefreeze_approved_date": "2026-09-12"
+   },
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20211014",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "gsg-hackrf"
+  },
+  {
+   "board_id": "throwing-star-pro",
+   "dir": "raw/greatscottgadgets__throwing-star-pro",
+   "files": [
+    "metadata.json",
+    "throwing-star-pro.kicad_pcb"
+   ],
+   "bytes": 211390,
+   "board_file_sha256": "4faf84cdcf407ace20a37fdde2102e09cf832edc19d571b5d9270e120ce5a2ea",
+   "repo": "greatscottgadgets/throwing-star-lan-tap",
+   "path_in_repo": "throwing-star-pro.kicad_pcb",
+   "pinned_sha": "dceb2273972f029e9ec398a6d1ec269849c74c81",
+   "commit_date": "2021-12-06T19:32:13Z",
+   "license": {
+    "spdx": "CERN-OHL-P-2.0",
+    "sha256": "139d697b0e23ca4034c9894e571a79d1684fea1a3b9d69b91755cb321ef2cbe7"
+   },
+   "layers": 2,
+   "kicad_version_token": "20171130",
+   "net_count": 8,
+   "routed_reference": true,
+   "disposition": "retain",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": true,
+    "bucket": "20171130",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "gsg-throwing-star"
+  },
+  {
+   "board_id": "thatmicpre-v2",
+   "dir": "raw/ojg__thatmicpre-v2",
+   "files": [
+    "metadata.json",
+    "thatmicpre_v2.kicad_pcb"
+   ],
+   "bytes": 1168645,
+   "board_file_sha256": "579d3b4f04a72b2987d89053fbd3313523642e25e9a3968639ea7d2fc0a94a7e",
+   "repo": "ojg/thatmicpre",
+   "path_in_repo": "rack/thatmicpre_v2.kicad_pcb",
+   "pinned_sha": "c9735275db939b22bd7b8fc5899793add46f3683",
+   "commit_date": "2024-11-06T17:57:06Z",
+   "license": {
+    "spdx": "CC-BY-SA-4.0",
+    "sha256": "87a816969906840bf7af8d4d01cdfad4741b18946365e1f286007935509f2edb"
+   },
+   "layers": 2,
+   "kicad_version_token": "20211014",
+   "net_count": 57,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20211014",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "thatmicpre"
+  },
+  {
+   "board_id": "cm5-minima-rev3",
+   "dir": "raw/piecol__cm5-minima-rev3",
+   "files": [
+    "CM5_MINIMA_3.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 3276294,
+   "board_file_sha256": "1b7e2d8f928e3fda3254a699d1971b5b543eda2f8fa63cb2100f2979beef12f4",
+   "repo": "piecol/CM5_MINIMA_REV3",
+   "path_in_repo": "CM5_MINIMA_3.kicad_pcb",
+   "pinned_sha": "6d77314dbbc26c8f5735add30ccb0588816cb71a",
+   "commit_date": "2026-01-22T14:02:27Z",
+   "license": {
+    "spdx": "CERN-OHL-S-2.0",
+    "sha256": "253ad3f89603e728abfa60c36fbcaf8225cf55c1eab12725f19fb3d74d647f3a"
+   },
+   "layers": 6,
+   "kicad_version_token": "20241229",
+   "net_count": 220,
+   "routed_reference": true,
+   "disposition": "retain",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20241229",
+    "result": "PASS"
+   },
+   "oshwa_uid": "IT000022",
+   "project_group": "piecol-cm5-minima-carrier"
+  },
+  {
+   "board_id": "torxhat",
+   "dir": "raw/RobotStudyCompanion__torxhat",
+   "files": [
+    "RSC_extension_board.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 1341399,
+   "board_file_sha256": "fb6097880a515424c7ac67c56330dfecece8eb70b79d21047e2516ec33e14aca",
+   "repo": "RobotStudyCompanion/torxHAT",
+   "path_in_repo": "RSC_extension_board.kicad_pcb",
+   "pinned_sha": "1e1d3668c9baf91587727cdf689f659f51ccb5c1",
+   "commit_date": "2026-06-18T13:10:50Z",
+   "license": {
+    "spdx": "CERN-OHL-W-2.0",
+    "sha256": "a7ae453b42ccf6ac0d5b82d261d8a73b838ac6d7798bf6571c5d8ce4cfa32f75"
+   },
+   "layers": 2,
+   "kicad_version_token": "20241229",
+   "net_count": 75,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20241229",
+    "result": "PASS"
+   },
+   "oshwa_uid": "EE000004",
+   "project_group": "rsc-torxhat"
+  },
+  {
+   "board_id": "tmp108",
+   "dir": "raw/6mil-Labs__tmp108",
+   "files": [
+    "metadata.json",
+    "tmp108.kicad_pcb"
+   ],
+   "bytes": 410351,
+   "board_file_sha256": "1a79e83f615e5a659f10ed0b4dadd0c1573e304a731d3cb23c6b199aa8a8002d",
+   "repo": "6mil-Labs/tmp108",
+   "path_in_repo": "tmp108.kicad_pcb",
+   "pinned_sha": "281cca28195e4d064025b250f3c5c33d60a97e2e",
+   "commit_date": "2026-09-03T22:02:24Z",
+   "license": {
+    "spdx": "CERN-OHL-S-2.0",
+    "sha256": "253ad3f89603e728abfa60c36fbcaf8225cf55c1eab12725f19fb3d74d647f3a"
+   },
+   "layers": 4,
+   "kicad_version_token": "20260206",
+   "net_count": 14,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20260206",
+    "result": "PASS"
+   },
+   "oshwa_uid": "US002852",
+   "project_group": "6mil-tmp108"
+  },
+  {
+   "board_id": "thin-pod",
+   "dir": "raw/Pealie__thin-pod",
+   "files": [
+    "Thin-Pod.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 250087,
+   "board_file_sha256": "2f83fe4c3c46f17003a2f442f196ad88d4348c811b432c41c4decc0a60b4333f",
+   "repo": "Pealie/Thin-Pod-rev0.1",
+   "path_in_repo": "hardware/source/Thin-Pod.kicad_pcb",
+   "pinned_sha": "289c93e14eff67d7815be4803c488e5ac80a4f6c",
+   "commit_date": "2026-07-06T10:33:18Z",
+   "license": {
+    "spdx": "CERN-OHL-W-2.0",
+    "sha256": "3efacc75644bdec98388260b0c82a137a73716d929e8b6b578b17039d148fc0e"
+   },
+   "layers": 2,
+   "kicad_version_token": "20260206",
+   "net_count": 14,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20260206",
+    "result": "PASS"
+   },
+   "oshwa_uid": "UK000091",
+   "project_group": "pealie-thin-pod"
+  },
+  {
+   "board_id": "atmega32u4-breakout",
+   "dir": "raw/everyday-dev__atmega32u4-breakout",
+   "files": [
+    "atmegaXu4_breakout.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 474769,
+   "board_file_sha256": "b541a060871c32c38f44f8ad34c89cdcbb99839ae87d2480712127bbb19559e1",
+   "repo": "everyday-dev/atmega32u4_breakout",
+   "path_in_repo": "atmegaXu4_breakout/atmegaXu4_breakout.kicad_pcb",
+   "pinned_sha": "c3c31479dd2e85ab3892fd003a265e8efa795d62",
+   "commit_date": "2023-10-10T14:19:09Z",
+   "license": {
+    "spdx": "CC-BY-SA-4.0",
+    "sha256": "7abe19ec9bb73b36141b999b861d24ad855e808bafe0f81e84cce28556f6c297"
+   },
+   "layers": 2,
+   "kicad_version_token": "20221018",
+   "net_count": 46,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20221018",
+    "result": "PASS"
+   },
+   "oshwa_uid": "US002160",
+   "project_group": "everyday-dev-atmega32u4"
+  },
+  {
+   "board_id": "pmod-i2c24io",
+   "dir": "raw/fm4dd__pmod-i2c24io",
+   "files": [
+    "i2c24io.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 654059,
+   "board_file_sha256": "85fdb79d9cda349ca740d9092d49866b2beefc2e575e49b5f3679d817cbe5c4c",
+   "repo": "fm4dd/pmod-i2c24io",
+   "path_in_repo": "kicad-t6a/i2c24io.kicad_pcb",
+   "pinned_sha": "176afafd4f5580594da84823571c7f8839e32618",
+   "commit_date": "2023-11-05T02:10:05Z",
+   "license": {
+    "spdx": "CERN-OHL-1.2",
+    "sha256": "ff574152f420ba7610a20530bc4a85fd42b5fde5c6923711954abb85e48a46bb"
+   },
+   "layers": 2,
+   "kicad_version_token": "20221018",
+   "net_count": 61,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20221018",
+    "result": "PASS"
+   },
+   "oshwa_uid": "JP000012",
+   "project_group": "fm4dd-pmod-family"
+  },
+  {
+   "board_id": "pmod-bme280",
+   "dir": "raw/fm4dd__pmod-bme280",
+   "files": [
+    "bme280.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 219135,
+   "board_file_sha256": "e947bd2aef02cbd858fd8faa6a8ed5b5d4595228e9b1a7512af09916433586a8",
+   "repo": "fm4dd/pmod-bme280",
+   "path_in_repo": "kicad-t6a/bme280.kicad_pcb",
+   "pinned_sha": "4a4fca52203cf7b8ceb9065a49f107c80690d55b",
+   "commit_date": "2022-07-18T01:50:06Z",
+   "license": {
+    "spdx": "CERN-OHL-1.2",
+    "sha256": "ff574152f420ba7610a20530bc4a85fd42b5fde5c6923711954abb85e48a46bb"
+   },
+   "layers": 2,
+   "kicad_version_token": "20211014",
+   "net_count": 13,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20211014",
+    "result": "PASS"
+   },
+   "oshwa_uid": "JP000015",
+   "project_group": "fm4dd-pmod-family"
+  },
+  {
+   "board_id": "pmod-crypto",
+   "dir": "raw/fm4dd__pmod-crypto",
+   "files": [
+    "atecc508a.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 212696,
+   "board_file_sha256": "22fd890c9cac830db5132c34c216b8107371eccef16d55fa9ac7d0bf019e8537",
+   "repo": "fm4dd/pmod-crypto",
+   "path_in_repo": "kicad-t6a/atecc508a.kicad_pcb",
+   "pinned_sha": "e06af8a290f7b59f6f01259974535c413f12533d",
+   "commit_date": "2022-07-18T01:47:07Z",
+   "license": {
+    "spdx": "CERN-OHL-1.2",
+    "sha256": "ff574152f420ba7610a20530bc4a85fd42b5fde5c6923711954abb85e48a46bb"
+   },
+   "layers": 2,
+   "kicad_version_token": "20211014",
+   "net_count": 16,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20211014",
+    "result": "PASS"
+   },
+   "oshwa_uid": "JP000016",
+   "project_group": "fm4dd-pmod-family"
+  },
+  {
+   "board_id": "anavi-fume-extractor",
+   "dir": "raw/AnaviTechnology__anavi-fume-extractor",
+   "files": [
+    "anavi-fume-extractor.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 183821,
+   "board_file_sha256": "cf95579b182d4b2175d1fb53ac21bb4d8d19a6476db8b03816eb0c2f76484993",
+   "repo": "AnaviTechnology/anavi-fume-extractor",
+   "path_in_repo": "anavi-fume-extractor.kicad_pcb",
+   "pinned_sha": "d2b0f998c3bdcb9f17e41175d3c43be6c5ebbc24",
+   "commit_date": "2019-11-16T17:10:00Z",
+   "license": {
+    "spdx": "CC-BY-SA-4.0",
+    "sha256": "23a687aae76c234c7a41fc094f98da4c4db6a25780f7557b41d041ca016dfa17"
+   },
+   "layers": 2,
+   "kicad_version_token": "20171130",
+   "net_count": 17,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": true,
+    "bucket": "20171130",
+    "result": "PASS"
+   },
+   "oshwa_uid": "BG000060",
+   "project_group": "anavi-fume-extractor"
+  },
+  {
+   "board_id": "badge-pcb",
+   "dir": "raw/oshwabadge2020__badge-pcb",
+   "files": [
+    "badge.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 656034,
+   "board_file_sha256": "d4a4936142d30e9c20bbbab5cb8cc681a43c16c159f6de3d9abfdfde4849aa32",
+   "repo": "oshwabadge2020/Badge-PCB",
+   "path_in_repo": "badge.kicad_pcb",
+   "pinned_sha": "0afee477bd877d7884c341579be7ea479dfa38a5",
+   "commit_date": "2020-02-26T19:33:55Z",
+   "license": {
+    "spdx": "CERN-OHL-1.2",
+    "sha256": "60142a73e57a208d178a74fd43ad37badaa95d552108c13c614d8c1e26c4c366"
+   },
+   "layers": 2,
+   "kicad_version_token": "20171130",
+   "net_count": 36,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": true,
+    "bucket": "20171130",
+    "result": "PASS"
+   },
+   "oshwa_uid": "US000214",
+   "project_group": "ohs2020-badge"
+  },
+  {
+   "board_id": "vga-panel-breakout",
+   "dir": "raw/arithmaldor__vga-panel-breakout",
+   "files": [
+    "VGA_PANEL_BREAKOUT.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 42119,
+   "board_file_sha256": "e12714cf8d52124cc18e4816c02cb30c3d832259454f258c9d09ea9b17ca1b39",
+   "repo": "arithmaldor/VGA-Panel-Breakout",
+   "path_in_repo": "VGA_PANEL_BREAKOUT.kicad_pcb",
+   "pinned_sha": "28b7bb85c92098508efb4afaa7d366a6ad246523",
+   "commit_date": "2020-11-09T16:21:18Z",
+   "license": {
+    "spdx": "CERN-OHL-S-2.0",
+    "sha256": "d6475a84171f0cf7ff52667dea714df268fc65cea42f0bf328b0b70d4cd0ebab"
+   },
+   "layers": 2,
+   "kicad_version_token": "20171130",
+   "net_count": 5,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": true,
+    "bucket": "20171130",
+    "result": "PASS"
+   },
+   "oshwa_uid": "US000679",
+   "project_group": "arithmaldor-vga-breakout"
+  },
+  {
+   "board_id": "stm32-ds2480-emu",
+   "dir": "raw/alitekin2fx__stm32-ds2480-emu",
+   "files": [
+    "metadata.json",
+    "stm32_ds2480_emu.kicad_pcb"
+   ],
+   "bytes": 321314,
+   "board_file_sha256": "75b876468e8689b5c68ba7f9c55c2379d7d191cdd2bf212c3029573b36abdb94",
+   "repo": "alitekin2fx/stm32_ds2480_emu",
+   "path_in_repo": "hardware/stm32_ds2480_emu.kicad_pcb",
+   "pinned_sha": "79b16f9f083275c7d6dff53cb19dfbf4bba826ca",
+   "commit_date": "2021-08-26T11:21:57Z",
+   "license": {
+    "spdx": "CERN-OHL-1.2",
+    "sha256": "94e4835c8760715a365cf7ec0c182d97d4d9b0b3538cff1b48eb6401c2888cff"
+   },
+   "layers": 2,
+   "kicad_version_token": "20210424",
+   "net_count": 29,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": true,
+    "bucket": "20210424",
+    "result": "PASS"
+   },
+   "oshwa_uid": "TR000001",
+   "project_group": "alitekin-ds2480"
+  },
+  {
+   "board_id": "badgeleds-do-electronics",
+   "dir": "raw/angelisidro__badgeleds-do-electronics",
+   "files": [
+    "PCB_LDE.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 180608,
+   "board_file_sha256": "385a1c4dd63e4ac1574648d97d4fedb90170e2629a5f06755405b54182147bc9",
+   "repo": "angelisidro/badgeLEDsDoElectronics",
+   "path_in_repo": "KiCad/PCB_LDE.kicad_pcb",
+   "pinned_sha": "daf258ffeed3d77fe543f582eb4e86b744887611",
+   "commit_date": "2020-11-18T00:52:28Z",
+   "license": {
+    "spdx": "GPL-3.0",
+    "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+   },
+   "layers": 2,
+   "kicad_version_token": "20171130",
+   "net_count": 7,
+   "routed_reference": true,
+   "disposition": "optional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": true,
+    "bucket": "20171130",
+    "result": "PASS"
+   },
+   "oshwa_uid": "GT000004",
+   "project_group": "angelisidro-badgeled"
+  },
+  {
+   "board_id": "anthc",
+   "dir": "raw/Anthilla__anthc",
+   "files": [
+    "AnthC.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 5889813,
+   "board_file_sha256": "dce441d386f04de0619e9acfc655dff28db38fa8bc990c96664e0de382962d1b",
+   "repo": "Anthilla/AnthC",
+   "path_in_repo": "AnthC/AnthC.kicad_pcb",
+   "pinned_sha": "20e8bf44a289e8834e9f5df216c0cf743767140d",
+   "commit_date": "2026-07-07T09:14:34Z",
+   "license": {
+    "spdx": "CERN-OHL-W-2.0",
+    "sha256": "4b6a7717ef4fcd145eabb577de44d84ffdc893532177b67479dad42f6c4e355e"
+   },
+   "layers": 4,
+   "kicad_version_token": "20260206",
+   "net_count": 173,
+   "routed_reference": true,
+   "disposition": "retain",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20260206",
+    "result": "PASS"
+   },
+   "oshwa_uid": "IT000013 + IT000014（同名项目双注册）",
+   "project_group": "anthilla-anthc"
+  },
+  {
+   "board_id": "ottercast-audio-v2",
+   "dir": "raw/Ottercast__ottercast-audio-v2",
+   "files": [
+    "OtterCastAudioV2.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 2346374,
+   "board_file_sha256": "87e560e544e85b03fed5e515beb72b43d72301628f9501c7ef80726eb36c8639",
+   "repo": "Ottercast/OtterCastAudioV2",
+   "path_in_repo": "OtterCastAudioV2.kicad_pcb",
+   "pinned_sha": "199395d7249aaf12432e42bff828dd665546d6a4",
+   "commit_date": "2024-09-25T12:56:51Z",
+   "license": {
+    "spdx": "MIT",
+    "sha256": "1db09ec6a9b2fd1c87d71545699f188bc566c5ffd9ab4ffb2d65c582565644be"
+   },
+   "layers": 4,
+   "kicad_version_token": "20221018",
+   "net_count": 266,
+   "routed_reference": true,
+   "disposition": "retain-conditional",
+   "tier_designation": "train/val-candidate",
+   "holdout": null,
+   "never_holdout": true,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20221018",
+    "result": "PASS"
+   },
+   "oshwa_uid": "DE000109",
+   "project_group": "ottercast-family"
+  },
+  {
+   "board_id": "scalenode-cm4-baseboard",
+   "dir": "raw/antmicro__scalenode-cm4-baseboard",
+   "files": [
+    "scalenode-cm4-baseboard.kicad_pcb",
+    "metadata.json"
+   ],
+   "bytes": 9826379,
+   "board_file_sha256": "e20413ed7ab5184c46a377437e5fd4560ea3920add5019f25e05df479844e5fa",
+   "repo": "antmicro/scalenode-cm4-baseboard",
+   "path_in_repo": "scalenode-cm4-baseboard.kicad_pcb",
+   "pinned_sha": "77f5bf281d13e43154cac9645f7cc22a82e56971",
+   "commit_date": "2024-04-02T18:32:42Z",
+   "license": {
+    "spdx": "Apache-2.0",
+    "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+   },
+   "layers": 4,
+   "kicad_version_token": "20221018",
+   "net_count": 278,
+   "routed_reference": true,
+   "disposition": "retain",
+   "tier_designation": "holdout-pool",
+   "holdout": {
+    "pool_id": "H5",
+    "caveat": null,
+    "prefreeze_approved_date": "2026-09-12"
+   },
+   "never_holdout": false,
+   "dedup": "no-collision",
+   "conversion_gate": {
+    "required": false,
+    "bucket": "20221018",
+    "result": "PASS"
+   },
+   "oshwa_uid": null,
+   "project_group": "antmicro-scalenode-cm4-baseboard"
+  }
+ ],
+ "licenses": [
+  {
+   "file": "licenses/6mil-Labs__tmp108__LICENSE",
+   "sha256": "253ad3f89603e728abfa60c36fbcaf8225cf55c1eab12725f19fb3d74d647f3a",
+   "bytes": 13419
+  },
+  {
+   "file": "licenses/AnaviTechnology__anavi-fume-extractor__README.md",
+   "sha256": "23a687aae76c234c7a41fc094f98da4c4db6a25780f7557b41d041ca016dfa17",
+   "bytes": 2399
+  },
+  {
+   "file": "licenses/Anthilla__AnthC__LICENSE - Hardware",
+   "sha256": "4b6a7717ef4fcd145eabb577de44d84ffdc893532177b67479dad42f6c4e355e",
+   "bytes": 14539
+  },
+  {
+   "file": "licenses/OLIMEX__DIY-LAPTOP__LICENSE",
+   "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+   "bytes": 11357
+  },
+  {
+   "file": "licenses/OLIMEX__ESP32-DevKit-LiPo__LICENSE",
+   "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+   "bytes": 11357
+  },
+  {
+   "file": "licenses/OLIMEX__USB-GIGABIT__Hardware-License-CERN_OHL_v_1_2.pdf",
+   "sha256": "c5354185b244372d53415468825c594f2fb7189b6b9de79d466c0270904851ff",
+   "bytes": 98023
+  },
+  {
+   "file": "licenses/OLIMEX__iCE40HX1K-EVB__LICENSE",
+   "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+   "bytes": 11357
+  },
+  {
+   "file": "licenses/Open-Muscle__OpenMuscle-FlexGrid__LICENSE",
+   "sha256": "74b9eb311539e8cacf59f31401a47fb653d544a1594103b823888d3b57a3b9eb",
+   "bytes": 13554
+  },
+  {
+   "file": "licenses/Ottercast__OtterCastAudioV2__LICENSE",
+   "sha256": "1db09ec6a9b2fd1c87d71545699f188bc566c5ffd9ab4ffb2d65c582565644be",
+   "bytes": 1086
+  },
+  {
+   "file": "licenses/Pealie__Thin-Pod-rev0.1__LICENCE-DOCUMENTATION.md",
+   "sha256": "cbd5af318286b74656f145dff5091907cc23d6d8c9ad09e0291ec2497792ba41",
+   "bytes": 19051
+  },
+  {
+   "file": "licenses/Pealie__Thin-Pod-rev0.1__LICENCE-HARDWARE.md",
+   "sha256": "3efacc75644bdec98388260b0c82a137a73716d929e8b6b578b17039d148fc0e",
+   "bytes": 14849
+  },
+  {
+   "file": "licenses/RobotStudyCompanion__torxHAT__LICENSE",
+   "sha256": "a7ae453b42ccf6ac0d5b82d261d8a73b838ac6d7798bf6571c5d8ce4cfa32f75",
+   "bytes": 475
+  },
+  {
+   "file": "licenses/TinyTapeout__breakout-pcb__LICENSE",
+   "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+   "bytes": 11357
+  },
+  {
+   "file": "licenses/TinyTapeout__tt-demo-pcb__LICENSE",
+   "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+   "bytes": 11357
+  },
+  {
+   "file": "licenses/alitekin2fx__stm32_ds2480_emu__LICENSE-CERN",
+   "sha256": "94e4835c8760715a365cf7ec0c182d97d4d9b0b3538cff1b48eb6401c2888cff",
+   "bytes": 9150
+  },
+  {
+   "file": "licenses/alitekin2fx__stm32_ds2480_emu__LICENSE-MIT",
+   "sha256": "8dec81817ff27d6ce39d1432835de151364eb0146b2afd794f9ba7102e83042d",
+   "bytes": 1066
+  },
+  {
+   "file": "licenses/angelisidro__badgeLEDsDoElectronics__LICENSE",
+   "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+   "bytes": 35149
+  },
+  {
+   "file": "licenses/antmicro__alvium-flexible-csi-adapter__LICENSE",
+   "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+   "bytes": 11358
+  },
+  {
+   "file": "licenses/antmicro__dc-scm-rot-jumper-card__LICENSE",
+   "sha256": "4cd7d3248b2348062616497d280121473d0c2dd4325609f34b57ba349b07aff8",
+   "bytes": 11363
+  },
+  {
+   "file": "licenses/antmicro__jetson-nano-baseboard__LICENSE",
+   "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+   "bytes": 11358
+  },
+  {
+   "file": "licenses/antmicro__kria-k26-devboard__LICENSE",
+   "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+   "bytes": 11358
+  },
+  {
+   "file": "licenses/antmicro__m2-pcie-adapter__LICENSE",
+   "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+   "bytes": 11358
+  },
+  {
+   "file": "licenses/antmicro__ov9281-camera-board__LICENSE",
+   "sha256": "143d552f75f2f7534e00f0662f1c60ea9429d5aa3739f0937c5ce700159494b3",
+   "bytes": 11363
+  },
+  {
+   "file": "licenses/antmicro__sdi-mipi-bridge-hw__LICENSE",
+   "sha256": "a811694afc28d400996148898d4f17099d2a21bc902c522f210df5ed6a0e335c",
+   "bytes": 11363
+  },
+  {
+   "file": "licenses/antmicro__signal-integrity-test-board__LICENSE",
+   "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+   "bytes": 11358
+  },
+  {
+   "file": "licenses/antmicro__thunderbolt-pcie-adapter__LICENSE",
+   "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+   "bytes": 11358
+  },
+  {
+   "file": "licenses/apertus-open-source-cinema__axiom-micro-mainboard__LICENSE.txt",
+   "sha256": "26fef21ea832d3d54760ee1d7ead42ad48a1ea686f192f750c038ccb1b48a4ce",
+   "bytes": 13422
+  },
+  {
+   "file": "licenses/arithmaldor__VGA-Panel-Breakout__LICENSE",
+   "sha256": "d6475a84171f0cf7ff52667dea714df268fc65cea42f0bf328b0b70d4cd0ebab",
+   "bytes": 13419
+  },
+  {
+   "file": "licenses/everyday-dev__atmega32u4_breakout__LICENSE.md",
+   "sha256": "7abe19ec9bb73b36141b999b861d24ad855e808bafe0f81e84cce28556f6c297",
+   "bytes": 20131
+  },
+  {
+   "file": "licenses/fm4dd__pmod-bme280__LICENSE",
+   "sha256": "ff574152f420ba7610a20530bc4a85fd42b5fde5c6923711954abb85e48a46bb",
+   "bytes": 10324
+  },
+  {
+   "file": "licenses/fm4dd__pmod-crypto__LICENSE",
+   "sha256": "ff574152f420ba7610a20530bc4a85fd42b5fde5c6923711954abb85e48a46bb",
+   "bytes": 10324
+  },
+  {
+   "file": "licenses/fm4dd__pmod-i2c24io__LICENSE",
+   "sha256": "ff574152f420ba7610a20530bc4a85fd42b5fde5c6923711954abb85e48a46bb",
+   "bytes": 10324
+  },
+  {
+   "file": "licenses/fossasia__pslab-hardware__LICENSE",
+   "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+   "bytes": 11357
+  },
+  {
+   "file": "licenses/greatscottgadgets__hackrf__COPYING",
+   "sha256": "49b60a6288f90f49074228cc1fae0fb16871ba36b756013abdf7c2fc92f01fad",
+   "bytes": 17962
+  },
+  {
+   "file": "licenses/greatscottgadgets__hackrf__hardware-hackrf-one__LICENSE",
+   "sha256": "2ee68e63fd7f724c9d6a42a517bec9d451dca2234c9024882cc4faeaed95e499",
+   "bytes": 8930
+  },
+  {
+   "file": "licenses/greatscottgadgets__throwing-star-lan-tap__LICENSE",
+   "sha256": "139d697b0e23ca4034c9894e571a79d1684fea1a3b9d69b91755cb321ef2cbe7",
+   "bytes": 8929
+  },
+  {
+   "file": "licenses/ojg__thatmicpre__LICENSE.txt",
+   "sha256": "87a816969906840bf7af8d4d01cdfad4741b18946365e1f286007935509f2edb",
+   "bytes": 20139
+  },
+  {
+   "file": "licenses/oshwabadge2020__Badge-PCB__LICENSE",
+   "sha256": "60142a73e57a208d178a74fd43ad37badaa95d552108c13c614d8c1e26c4c366",
+   "bytes": 9153
+  },
+  {
+   "file": "licenses/piecol__CM5_MINIMA_REV3__LICENSE.txt",
+   "sha256": "253ad3f89603e728abfa60c36fbcaf8225cf55c1eab12725f19fb3d74d647f3a",
+   "bytes": 13419
+  },
+  {
+   "file": "licenses/antmicro__scalenode-cm4-baseboard__LICENSE",
+   "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+   "bytes": 11358
+  }
+ ],
+ "counts_note": "total_files=raw 板文件+metadata+licenses（不含根登记文件）；total_files_with_root/total_bytes 含根登记文件，供收工对账 | H5 scalenode 2026-09-12 补录（见 PROVENANCE 补录节）；2026-09-12 收口校准批（执行侧五工后）：licenses[] 补登 scalenode 行（40/40）；转换门措辞 36→37（H5 补录含内）；16 板 license_obligation 注记后 boards[].bytes/total_bytes 快照刷新至当前盘面（不动点收敛终值 181805116,803,601=data 181,741,882+root 61,719）；ice40 layers 2→4 校准（by_layers 2L×16/4L×15）",
+ "h5_addendum": {
+  "date": "2026-09-12",
+  "reason": "builder 漏项致 r1 inventory 误标 variant，机械过滤 36 板缺 H5；R22 §2/APPROVAL §2 均已批准 H5 入池，按批准链补录为第 37 板",
+  "verified": {
+   "pcb_bytes": 9824235,
+   "pcb_sha256": "e20413ed7ab5184c46a377437e5fd4560ea3920add5019f25e05df479844e5fa",
+   "license_sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+  }
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "board": "drc_arc_arc_edge_clearance/drc_arc_arc_edge_clearance",
+ "source_file": "qa/tests/pcbnew/drc/test_drc_arc_arc_edge_clearance.cpp",
+ "load_line": 60,
+ "assertions": [
+  {
+   "lines": "80",
+   "quote": "BOOST_CHECK_GE( edgeViolations.size(), 1u );",
+   "expect": {
+    "family": "edge_clearance",
+    "op": ">=",
+    "count": 1
+   }
+  },
+  {
+   "lines": "102-103",
+   "quote": "BOOST_CHECK_MESSAGE( trackHit && cutoutHit, \"Expected at least one DRCE_EDGE_CLEARANCE violation between the F.Cu track arc and the Edge.Cuts left cutout arc\" );",
+   "expect": {
+    "family": "edge_clearance",
+    "op": ">=",
+    "count": 1,
+    "filter": "track_arc_and_cutout_arc_pair"
+   }
+  }
+ ],
+ "cpp_severity_setup": {
+  "forced_error": [
+   "DRCE_EDGE_CLEARANCE"
+  ],
+  "ignore_rest": "其余全部码 IGNORE（lines 65-66 循环）",
+  "lines": "65-68"
+ },
+ "family_note": "板边含圆弧 cutout——v5 矩形轮廓唯一源建模不了内切轮廓，v5 侧=面外披露；kicad-cli 侧对账。",
+ "pinned_commit": "3d83cce19567965def8a8397381f067e1a2e77ff"
+}

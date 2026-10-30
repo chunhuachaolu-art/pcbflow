@@ -1,0 +1,11 @@
+# 2026-10-04 首次入库时的忽略集。只排除可再生的中间产物，不排除任何验收证据。
+# out/ 与 archive/ 按项目「授权变更登记/零重写」纪律是哈希锚定的验收证据，必须入库。
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.zcode/workflow-runs/
+
+# Windows 保留设备名，git 无法索引。盘上这一个是 0 字节空文件，mtime 2026-10-01 09:57，
+# 系 POSIX 式 shell 把 `> nul` 当字面文件名创建的产物（wmic/powershell 批次）。
+# 内容为零、无信息量，不删（不属本批授权范围），只作排除留档。
+nul

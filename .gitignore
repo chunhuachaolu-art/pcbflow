@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pytest-tmp/
+out/
+tools/pcbflow/datasets/
+*.kicad_prl
+*-backups/

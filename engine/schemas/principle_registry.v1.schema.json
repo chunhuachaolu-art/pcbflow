@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "v5.principle_registry.v1",
+  "title": "v5.principle_registry.v1 理念注册表条目 schema（V5.0-DEV-TASKBOOK §3.8）",
+  "type": "object",
+  "required": ["principle_registry_version"],
+  "additionalProperties": false,
+  "properties": {
+    "principle_registry_version": {"const": "v5.principle_registry.v1"},
+    "principles": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/principle"}
+    }
+  },
+  "definitions": {
+    "principle": {
+      "type": "object",
+      "required": [
+        "principle_id", "name", "intent", "scope", "protected_resources",
+        "target_freedom", "priority", "hard_or_soft", "overridable",
+        "compiled_rule", "enforcement", "conflict_policy", "evidence_refs",
+        "version", "source_hash"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "principle_id": {"type": "string", "minLength": 1},
+        "name": {"type": "string", "minLength": 1},
+        "intent": {
+          "type": "object",
+          "required": ["protects", "sacrifices"],
+          "additionalProperties": false,
+          "properties": {
+            "protects": {"type": "string", "minLength": 1},
+            "sacrifices": {"type": "string", "minLength": 1}
+          }
+        },
+        "scope": {"type": "string", "minLength": 1},
+        "protected_resources": {
+          "type": "array", "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "target_freedom": {"enum": ["ordering", "allocation", "layer_plan", "corridor"]},
+        "priority": {"type": "integer", "minimum": 0},
+        "hard_or_soft": {"enum": ["hard", "soft"]},
+        "overridable": {"type": "boolean"},
+        "compiled_rule": {
+          "type": ["object", "string"],
+          "note": "具体编译规则对象，或显式字符串 check_only",
+          "minLength": 1
+        },
+        "enforcement": {"enum": ["generation", "check", "both"]},
+        "conflict_policy": {
+          "type": "object",
+          "required": ["conflicts_with", "yields_to"],
+          "additionalProperties": false,
+          "properties": {
+            "conflicts_with": {"type": "array", "items": {"type": "string"}},
+            "yields_to": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "evidence_refs": {"type": "array", "items": {"type": "string"}},
+        "version": {"type": "string", "minLength": 1},
+        "source_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    }
+  }
+}

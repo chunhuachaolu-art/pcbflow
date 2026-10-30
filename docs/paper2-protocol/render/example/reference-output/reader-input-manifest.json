@@ -1,0 +1,25 @@
+{
+ "artifact": "reader-input-manifest",
+ "declared_date": "2026-09-12",
+ "output_format": "reader-raw JSON: {reader_id, per_image:[{image, flags:[{flag_id, category, confidence, abstain, frame_box_pct, location_evidence}]}], reading_notes}; five-key projection flag_id/category/confidence/abstain/frame_box_pct plus location_evidence free text; frame_box_pct is the box in fractions of the full image frame [x0,y0,x1,y1]",
+ "per_image": [
+  {
+   "image": "bm1-top.png",
+   "sha256": "18582b25ca36f0410d2f5752957396d48758204fa53e4bc4670c7630dfb590de"
+  },
+  {
+   "image": "bm1-bottom.png",
+   "sha256": "1e10abe7751eaa078dba89103e13b8c3b98cfb36fdbe85a4561df7ba28d20b2d"
+  }
+ ],
+ "purpose": "blind-read input contract: one reader instance receives exactly one rendered PNG plus dispatch instructions; zero GT, zero expected-defect hints, zero prior readings",
+ "reader_id": "demo-reader-r1",
+ "render_instrument": {
+  "compose_margin_pt": 40.0,
+  "crop_margin_px": 120,
+  "kicad_cli_version": "10.0.5",
+  "pipeline": "kicad-cli pcb export pdf --mode-single --scale 1 --check-zones --drill-shape-opt 2 [--mirror] -> fitz 40pt compose -> dpi640 rasterize -> row-background board bounds -> +120px crop",
+  "raster_dpi": 640
+ },
+ "tool_rule_v1_2": "readers may only view the original image with a plain Read/view operation (repeatable); any programmatic image processing (crop/zoom/pixel analysis/derived images) is forbidden — tool behavior is pinned (protocol lineage v1.2, inherited by evaluation-protocol-v2 §0.3)"
+}

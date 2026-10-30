@@ -1,0 +1,600 @@
+{
+ "pack": "PCBFLOW-V5-EVIDENCE-R1",
+ "pack_root": "<WORKSPACE>/tools/pcbflow/pcbflow-optimap/v5-release-pack/",
+ "release_stage": "draft-1 (两段式第一段=内部定格版草案；不 tag 不外发；tag 属 C8)",
+ "generated": "2026-10-19",
+ "authority": {
+  "taskbook": "PCBFLOW-V5-EVIDENCE-R1-TASKBOOK-2026-10-19.md",
+  "design": "V5-MILESTONE-DESIGN-R1.md §3.4 (发布件构成+三面板)",
+  "ledger": "V5-RELEASE-REVIEW-R1-REPORT.md §2 (G1..G14, 一切证据路径锚以其为准)",
+  "m0_ruling": "exec-release-review/DISPATCH-LOG.md「M0 批复登记」节（G3 措辞原文）"
+ },
+ "version_anchors": {
+  "executor": {
+   "value": "v5.executor/0.11.0",
+   "source": "route-v5 v5/executor.py:351",
+   "decl": "EXECUTOR_VERSION = \"v5.executor/0.11.0\"  # 0.11.0=EXEC-R8-B：候选出口事件"
+  },
+  "postprocess": {
+   "value": "v5.postprocess/2.1.0",
+   "source": "route-v5 v5/postprocess.py:117",
+   "decl": "POSTPROCESS_VERSION = \"v5.postprocess/2.1.0\""
+  },
+  "route_v5_head": "9389787587b6922dbdc4a2d31d5de58b2ab93f82",
+  "route_v5_porcelain_at_open": [
+   "?? out/hier-route-r1/solver/a6x_run_c1c2.py",
+   "?? out/hier-route-r1/solver/r9e3_run.py",
+   "?? out/hier-route-r1/solver/r9e4_run.py"
+  ],
+  "suite_repo_head": "f0fedf3d7a397a84a40ff97b3b02067342b97d72",
+  "suite_repo_write_face_at_open": [
+   "M tools/pcbflow/baseline.json",
+   "M tools/pcbflow/pcbflow-optimap/exec-r5/DISPATCH-LOG.md"
+  ]
+ },
+ "upstream_inputs": [
+  {
+   "id": "S01_design",
+   "path": "<WORKSPACE>/tools/pcbflow/pcbflow-optimap/exec-release-review/packages/V5-MILESTONE-DESIGN-R1.md",
+   "bytes": 22123,
+   "sha256": "b364732c0119e24d7598955ee41065f4c8534dbec0c43f2950309f22ce4a7ba4",
+   "note": "设计件正本（§3.4 发布件构成+三面板定义）"
+  },
+  {
+   "id": "S02_ledger_report",
+   "path": "<WORKSPACE>/tools/pcbflow/pcbflow-optimap/exec-release-review/packages/V5-RELEASE-REVIEW-R1-REPORT.md",
+   "bytes": 21014,
+   "sha256": "2354aee48e5bd80b54ed8dfe458af13bfae818a720c1bf10381d759860879724",
+   "note": "差距台账正本（§2 G1..G14 证据锚基准）"
+  },
+  {
+   "id": "S03_m0_dispatch_log",
+   "path": "<WORKSPACE>/tools/pcbflow/pcbflow-optimap/exec-release-review/DISPATCH-LOG.md",
+   "bytes": 9331,
+   "sha256": "86bf8c225e38c3138f7ad6d69e2275a56f721b91cc8424c1de8e33a1c27f5eaf",
+   "note": "M0 批复登记所在台账（G3 裁决语义原文）"
+  },
+  {
+   "id": "S04_pyfix_report",
+   "path": "<WORKSPACE>/tools/pcbflow/pcbflow-optimap/exec-pyfix/packages/EXEC-PYFIX-R1-REPORT.md",
+   "bytes": 9654,
+   "sha256": "a1d7065d74b3cc06ba0d5bc07366eddfe720d158d3d345c36ae367f65e79164d",
+   "note": "C1 套件面终读（PYFIX-R1 收口）"
+  },
+  {
+   "id": "S05_aeng_r2_report",
+   "path": "<WORKSPACE>/tools/pcbflow/pcbflow-optimap/exec-aeng/packages/EXEC-AENG-R2-REPORT.md",
+   "bytes": 14561,
+   "sha256": "b271209cf64bbc086ecdfd4fde0667538907f212564c3b13142565eace50be12",
+   "note": "C2 A 板终读（AENG-R2 收口）"
+  },
+  {
+   "id": "S06_r9e4_report",
+   "path": "<WORKSPACE>/tools/pcbflow/pcbflow-optimap/exec-r9/packages/EXEC-R9-E4-REPORT.md",
+   "bytes": 19468,
+   "sha256": "6e357ba02b02656ce84d52a722f2a5efd5fb190f803d3ee7421fe71ee24f6c17",
+   "note": "C3 OPT-15 披露面终读（R9-E4 收口）"
+  }
+ ],
+ "disposition_rosters": [
+  {
+   "id": "S07_dispositions_r1",
+   "path": "<ENGINE_ROOT>/out/v5-p5/p5-gate/dispositions-r1-2026-09-28.json",
+   "bytes": 5618,
+   "sha256": "08d3370d10401a5071ceed5b2594f957d96988240af0bad69680521cc9aa2197",
+   "note": "R1 处置名册（10 板=FAILED 3+convert-only 7；失败证据门合规形态）",
+   "n_boards": 10,
+   "boards": [
+    "atmega32u4-breakout",
+    "dc-scm-rot-jumper-card",
+    "m2-pcie-adapter",
+    "om-flexgrid-v4-rigid-pcb",
+    "pmod-bme280",
+    "pmod-i2c24io",
+    "stm32-ds2480-emu",
+    "thunderbolt-pcie-adapter",
+    "tmp108",
+    "usb-gigabit-rev-e"
+   ]
+  },
+  {
+   "id": "S08_dispositions_r2",
+   "path": "<ENGINE_ROOT>/out/v5-p5/p5-gate/dispositions-2026-09-23.json",
+   "bytes": 3346,
+   "sha256": "72c84c34133cc494d48ad94bc7e751a9908e2db2f28a9a8f3dd2b1d9562d8e74",
+   "note": "R2 处置名册（8 板=FAILED 8；历史对照面）",
+   "n_boards": 8,
+   "boards": [
+    "atmega32u4-breakout",
+    "dc-scm-rot-jumper-card",
+    "m2-pcie-adapter",
+    "om-flexgrid-v4-rigid-pcb",
+    "pmod-i2c24io",
+    "stm32-ds2480-emu",
+    "thunderbolt-pcie-adapter",
+    "usb-gigabit-rev-e"
+   ]
+  }
+ ],
+ "scoreboard_and_gates": [
+  {
+   "id": "S09_gate_r1",
+   "path": "<ENGINE_ROOT>/out/v5-p5/p5-gate/r1-2026-09-28b/gate-report.json",
+   "bytes": 19932,
+   "sha256": "db76d7965be43f67b1ec1299accb65c374146969fbef968dd6bd6f8a04ce3736",
+   "note": "R1 gate（判据一/判据二/可布域/名册分母机读源）"
+  },
+  {
+   "id": "S10_gate_r2",
+   "path": "<ENGINE_ROOT>/out/v5-p5/p5-gate/r2-2026-09-24/gate-report.json",
+   "bytes": 18292,
+   "sha256": "03aaf3a0517c5a0bda8d0a3af49de7751b2c252696672de27e371974a6f01ed9",
+   "note": "R2 gate（旧世代历史对照，OPT-01 纪律不得挪用补数）"
+  },
+  {
+   "id": "S11_scoreboard_b",
+   "path": "<ENGINE_ROOT>/out/v5-p5/r1/R1-SCOREBOARD-REBASE-2026-09-28B.json",
+   "bytes": 2373,
+   "sha256": "fe90b8679dbeb3f5564c14464aeb54a3a56b49e6c4344b69a7a87978faefb631",
+   "note": "记分牌 B 版（主值 4/4+并记 4/6+W-D 直读 4/4）"
+  },
+  {
+   "id": "S12_wd_direct",
+   "path": "<ENGINE_ROOT>/out/v5-p5/r1/w6d-g1-direct-read.json",
+   "bytes": 3655,
+   "sha256": "8371a388fd53d81e1e6e95da44115f3b2d82d9809a926214b31cf070d560cdc8",
+   "note": "W-D 重跑面直读（ED-X 呈裁期披露口径 4/4）"
+  },
+  {
+   "id": "S13_s5_01_scoreboard_md",
+   "path": "<WORKSPACE>/tools/pcbflow/pcbflow-optimap/packages/s5/s5-01-scoreboard.md",
+   "bytes": 10541,
+   "sha256": "b06c8e7fae5b015715a3ef80f4dc58a434b204b45b12d39361dcfc6d2db480a3",
+   "note": "S5-01 分母闭合核验报告（board hash 三向闭合 12/12 口径全等）"
+  },
+  {
+   "id": "S14_s5_01_results",
+   "path": "<DATA_ROOT>/tmp/optimap-s5/s5-01/s5-01-results.json",
+   "bytes": 25997,
+   "sha256": "fd095648043691dbfa5da793c236ad52f095ac1bc34b132bd988fa66701147fc",
+   "note": "S5-01 机读结果件（沙箱单副本，随包登记）"
+  }
+ ],
+ "a_board_status": {
+  "final": {
+   "object": "HR1-BOARD-A:orig:baseline（引擎面）",
+   "executor": "v5.executor/0.11.0",
+   "world": "route-v5 HEAD 93897875 (executor 0.11.0 era)",
+   "runs": 2,
+   "five_fields": {
+    "failed_nets": 0,
+    "negotiation_rows": 1434,
+    "ok_nets": 57,
+    "routes": 0,
+    "status": null
+   },
+   "five_field_canonical_sha256": "be49db64d61faab29aec7539d448f874784de2f325f0d3bee58b4c9ae8c619a0",
+   "canonical_recompute_check": true,
+   "walls_s_report_registered": [
+    30843.927,
+    37303.324
+   ],
+   "judges": {
+    "J1": "PASS 双跑五字段字节等",
+    "J2": "PASS_ANCHORED 对 [1434,57,0] 逐位等（跨 0.9.0→0.11.0 世代五字段逐位等，非硬门如实登记）"
+   },
+   "milestone_c2": true
+  },
+  "history_0900_era_anchor": {
+   "source": "EXEC-AENG-R2-REPORT.md §3 锚与历史对照表（R5 A:orig:baseline/probe3 A baseline，executor 0.9.0）",
+   "five_fields": {
+    "negotiation_rows": 1434,
+    "ok_nets": 57,
+    "failed_nets": 0,
+    "routes": 0,
+    "status": null
+   },
+   "walls_s": [
+    40373.034,
+    40373.051,
+    31846.288
+   ]
+  },
+  "artifacts": [
+   {
+    "id": "S21a_aeng_prereg",
+    "path": "<DATA_ROOT>/tmp/optimap-exec-aeng-r2/prereg/PREREG-AENG-R2-FROZEN.md",
+    "bytes": 6393,
+    "sha256": "125507a348bad295f8824da025dd7bf275737337730ac7bd766ebac4278c279e",
+    "note": "prereg 冻结正本（先冻后跑）"
+   },
+   {
+    "id": "S21b_aeng_run1",
+    "path": "<DATA_ROOT>/tmp/optimap-exec-aeng-r2/out/runs/run-1.json",
+    "bytes": 581,
+    "sha256": "323d3e94431c8b155699386b78d421ab6a789f8174eef946b44b6c6e4e859fbe",
+    "note": "run-1 五字段读数件"
+   },
+   {
+    "id": "S21c_aeng_run2",
+    "path": "<DATA_ROOT>/tmp/optimap-exec-aeng-r2/out/runs/run-2.json",
+    "bytes": 582,
+    "sha256": "48cb3056f60d21375f3eac5add0ffd7e077cef3d21fbbe505f4e41e37a0d9851",
+    "note": "run-2 五字段读数件"
+   },
+   {
+    "id": "S21d_aeng_verdict",
+    "path": "<DATA_ROOT>/tmp/optimap-exec-aeng-r2/out/verdict-r2.json",
+    "bytes": 6518,
+    "sha256": "1fd4a34fd57d89edbd212e857fefb9e1494065191dd367164d056a7dd26b5a0a",
+    "note": "判定件（J1/J2/G0 机读）"
+   },
+   {
+    "id": "S21e_aeng_g0",
+    "path": "<DATA_ROOT>/tmp/optimap-exec-aeng-r2/out/g0-r2-verdict.json",
+    "bytes": 990,
+    "sha256": "2edce22e6f19856aadd1bbc40c8fcd6b281f6b8a003b04b45f055ac552161d88",
+    "note": "G0 复核件"
+   },
+   {
+    "id": "S21f_aeng_close_probe",
+    "path": "<DATA_ROOT>/tmp/optimap-exec-aeng-r2/out/close-probe-r2.json",
+    "bytes": 7560,
+    "sha256": "d05841f5e1bccdf00fe4e26cc918d399fbcc73432828c14da96c2bf519d1ce9f",
+    "note": "收尾探盘件"
+   },
+   {
+    "id": "S21g_aeng_engine_window",
+    "path": "<DATA_ROOT>/tmp/optimap-exec-aeng-r2/out/engine-window.json",
+    "bytes": 1640,
+    "sha256": "86bf6e400070a2085ecb8899ec61021603863eb00ca1113af7fa424ff19796fd",
+    "note": "引擎窗件"
+   },
+   {
+    "id": "S21h_aeng_p0_probe",
+    "path": "<DATA_ROOT>/tmp/optimap-exec-aeng-r2/out/p0-probe-r2.json",
+    "bytes": 2845,
+    "sha256": "b20b6e3335da75aa3f2c3ed67ca7b94973ee8a2c0480c44527a1b14ddf65503f",
+    "note": "P0 探盘件"
+   }
+  ]
+ },
+ "judge_qualification_evidence": [
+  {
+   "id": "S15_judge_r7e2_gate",
+   "path": "<WORKSPACE>/tools/pcbflow/out/v4.2-judge-qual-r1/qualification-gate.json",
+   "bytes": 2947,
+   "sha256": "48060e014551bbc4ff7cb76bb82c94adc17440f55a26f8b4a7d66f6bcf3531a6",
+   "note": "R7-E2 qualification gate（all_passed=false：G3/G4 未过=未过门历史件）",
+   "gates": {
+    "G1": true,
+    "G2": true,
+    "G3": false,
+    "G4": false,
+    "G5": true
+   },
+   "all_passed": false
+  },
+  {
+   "id": "S16_judge_r7e2_ledger",
+   "path": "<WORKSPACE>/tools/pcbflow/out/v4.2-judge-qual-r1/ledger.jsonl",
+   "bytes": 48011,
+   "sha256": "df4483b817b098b729e1da7f54b739ee412847092fd216a5322efba8e5b12d6f",
+   "note": "R7-E2 ledger（append-only 审计流）",
+   "lines": 171
+  },
+  {
+   "id": "S17_judge_r7e2_readings",
+   "root": "<WORKSPACE>/tools/pcbflow/out/v4.2-judge-qual-r1/readings",
+   "n_files": 96,
+   "rollup_sha256": "6fe30bef7188745ab5a355719f21227ddfe169a0ceaf4f0245e1ce4829dcf181",
+   "note": "96 基读数=Q/CTR×rep1-3×PIDS16（逐件 sha 见 evidence-manifest.md 附表/沙箱机读件）"
+  },
+  {
+   "id": "S18_judge_r7e3_gate",
+   "path": "<DATA_ROOT>/tmp/optimap-exec-r7-e3/qual-r2/qualification-gate.json",
+   "bytes": 2924,
+   "sha256": "14922bbdaa357b15d8da7c7a917eceada20c00245b2a32d778fb0b70cba388ff",
+   "note": "R7-E3 qual-r2 qualification gate（G1..G5 all_passed=true=judge 转正依据）",
+   "gates": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": true,
+    "G5": true
+   },
+   "all_passed": true,
+   "G1_precision": 0.6585365853658537,
+   "G1_ci95_low": 0.47368421052631576,
+   "G2_abstention": 0.013550135501355014,
+   "schema": "pcbflow.v4_2-jq-qualification-gate/1"
+  },
+  {
+   "id": "S19_judge_r7e3_gate_comparison",
+   "path": "<DATA_ROOT>/tmp/optimap-exec-r7-e3/qual-r2/gate-comparison.json",
+   "bytes": 1524,
+   "sha256": "4f9ca34904bffa72cb5faa718463f700dca88f4b78147c311621cd437a462974",
+   "note": "R1→R2 门对照件（回归核对）",
+   "regression": []
+  },
+  {
+   "id": "S20_judge_r7e3_ledger",
+   "path": "<DATA_ROOT>/tmp/optimap-exec-r7-e3/qual-r2/ledger.jsonl",
+   "bytes": 31070,
+   "sha256": "7b6ea2c09d2932745cc5fe951d644cb03a7ea48ba8b5702b12d54074ce9035fc",
+   "note": "R7-E3 ledger",
+   "lines": 117
+  },
+  {
+   "id": "S20b_judge_r7e3_readings",
+   "root": "<DATA_ROOT>/tmp/optimap-exec-r7-e3/qual-r2/readings",
+   "n_files": 99,
+   "rollup_sha256": "8b0c6dd030d555f3849005d942ad8e0436c7ed4d869c8b7fe11ff926567c2c39",
+   "note": "99 件（96 基读数+3 旁挂 retry 形态）"
+  }
+ ],
+ "suite_face": {
+  "final": {
+   "passed": 3880,
+   "xfailed": 4,
+   "failed": 0,
+   "errors": 0,
+   "skipped": 0,
+   "warnings": 3,
+   "collected": 3884,
+   "duration_s": 2705.38,
+   "exit_code": 0,
+   "window": [
+    "2026-10-17T22:51:15+08:00",
+    "2026-10-17T23:36:22+08:00"
+   ]
+  },
+  "repair_files": [
+   {
+    "id": "S22_suite_baseline_json",
+    "path": "<WORKSPACE>/tools/pcbflow/baseline.json",
+    "bytes": 5961,
+    "sha256": "3cae449203a665f13a9bc2709f4c26b5ee4fc1213f06d81c3ea4da60b1201dbe",
+    "note": "修复①基线件重冻结（total_collected 3572→3884，collect-only 实测）",
+    "report_registered_sha256": "3cae449203a665f13a9bc2709f4c26b5ee4fc1213f06d81c3ea4da60b1201dbe",
+    "recompute_match": true
+   },
+   {
+    "id": "S23_suite_test_v4_2_jq",
+    "path": "<WORKSPACE>/tools/pcbflow/tests/test_v4_2_jq.py",
+    "bytes": 55226,
+    "sha256": "845389da81b21513968c26dae94847fa41e3a5994cd1499e0a215be12cdc355f",
+    "note": "修复②glue 自测断言改认读数既存（存在性+形态校验）",
+    "report_registered_sha256": "845389da81b21513968c26dae94847fa41e3a5994cd1499e0a215be12cdc355f",
+    "recompute_match": true
+   }
+  ],
+  "signoff_anchor": {
+   "file": "<WORKSPACE>/tools/pcbflow/STATUS.md",
+   "L9": "| Rev-C 主轨（⓪–⑥ 编译器闭环） | **DONE**（2026-08-30；production_signoff_ready=false 维持——外部 SI/PI/热/EMC/DFM 与板厂叠层未接） | `NEXT.md`、`PROGRESS.md` |",
+   "L34": "**合入签核四门**（任何批次合入仓库的验收口径；区别于生产签核——`production_signoff_ready=false` 维持，外部 SI/PI/热/EMC/DFM 与板厂叠层未接，见 `out/repair-p5/signoff-gap-checklist-r1.json`）："
+  }
+ },
+ "g3_disclosure_anchors": [
+  {
+   "id": "S26a_v5_taskbook",
+   "path": "<ENGINE_ROOT>/V5.0-DEV-TASKBOOK-2026-09-13.md",
+   "bytes": 44941,
+   "sha256": "417c5976191e78ff5d91292cfe56626e8924fbd33da5a6d5e5bab5a0f66b61b2",
+   "note": "G3 锚①立项验收门原文（§0 :13 ≥5 板 DRC-clean+失败证据门）"
+  },
+  {
+   "id": "S26b_diag",
+   "path": "<WORKSPACE>/tools/pcbflow/pcbflow-optimap/packages/PCBFLOW-OPTI-PKG-DIAG-R1-2026-10-07.md",
+   "bytes": 240737,
+   "sha256": "9b695d735c4a9014332a7b080d3dbc602eb10d60f3fbbf102577103da91f84e3",
+   "note": "G3 锚②DIAG :939/:1024-1031（V5.0 行+七裁+bme280 裁(c)）"
+  },
+  {
+   "id": "S26c_final_roadmap",
+   "path": "<WORKSPACE>/tools/pcbflow/pcbflow-optimap/packages/FINAL-ROADMAP-2026-10-08.md",
+   "bytes": 60760,
+   "sha256": "0d966831237091feec9ec64996a4338853bd488aedd5933411941b211e57bc4d",
+   "note": "G3 锚③FINAL-ROADMAP :308（不能直接补数字）"
+  },
+  {
+   "id": "S26d_mech_verify",
+   "path": "<WORKSPACE>/tools/pcbflow/pcbflow-optimap/packages/MECH-VERIFY-REPORT.md",
+   "bytes": 99843,
+   "sha256": "1c6c714e396ae128b88981466258f2ab047543c2b0fe17a3490fe7072b11a823",
+   "note": "G3 锚④MECH-VERIFY :97（判据二 4/5 重算=台账一致）"
+  }
+ ],
+ "reading_binding_table": [
+  {
+   "reading": "判据一（原口径）n_sat vs require 5 = 4/5（并记=SCOREBOARD-B 4/4 主值+4/6 六板全量）",
+   "value": {
+    "n_sat": 4,
+    "require": 5,
+    "pass": false
+   },
+   "evidence": "S09 g1.criterion_1_sat_ge_5 + S11 calibers + S13 §3.2 口径对照 12/12",
+   "binding": {
+    "executor": "v5.executor/0.8.0（评估器）",
+    "world": "executor 0.8.0(V5-R1 Steiner 拓扑换版)/route_check 0.4.1(ED-2 PTH union 修复，09-26 R-A)/kicad_export 0.5.0(ED-X 修复批，09-27)（R1 世界产物树；W-D 四板=W-D 重跑+ED-X 修复批 check,export,drc 补跑面，其余板按各自落盘时点；7 块已处置 board-inherent 板 R1 未重跑=convert-only 形态）",
+    "board": "gate 17 板集（SAT 4：badgeleds-do-electronics/pmod-crypto/thatmicpre-v2/thin-pod）",
+    "schema": "build_p5_gate.py G1-G5（r1-2026-09-28b gate-report.json）",
+    "candidate_hash": "A_LAYER_PREREG 24 板 sha256（route-v5 tools/p5_holdout_ledger.py:51；S5-01 三向核验 17/17 全等=board.json.source_sha256↔prereg↔源 kicad_pcb 实算）"
+   }
+  },
+  {
+   "reading": "判据二干净板（微段豁免后）= 4/5",
+   "value": {
+    "n_clean": 4,
+    "require": 5,
+    "pass": false,
+    "genuine_outstanding": 0,
+    "microseg_exempt_total": 6
+   },
+   "evidence": "S09 g1.criterion_2_zero_violation + S26d :97 重算一致",
+   "binding": {
+    "executor": "v5.executor/0.8.0（评估器）",
+    "world": "executor 0.8.0(V5-R1 Steiner 拓扑换版)/route_check 0.4.1(ED-2 PTH union 修复，09-26 R-A)/kicad_export 0.5.0(ED-X 修复批，09-27)（R1 世界产物树；W-D 四板=W-D 重跑+ED-X 修复批 check,export,drc 补跑面，其余板按各自落盘时点；7 块已处置 board-inherent 板 R1 未重跑=convert-only 形态）",
+    "board": "gate 17 板集（干净板 4，同判据一 SAT 名单）",
+    "schema": "criterion_2_zero_violation（微段豁免类 track_dangling<0.06mm 计入豁免）",
+    "candidate_hash": "A_LAYER_PREREG 24 板 sha256（route-v5 tools/p5_holdout_ledger.py:51；S5-01 三向核验 17/17 全等=board.json.source_sha256↔prereg↔源 kicad_pcb 实算）"
+   }
+  },
+  {
+   "reading": "R1 可布域（(c) 豁免后）SAT 主值 = 4/4",
+   "value": {
+    "numerator": 4,
+    "denominator": 4,
+    "pass": true
+   },
+   "evidence": "S11 calibers[0]（主值）",
+   "binding": {
+    "executor": "v5.executor/0.8.0（评估器）",
+    "world": "executor 0.8.0(V5-R1 Steiner 拓扑换版)/route_check 0.4.1(ED-2 PTH union 修复，09-26 R-A)/kicad_export 0.5.0(ED-X 修复批，09-27)（R1 世界产物树；W-D 四板=W-D 重跑+ED-X 修复批 check,export,drc 补跑面，其余板按各自落盘时点；7 块已处置 board-inherent 板 R1 未重跑=convert-only 形态）",
+    "board": "17−弃3−名册10=4（域内零 FAILED）",
+    "schema": "R1-SCOREBOARD-REBASE-2026-09-28B calibers",
+    "candidate_hash": "S07 名册 10 板 sha=08d3370d10401a50…"
+   }
+  },
+  {
+   "reading": "R1 六板全量口径并记 = 4/6",
+   "value": {
+    "numerator": 4,
+    "denominator": 6,
+    "failed_in_domain": [
+     "pmod-bme280",
+     "tmp108"
+    ]
+   },
+   "evidence": "S11 calibers[1]",
+   "binding": {
+    "executor": "v5.executor/0.8.0（评估器）",
+    "world": "executor 0.8.0(V5-R1 Steiner 拓扑换版)/route_check 0.4.1(ED-2 PTH union 修复，09-26 R-A)/kicad_export 0.5.0(ED-X 修复批，09-27)（R1 世界产物树；W-D 四板=W-D 重跑+ED-X 修复批 check,export,drc 补跑面，其余板按各自落盘时点；7 块已处置 board-inherent 板 R1 未重跑=convert-only 形态）",
+    "board": "17−弃3−固有8=6（bme280+tmp108 留分母计 FAILED）",
+    "schema": "R1-SCOREBOARD-REBASE-2026-09-28B calibers",
+    "candidate_hash": "A_LAYER_PREREG 24 板 sha256（route-v5 tools/p5_holdout_ledger.py:51；S5-01 三向核验 17/17 全等=board.json.source_sha256↔prereg↔源 kicad_pcb 实算）"
+   }
+  },
+  {
+   "reading": "W-D 重跑面直读 = 4/4",
+   "value": {
+    "n_sat": 4,
+    "denominator": 4
+   },
+   "evidence": "S12（ED-X 呈裁期披露口径）",
+   "binding": {
+    "executor": "v5.executor/0.8.0（评估器）",
+    "world": "executor 0.8.0(V5-R1 Steiner 拓扑换版)/route_check 0.4.1(ED-2 PTH union 修复，09-26 R-A)/kicad_export 0.5.0(ED-X 修复批，09-27)（R1 世界产物树；W-D 四板=W-D 重跑+ED-X 修复批 check,export,drc 补跑面，其余板按各自落盘时点；7 块已处置 board-inherent 板 R1 未重跑=convert-only 形态）（W-D 四板=W-D 重跑+ED-X 修复批补跑面）",
+    "board": "W-D 四板",
+    "schema": "全端点连通口径 route_check 0.4.1（plated 孔筒连通计入）",
+    "candidate_hash": "A_LAYER_PREREG 24 板 sha256（route-v5 tools/p5_holdout_ledger.py:51；S5-01 三向核验 17/17 全等=board.json.source_sha256↔prereg↔源 kicad_pcb 实算）"
+   }
+  },
+  {
+   "reading": "R2 可布域 SAT = 6/6（历史对照，不外推）",
+   "value": {
+    "n_sat": 6,
+    "denominator": 6,
+    "pass": true
+   },
+   "evidence": "S10（09-23 旧引擎世代读数；OPT-01 纪律降历史对照）",
+   "binding": {
+    "executor": "v5.executor/0.7.0（评估器）",
+    "world": "executor 0.5.0(+R1/NUMBA 性能件)/route_check 0.3.0/drc 0.2.0/run_p5_board 0.4.0/kicad_export 0.4.0",
+    "board": "17−弃3−名册8=6",
+    "schema": "build_p5_gate.py G1-G5（r2-2026-09-24 gate-report.json）",
+    "candidate_hash": "S08 名册 8 板 sha=72c84c34133cc494…"
+   }
+  },
+  {
+   "reading": "套件全量 = 3884 collected = 3880 passed + 4 xfailed，0F/0E，EXIT=0",
+   "value": {
+    "passed": 3880,
+    "xfailed": 4,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "warnings": 3,
+    "collected": 3884,
+    "duration_s": 2705.38,
+    "exit_code": 0,
+    "window": [
+     "2026-10-17T22:51:15+08:00",
+     "2026-10-17T23:36:22+08:00"
+    ]
+   },
+   "evidence": "S04 §3 全量双照+§6 机器 JSON（本批复算两修复件 sha 与登记值逐位同）",
+   "binding": {
+    "executor": "v5.postprocess/2.1.0（套件内 postprocess 线）",
+    "world": "套件仓（workspace）HEAD=f0fedf3d7a397a84a40ff97b3b02067342b97d72；pytest.ini 口径 cwd=tools/pcbflow",
+    "board": "n/a（套件面，无板）",
+    "schema": "pytest collect/断言口径+baseline.json total_collected=3884",
+    "candidate_hash": "修复件 sha=3cae449203a665f1… / 845389da81b21513…（本批复算一致）"
+   }
+  },
+  {
+   "reading": "A 板（HR1-BOARD-A）orig 引擎面五字段双跑",
+   "value": {
+    "five_fields": {
+     "failed_nets": 0,
+     "negotiation_rows": 1434,
+     "ok_nets": 57,
+     "routes": 0,
+     "status": null
+    },
+    "canonical_sha256": "be49db64d61faab29aec7539d448f874784de2f325f0d3bee58b4c9ae8c619a0",
+    "walls_s": [
+     30843.927,
+     37303.324
+    ]
+   },
+   "evidence": "S05 §0/§3 + S21b/S21c/S21d（J1 双跑字节等；J2 对 0.9.0 锚逐位等）",
+   "binding": {
+    "executor": "v5.executor/0.11.0",
+    "world": "route-v5 HEAD 93897875 (executor 0.11.0 era)",
+    "board": "HR1-BOARD-A:orig:baseline（恰 2 跑）",
+    "schema": "五字段 canonical（AENG-R2 prereg §2 冻结定义；wall 剔除门沿 A6X/R9-E3 先例）",
+    "candidate_hash": "five_field_canonical_sha256=be49db64d61faab29aec7539d448f874784de2f325f0d3bee58b4c9ae8c619a0"
+   }
+  },
+  {
+   "reading": "judge qualification G1..G5 = all_passed=true（+judge 线 sign-off=false 维持）",
+   "value": {
+    "all_passed": true,
+    "gates": {
+     "G1": true,
+     "G2": true,
+     "G3": true,
+     "G4": true,
+     "G5": true
+    },
+    "G1_precision": 0.6585365853658537,
+    "G1_ci95_low": 0.47368421052631576,
+    "G2_abstention_rate": 0.013550135501355014
+   },
+   "evidence": "S18（qual-r2）+S19（对照零回归）+S15（R7-E2 未过门历史件 all_passed=false）",
+   "binding": {
+    "executor": "n/a（模型判读面，非引擎）",
+    "world": "R7-E3 qual-r2 会话（<DATA_ROOT>/tmp/optimap-exec-r7-e3/qual-r2/）",
+    "board": "Q/CTR 两臂×rep1-3×PIDS16（R7-E2 96 基读数+S18 根 99 件 rollup）",
+    "schema": "pcbflow.v4_2-jq-qualification-gate/1（PREREG §3.10 冻结值）",
+    "candidate_hash": "qualification-gate.json sha=14922bbdaa357b15…；readings rollup=8b0c6dd030d555f3…"
+   }
+  },
+  {
+   "reading": "production sign-off = false（L2 面，永久门外）",
+   "value": {
+    "production_signoff_ready": false
+   },
+   "evidence": "S24 STATUS.md:9/:34（外部 SI/PI/热/EMC/DFM+板厂叠层未接）",
+   "binding": {
+    "executor": "n/a",
+    "world": "V2 层次二线从未启动面（DIAG §1.1）",
+    "board": "n/a",
+    "schema": "W STATUS.md 合入验收边界（≠生产签核）",
+    "candidate_hash": "out/repair-p5/signoff-gap-checklist-r1.json（STATUS.md:34 锚）"
+   }
+  }
+ ],
+ "not_available_disclosure": "本包无 not_available 项：A 板读数已归位（AENG-R2）、套件 0F（PYFIX-R1）、judge 证据收编齐；唯 R2 可布域 6/6 属 09-23 旧引擎世代历史对照（非现状主张）。"
+}

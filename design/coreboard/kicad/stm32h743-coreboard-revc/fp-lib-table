@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "coreboard")(type "KiCad")(uri "${KIPRJMOD}/coreboard.pretty")(options "")(descr ""))
+)

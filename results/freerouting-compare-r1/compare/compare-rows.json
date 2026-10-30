@@ -1,0 +1,223 @@
+{
+ "schema": "freerouting-compare-r1/compare-rows/1",
+ "date": "2026-10-23",
+ "method": "P0 freerouting-baseline-r1 chain reused as-is (strip->DSN->Freerouting 2.4.1 -mt 1 ->SES->kicad-cli DRC->recompute)",
+ "v5_source": "rollouts.jsonl batches e2-gate1/e2-gate-base/e2-retro (zero new V5 runs)",
+ "boards": {
+  "z2amiller_sensorboard_programmer": {
+   "tier": "T1",
+   "nets_kicad": 11,
+   "single_pad_nets_kicad": [
+    "+5V",
+    "Net-(P1-Pad2)"
+   ],
+   "freerouting": {
+    "status": "DONE",
+    "completion_netlevel": 1.0,
+    "routed_nets": 11,
+    "nets": 11,
+    "unconn_items_drc": 0,
+    "console_items": {
+     "unrouted_items_start": 15,
+     "unrouted_items_final": 0,
+     "violations_reported_final": 0
+    },
+    "len_mm": 149.482,
+    "via": 1,
+    "track_count": 51,
+    "wall_s": 11.603,
+    "cpu_s": 6.922,
+    "attempt": 3,
+    "timed_out": false,
+    "drc_violations_total": 24
+   },
+   "v5": {
+    "guide": {
+     "batch": "e2-gate-base",
+     "run_seq": 447,
+     "arm": "guide",
+     "genome": null,
+     "completion": 0.818182,
+     "fully_routed_nets": 9,
+     "signal_nets": 11,
+     "len_mm": 166.781,
+     "via": 16,
+     "wall_s": 3.953,
+     "drc_v5": 0,
+     "verdict": "ROUTED"
+    },
+    "policy": {
+     "batch": "e2-gate1",
+     "run_seq": 452,
+     "arm": "policy",
+     "genome": "S2-pe1-risk-late",
+     "completion": 0.818182,
+     "fully_routed_nets": 9,
+     "signal_nets": 11,
+     "len_mm": 162.083,
+     "via": 12,
+     "wall_s": 498.27,
+     "drc_v5": 0,
+     "verdict": "ROUTED"
+    }
+   },
+   "v5_degenerate_partitions": 2
+  },
+  "kitspace_Arduino_uno_sheild": {
+   "tier": "T2",
+   "nets_kicad": 34,
+   "single_pad_nets_kicad": [
+    "Net-(A1-Pad31)",
+    "Net-(J3-Pad6)",
+    "Net-(J4-Pad6)",
+    "Net-(J5-Pad6)"
+   ],
+   "freerouting": {
+    "status": "DONE",
+    "completion_netlevel": 1.0,
+    "routed_nets": 34,
+    "nets": 34,
+    "unconn_items_drc": 0,
+    "console_items": {
+     "unrouted_items_start": 48,
+     "unrouted_items_final": 0,
+     "violations_reported_final": 0
+    },
+    "len_mm": 1017.951,
+    "via": 8,
+    "track_count": 187,
+    "wall_s": 12.208,
+    "cpu_s": 41.391,
+    "attempt": 1,
+    "timed_out": false,
+    "drc_violations_total": 26
+   },
+   "v5": {
+    "guide": {
+     "batch": "e2-gate-base",
+     "run_seq": 449,
+     "arm": "guide",
+     "genome": null,
+     "completion": 0.882353,
+     "fully_routed_nets": 30,
+     "signal_nets": 34,
+     "len_mm": 1150.816,
+     "via": 120,
+     "wall_s": 9958.986,
+     "drc_v5": 0,
+     "verdict": "ROUTED"
+    },
+    "policy": {
+     "batch": "e2-gate1",
+     "run_seq": 454,
+     "arm": "policy",
+     "genome": "S2-pe1-risk-late",
+     "completion": 0.882353,
+     "fully_routed_nets": 30,
+     "signal_nets": 34,
+     "len_mm": 1111.59,
+     "via": 108,
+     "wall_s": 8192.438,
+     "drc_v5": 0,
+     "verdict": "ROUTED"
+    }
+   },
+   "v5_degenerate_partitions": 4
+  },
+  "TTNEnschedeMote_ArduinoNanoRN2483": {
+   "tier": "T2",
+   "nets_kicad": 30,
+   "single_pad_nets_kicad": [],
+   "freerouting": {
+    "status": "DONE",
+    "completion_netlevel": 1.0,
+    "routed_nets": 30,
+    "nets": 30,
+    "unconn_items_drc": 0,
+    "console_items": {
+     "unrouted_items_start": 52,
+     "unrouted_items_final": 0,
+     "violations_reported_final": 0
+    },
+    "len_mm": 506.478,
+    "via": 12,
+    "track_count": 127,
+    "wall_s": 11.217,
+    "cpu_s": 12.406,
+    "attempt": 1,
+    "timed_out": false,
+    "drc_violations_total": 60
+   },
+   "v5": {
+    "policy_eq_guide_single_reading": {
+     "batch": "e2-retro",
+     "run_seq": 460,
+     "arm": "policy-ck1",
+     "genome": "S2-pe1-risk-late",
+     "completion": 1.0,
+     "fully_routed_nets": 30,
+     "signal_nets": 30,
+     "len_mm": 499.26,
+     "via": 40,
+     "wall_s": 7.982,
+     "drc_v5": 0,
+     "verdict": "ROUTED"
+    },
+    "guide": null,
+    "policy": null,
+    "note": "retro-final-report.json policy_eq_guide=true: policy order == guide order; e2-retro/460 serves both columns"
+   },
+   "v5_degenerate_partitions": 0
+  },
+  "kitspace_Lcr_addon": {
+   "tier": "T2",
+   "nets_kicad": 21,
+   "single_pad_nets_kicad": [
+    "Net-(U3-Pad4)"
+   ],
+   "freerouting": {
+    "status": "FAILED-strip-dsn",
+    "root_cause": "duplicate REF** footprint references (2x MountingHole) break pcbnew.ExportSpecctraDSN (bisected: dropping either one alone restores export; full board and no-target/dims variants fail)"
+   },
+   "freerouting_refix_variant": {
+    "status": "DONE",
+    "disclosure": "reference reannotation MOUNT1/MOUNT2 on stripped COPY; geometry untouched; NOT merged into main table verdict",
+    "completion_netlevel": 1.0,
+    "routed_nets": 21,
+    "nets": 21,
+    "unconn_items_drc": 0,
+    "console_items": {
+     "unrouted_items_start": 50,
+     "unrouted_items_final": 0,
+     "violations_reported_final": 0
+    },
+    "len_mm": 818.263,
+    "via": 1,
+    "track_count": 181,
+    "wall_s": 10.672,
+    "cpu_s": 14.391,
+    "attempt": 1,
+    "drc_violations_total": 15
+   },
+   "v5": {
+    "guide": null,
+    "policy": {
+     "batch": "e2-retro",
+     "run_seq": 462,
+     "arm": "policy-ck1",
+     "genome": "S2-pe1-risk-late",
+     "completion": 0.952381,
+     "fully_routed_nets": 20,
+     "signal_nets": 21,
+     "len_mm": 880.892,
+     "via": 44,
+     "wall_s": 43.609,
+     "drc_v5": 0,
+     "verdict": "ROUTED"
+    },
+    "note": "policy-only (no guide-arm reading; e2-retro/459 is an ERROR record)"
+   },
+   "v5_degenerate_partitions": 1
+  }
+ }
+}

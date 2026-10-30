@@ -1,0 +1,286 @@
+{
+ "lane": "CANVAS-TOOLCHAIN Lane-QA（主审裁定 D-1 采纳件）",
+ "purpose": "KiCad qa DRC 三方对账夹具批：KiCad 期望值×kicad-cli×v5.drc 画板侧",
+ "source_repository": "https://gitlab.com/kicad/code/kicad",
+ "source_path_prefix": "qa/data/pcbnew/",
+ "pinned_commit": "3d83cce19567965def8a8397381f067e1a2e77ff",
+ "download_channel": "GitLab API v4 repository/files/<path>/raw?ref=<pinned commit>",
+ "kicad_local": "KiCad 10.0.5 (F:/kicad/bin) 预检载入通过",
+ "boards_passing_precheck": [
+  "drc_arc_arc_edge_clearance",
+  "issue12609",
+  "issue14008",
+  "issue18203",
+  "issue18839",
+  "issue22267",
+  "issue23469",
+  "issue24355",
+  "keepout_disallow",
+  "multinetclasses_drc"
+ ],
+ "boards_excluded_precheck": [
+  {
+   "board": "issue24541",
+   "reason_code": "LOAD_NONE",
+   "detail": ".kicad_pcb 文件格式版本 > KiCad 10.0.5 支持上限（master dev 格式），pcbnew.LoadBoard 返回 None / kicad-cli 无法解析"
+  },
+  {
+   "board": "issue24799",
+   "reason_code": "LOAD_NONE",
+   "detail": ".kicad_pcb 文件格式版本 > KiCad 10.0.5 支持上限（master dev 格式），pcbnew.LoadBoard 返回 None / kicad-cli 无法解析"
+  },
+  {
+   "board": "keepout_no_clearance",
+   "reason_code": "LOAD_NONE",
+   "detail": ".kicad_pcb 文件格式版本 > KiCad 10.0.5 支持上限（master dev 格式），pcbnew.LoadBoard 返回 None / kicad-cli 无法解析"
+  }
+ ],
+ "license_declaration": [
+  "KiCad 源码库数据（.kicad_pcb/.kicad_pro/.kicad_dru）= GPL 许可物，本仓使用形态=",
+  "run-only：逐字节 sha256 钉死、零改写、零衍生改写；期望值断言转录=数据事实引用",
+  "（断言原文摘录+源文件行号），非代码级复制。本清单进 D-5 GPL 审计清单。"
+ ],
+ "expectation_sources": {
+  "drc_arc_arc_edge_clearance": {
+   "source_file": "qa/tests/pcbnew/drc/test_drc_arc_arc_edge_clearance.cpp",
+   "assertions": [
+    {
+     "lines": "80",
+     "quote": "BOOST_CHECK_GE( edgeViolations.size(), 1u );"
+    },
+    {
+     "lines": "102-103",
+     "quote": "BOOST_CHECK_MESSAGE( trackHit && cutoutHit, \"Expected at least one DRCE_EDGE_CLEARANCE violation between the F.Cu track arc and the Edge.Cuts left cutout arc\" );"
+    }
+   ]
+  },
+  "issue12609": {
+   "source_file": "qa/tests/pcbnew/drc/test_drc_regressions.cpp",
+   "assertions": [
+    {
+     "lines": "59,100-104",
+     "quote": "\"issue12609\",  // Arc collison edge case ... if( violations.empty() ) { BOOST_CHECK_EQUAL( 1, 1 ); } else { BOOST_ERROR( ... \"DRC regression: %s ... violations found (expected 0)\" ) }"
+    }
+   ]
+  },
+  "issue14008": {
+   "source_file": "qa/tests/pcbnew/drc/test_drc_regressions.cpp",
+   "assertions": [
+    {
+     "lines": "62,100-104",
+     "quote": "\"issue14008\",  // Net-tie clearance error ... violations found (expected 0)"
+    }
+   ]
+  },
+  "issue18203": {
+   "source_file": "qa/tests/pcbnew/drc/test_drc_regressions.cpp",
+   "assertions": [
+    {
+     "lines": "64,100-104",
+     "quote": "\"issue18203\",  // DRC error due to colliding arc and circle ... violations found (expected 0)"
+    }
+   ]
+  },
+  "issue18839": {
+   "source_file": "qa/tests/pcbnew/drc/test_drc_regressions.cpp",
+   "assertions": [
+    {
+     "lines": "65,100-104",
+     "quote": "\"issue18839\",  // False positive board edge clearance between concentric arcs ... violations found (expected 0)"
+    }
+   ]
+  },
+  "issue22267": {
+   "source_file": "qa/tests/pcbnew/drc/test_drc_regressions.cpp",
+   "assertions": [
+    {
+     "lines": "389",
+     "quote": "BOOST_REQUIRE_MESSAGE( !violations.empty(), \"Expected at least one hole-to-hole violation\" );"
+    }
+   ]
+  },
+  "issue23469": {
+   "source_file": "qa/tests/pcbnew/drc/test_drc_issue23469.cpp",
+   "assertions": [
+    {
+     "lines": "126",
+     "quote": "BOOST_CHECK_EQUAL( countViolationsForRef( edgeViolations, wxString( \"J1\" ), false ), 0 );"
+    },
+    {
+     "lines": "131",
+     "quote": "BOOST_CHECK_EQUAL( countViolationsForRef( holeViolations, wxString( \"J1\" ), true ), 0 );"
+    },
+    {
+     "lines": "153",
+     "quote": "BOOST_REQUIRE_GT( countViolationsForRef( edgeViolations, wxString( \"J1\" ), false ), 0 );"
+    },
+    {
+     "lines": "154",
+     "quote": "BOOST_REQUIRE_GT( countViolationsForRef( holeViolations, wxString( \"J1\" ), true ), 0 );"
+    }
+   ]
+  },
+  "issue24355": {
+   "source_file": "qa/tests/pcbnew/drc/test_drc_hole_clearance_issue24355.cpp",
+   "assertions": [
+    {
+     "lines": "142",
+     "quote": "BOOST_CHECK_EQUAL( holeClearanceCount, 2 );"
+    }
+   ]
+  },
+  "keepout_disallow": {
+   "source_file": "qa/tests/pcbnew/drc/test_drc_keepout_disallow.cpp",
+   "assertions": [
+    {
+     "lines": "100-102",
+     "quote": "BOOST_CHECK_MESSAGE( viaViolations == 2, ... )"
+    },
+    {
+     "lines": "103-105",
+     "quote": "BOOST_CHECK_MESSAGE( trackViolations == 1, ... )"
+    },
+    {
+     "lines": "106-108",
+     "quote": "BOOST_CHECK_MESSAGE( violations.size() == 3, \"Expected exactly 3 DRCE_ALLOWED_ITEMS violations\" )"
+    }
+   ]
+  },
+  "multinetclasses_drc": {
+   "source_file": "qa/tests/pcbnew/drc/test_drc_multi_netclasses.cpp",
+   "assertions": [
+    {
+     "lines": "50,86-105",
+     "quote": "std::vector<std::pair<wxString, int>> tests = { { \"multinetclasses_drc\", 2 } }; ... if( violations.size() == test.second ) {...} else { BOOST_ERROR( ... \"violations found %d expected %d\" ) }"
+    }
+   ]
+  }
+ },
+ "files": {
+  "drc_arc_arc_edge_clearance/drc_arc_arc_edge_clearance.kicad_pcb": {
+   "sha256": "74a577173d7a73a5f4859ff5e4cf450ddae771986252f7e0b3e57c7866c972d0",
+   "bytes": 4410
+  },
+  "drc_arc_arc_edge_clearance/drc_arc_arc_edge_clearance.kicad_pro": {
+   "sha256": "3ea35d3c9bb20d7c4f2124d4b92208f1ac7a6057ebc595dcf5a9d8c62f717b7e",
+   "bytes": 16562
+  },
+  "expectations/drc_arc_arc_edge_clearance.json": {
+   "sha256": "3fcd3da1f4a1071f67bfe32e2d8f0683fce44fc818d2bd490c42f8d3fbe07765",
+   "bytes": 1097
+  },
+  "expectations/issue12609.json": {
+   "sha256": "d3d9f57a41c1d87be35e94d3ccf38732abe3db155a85471a53c2ef8839482f8b",
+   "bytes": 1024
+  },
+  "expectations/issue14008.json": {
+   "sha256": "d1fc3f11f43c5ab43e1f778c67a89246d3ae4bbfe8fe7648e5e4d396d01579b2",
+   "bytes": 925
+  },
+  "expectations/issue18203.json": {
+   "sha256": "64edb2486e1537cde3a70aaefb17c71da56be3bace8ab230c74742f8628d99af",
+   "bytes": 933
+  },
+  "expectations/issue18839.json": {
+   "sha256": "ba9a04ed0137308db1892b31cd3b591258d44229914650957d1a62b05e37134b",
+   "bytes": 975
+  },
+  "expectations/issue22267.json": {
+   "sha256": "f672b140ed22536c6604aaa4b846f2f250c9dd10f6993616b19ef0806f6f5d7b",
+   "bytes": 861
+  },
+  "expectations/issue23469.json": {
+   "sha256": "5324de94775a1ce439d21bc7cf5bb1d91737d84dfd9faf3cc2bfb48f037c7d60",
+   "bytes": 2162
+  },
+  "expectations/issue24355.json": {
+   "sha256": "86e232b800122471ae3258d533075e6ea70cde4cc308f87fafd64821f81dd02c",
+   "bytes": 1039
+  },
+  "expectations/keepout_disallow.json": {
+   "sha256": "bbc5d72b5a73df68f846ebf6860551b1d3bdd9cdc1cf0ba7962f8b95ca4a7cb8",
+   "bytes": 1359
+  },
+  "expectations/multinetclasses_drc.json": {
+   "sha256": "3757a63c8715823b5c544762fbf89f2e42c3c2001a5048150e19868f213bb975",
+   "bytes": 1262
+  },
+  "issue12609/issue12609.kicad_pcb": {
+   "sha256": "db4a8fb26d1e72824d41a9ba4a8a43f7bd660fbc217834c41e999daa2ed662d1",
+   "bytes": 327569
+  },
+  "issue12609/issue12609.kicad_pro": {
+   "sha256": "f55575ce8acc6a74588b12963e1563ef3690f233725041a80373f0a85c7e48f2",
+   "bytes": 12344
+  },
+  "issue14008/issue14008.kicad_pcb": {
+   "sha256": "5a42cd842adb4b63c83add9d80ff421165e4d722012fd18e6fb17fb29fd8ca3e",
+   "bytes": 25879
+  },
+  "issue14008/issue14008.kicad_pro": {
+   "sha256": "e91e0d2c815eba4e5f3fc8c1c3efbe69979d409625d95a8e9cf80309a8aed830",
+   "bytes": 13968
+  },
+  "issue18203/issue18203.kicad_pcb": {
+   "sha256": "662f173e22c3cde814fea362a432ffbed9516b22849d90120a9395ea9378a8f0",
+   "bytes": 5065
+  },
+  "issue18839/issue18839.kicad_pcb": {
+   "sha256": "aedb254bacac8f68bbb5be86e3bfb302a78e0a1fab2aeecc04c2d0569718ec20",
+   "bytes": 850
+  },
+  "issue18839/issue18839.kicad_pro": {
+   "sha256": "ac53ba4176f877db7335523e6277a13d2b93e73db8d0f1a1ad1c35ee1b959f69",
+   "bytes": 922
+  },
+  "issue22267/issue22267.kicad_pcb": {
+   "sha256": "20ec6d2dd062493420983cf51094ab53928ef3b8187c3cea0886e064b73818f9",
+   "bytes": 231023
+  },
+  "issue22267/issue22267.kicad_pro": {
+   "sha256": "c1c4fcd7a72e65be3d58c4cd7b6d8f4d18391b8ec7e82239415099db21e5fd1d",
+   "bytes": 16013
+  },
+  "issue23469/issue23469.kicad_dru": {
+   "sha256": "f0e7ed8057a9c3fd84f63079b3f0b0720d05eadfdf954d86d143eef85b7893a9",
+   "bytes": 311
+  },
+  "issue23469/issue23469.kicad_pcb": {
+   "sha256": "5d88c531cda9d986c9af8948ec5373a49a73a01c336d54ae739c1a9110a1fb79",
+   "bytes": 98995
+  },
+  "issue23469/issue23469.kicad_pro": {
+   "sha256": "aa73c88ccd836d2a03590778a078b3d072b0e9e7aa693334dce81a4ec0172a08",
+   "bytes": 15770
+  },
+  "issue24355/issue24355.kicad_pcb": {
+   "sha256": "d994c7ba4a0549644ff2289356a70bb1507749de2a7dc8739af132f69bf23bbf",
+   "bytes": 3841
+  },
+  "issue24355/issue24355.kicad_pro": {
+   "sha256": "5c1daada76a17ba200b255afeb6dfd0840cc71ea201df2f71c59d7815e894d76",
+   "bytes": 9982
+  },
+  "keepout_disallow/keepout_disallow.kicad_pcb": {
+   "sha256": "1004620092c0ed9b8c316217399c6ce05bd866e471c357066f1928413a1a7309",
+   "bytes": 2496
+  },
+  "keepout_disallow/keepout_disallow.kicad_pro": {
+   "sha256": "37ac9b9b08fec3c1c5633da6795d81b83a8767443b966aa9838123a4f1b44ebd",
+   "bytes": 9226
+  },
+  "multinetclasses_drc/multinetclasses_drc.kicad_dru": {
+   "sha256": "20cd67e49266a7c0c0a2d0644574f74cf6dc3598eafab2f8ca195fca44967b73",
+   "bytes": 350
+  },
+  "multinetclasses_drc/multinetclasses_drc.kicad_pcb": {
+   "sha256": "635cc09e4655e03e13ed234f124819d64344653a37802f26f35f53d54434815d",
+   "bytes": 20634
+  },
+  "multinetclasses_drc/multinetclasses_drc.kicad_pro": {
+   "sha256": "6c9f2ce493939c497439faefebe20abda2032345a4dafb2fc32409ea727bd249",
+   "bytes": 14869
+  }
+ },
+ "v5_declared_surface": "R5 check_clearance / R6 check_keepout / R1 check_width / check_edge_clearance / hole 族（hole_track_blocked/hole_via_blocked/hole_inherent_pairs/check_hole_keepout）——以 v5/drc.py VERSION=v5.drc/0.3.0 为准"
+}

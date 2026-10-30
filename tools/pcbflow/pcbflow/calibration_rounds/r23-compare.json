@@ -1,0 +1,19 @@
+{
+ "domain": "development",
+ "engine_entry": "build_run",
+ "guards": {
+  "no_overwrite": true,
+  "note": "源脚本冻结证据生成器（W-2 红线零触碰）；本配置=委托装载重放",
+  "source_frozen": true
+ },
+ "kind": "compare",
+ "reconcile": {
+  "subtrees": [
+   ""
+  ]
+ },
+ "record_rel": "out/v3-tl2/calibration/calibration-run-r23.json",
+ "round_id": "r23",
+ "schema_version": "pcbflow-calibration-round/1.0",
+ "source_script": "scripts/s82_calibration_r23_compare.py"
+}

@@ -1,0 +1,24 @@
+{
+ "domain": "development",
+ "engine_entry": "build_dev_record",
+ "guards": {
+  "historical_context_only": true,
+  "no_overwrite": true,
+  "source_frozen": true
+ },
+ "kind": "devrecord",
+ "live_sha_context_overrides": {
+  "pcbflow/config.py": "f515c34842521a645145a9f5454a5919274a242e5c8c27c01faf1a4c13e73baf",
+  "pcbflow/cli.py": "0a7380476f86ea3aa72de1982aa9d39e1414b458428d127a43a62d8c775da32e"
+ },
+ "live_sha_context_overrides_basis": "G0 授权变更历史语境回放（anchor-hashes-post-g0.json before 值）：verify 红线在历史语境执行（want==实测=before），record 嵌值=历史值=与盘上冻结件一致；record 其余子树全实测复算",
+ "reconcile": {
+  "subtrees": [
+   ""
+  ]
+ },
+ "record_rel": "out/v3-tl2/calibration/round23-dev-record-v2.json",
+ "round_id": "r23",
+ "schema_version": "pcbflow-calibration-round/1.0",
+ "source_script": "scripts/s83_calibration_r23_devrecord.py"
+}

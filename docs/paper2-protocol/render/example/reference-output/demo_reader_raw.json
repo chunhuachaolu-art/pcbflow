@@ -1,0 +1,124 @@
+{
+ "artifact": "demo_reader_raw",
+ "declared_date": "2026-09-12",
+ "per_image": [
+  {
+   "flags": [
+    {
+     "abstain": true,
+     "category": "other_advisory",
+     "confidence": 0.2,
+     "flag_id": "EXAMPLE-B-001",
+     "frame_box_pct": [
+      0.29,
+      0.44,
+      0.37,
+      0.54
+     ],
+     "location_evidence": "图幅中下部偏左（约 x0.32,y0.48）一处孤立黑色实心圆点，全图仅此一处；该黑点与邻近焊盘环带是否接触无法分辨，黑点性质不明。"
+    },
+    {
+     "abstain": true,
+     "category": "other_advisory",
+     "confidence": 0.3,
+     "flag_id": "EXAMPLE-B-002",
+     "frame_box_pct": [
+      0.5,
+      0.55,
+      0.62,
+      0.66
+     ],
+     "location_evidence": "两相邻焊盘轮廓与走线端点（图幅中部约 x0.55,y0.60 一带）是否真实接触无法负责任地区分。"
+    },
+    {
+     "abstain": true,
+     "category": "other_advisory",
+     "confidence": 0.25,
+     "flag_id": "EXAMPLE-B-003",
+     "frame_box_pct": [
+      0.65,
+      0.25,
+      0.76,
+      0.36
+     ],
+     "location_evidence": "图幅右侧板缘附近（约 x0.70,y0.30）一处异常反光区域，其性质不明，无法排除为关注现象。"
+    },
+    {
+     "abstain": true,
+     "category": "other_advisory",
+     "confidence": 0.2,
+     "flag_id": "EXAMPLE-B-004",
+     "frame_box_pct": [
+      0.4,
+      0.47,
+      0.51,
+      0.57
+     ],
+     "location_evidence": "图幅左下（约 x0.45,y0.52）一段可疑影线，其走向无法追踪确认。"
+    },
+    {
+     "abstain": true,
+     "category": "other_advisory",
+     "confidence": 0.3,
+     "flag_id": "EXAMPLE-B-005",
+     "frame_box_pct": [
+      0.75,
+      0.1,
+      0.86,
+      0.21
+     ],
+     "location_evidence": "图幅右上（约 x0.80,y0.15）一枚黄色图元无法归类，其设计含义无法从图面判断，图层归属无法分辨。"
+    },
+    {
+     "abstain": true,
+     "category": "other_advisory",
+     "confidence": 0.35,
+     "flag_id": "EXAMPLE-B-006",
+     "frame_box_pct": [
+      0.2,
+      0.15,
+      0.32,
+      0.26
+     ],
+     "location_evidence": "顶部丝印文字与焊盘图形叠压（约 x0.25,y0.20 一带），字形辨读受阻。"
+    },
+    {
+     "abstain": true,
+     "category": "other_advisory",
+     "confidence": 0.4,
+     "flag_id": "EXAMPLE-B-007",
+     "frame_box_pct": [
+      0.05,
+      0.8,
+      0.16,
+      0.91
+     ],
+     "location_evidence": "图幅左下角（约 x0.10,y0.85）整体观感异常，无具体可指认对象。"
+    }
+   ],
+   "image": "bm1-top.png"
+  },
+  {
+   "flags": [
+    {
+     "abstain": true,
+     "category": "other_advisory",
+     "confidence": 0.2,
+     "flag_id": "EXAMPLE-B-008",
+     "frame_box_pct": [
+      0.55,
+      0.65,
+      0.66,
+      0.76
+     ],
+     "location_evidence": "板内空区（约 x0.60,y0.70）一处小黑点，全图仅此一处，存在性不明。"
+    }
+   ],
+   "image": "bm1-bottom.png"
+  }
+ ],
+ "reader_id": "demo-reader-r1",
+ "reading_notes": "DEMO (synthetic): reading notes would here describe the independent judgment basis; see the shipped evaluation protocols for the blind-read discipline (protocol v1 §4 preregistration; v2 P2-2 reader blindness).",
+ "synthetic": true,
+ "synthetic_note": "SYNTHETIC format demonstration: every flag below is a hand-written example constructed to exercise the rubric's priority adjudication. This document is NOT model output and NOT the frozen reading of any evaluation round; frozen reader readings are not redistributed with this package."
+}

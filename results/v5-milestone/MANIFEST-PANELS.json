@@ -1,0 +1,294 @@
+{
+ "pack": "PCBFLOW-V5-EVIDENCE-R1",
+ "generated": "2026-10-19",
+ "stage": "draft-1（两段式第一段=内部定格版草案；不 tag 不外发）",
+ "panel_1_opt_six_state": {
+  "counts": {
+   "published": 1,
+   "UNCLOSED": 1,
+   "shadow": 1,
+   "deferred": 1,
+   "partial": 1,
+   "p2_not_started": 3,
+   "engineering_closed": 13
+  },
+  "items": [
+   {
+    "id": "OPT-01",
+    "state": "engineering_closed_accept",
+    "anchor": "EXEC-R1 PASS（OPT-01 重锚纪律=现状读数绑定五锚；本包读数绑定表即其落实）"
+   },
+   {
+    "id": "OPT-02",
+    "state": "engineering_closed_accept",
+    "anchor": "EXEC-R1 PASS"
+   },
+   {
+    "id": "OPT-03",
+    "state": "engineering_closed_accept",
+    "anchor": "EXEC-R1 PASS"
+   },
+   {
+    "id": "OPT-04",
+    "state": "engineering_closed_partial",
+    "anchor": "部分：第一刀 R2+第二刀 R3 落地；残留=第三刀逐案差异数据面（G13 披露）"
+   },
+   {
+    "id": "OPT-05",
+    "state": "engineering_closed_accept",
+    "anchor": "EXEC-R1 A_W_D"
+   },
+   {
+    "id": "OPT-06",
+    "state": "engineering_closed_accept",
+    "anchor": "R4-A（DET 4/4+SEAT 0/4 三重披露）"
+   },
+   {
+    "id": "OPT-07",
+    "state": "engineering_closed_accept",
+    "anchor": "R4-B+R8-B 接线"
+   },
+   {
+    "id": "OPT-08",
+    "state": "engineering_closed_accept_narrow",
+    "anchor": "R8-E2B 工程+R8-E2C 有效性=窄域 1/17 板（诚实窄域答案，零外推）"
+   },
+   {
+    "id": "OPT-09",
+    "state": "engineering_closed_accept",
+    "anchor": "R2+R8-E2A；残留=真实板停线路径未验证跑触发（G13 披露）"
+   },
+   {
+    "id": "OPT-10",
+    "state": "engineering_closed_accept",
+    "anchor": "R2+R3 A1 落地；残留=zone-keepout 接通未做（G13 披露）"
+   },
+   {
+    "id": "OPT-11",
+    "state": "engineering_closed_accept",
+    "anchor": "EXEC-R1（已入库 fbd07742）"
+   },
+   {
+    "id": "OPT-12",
+    "state": "engineering_closed_qualified",
+    "anchor": "R7 未过门→R7-E3 五门 all_passed=true 转正成立+X1 跨族支持 59/60；judge 线 sign-off=false 维持（qualified≠signed-off）"
+   },
+   {
+    "id": "OPT-13",
+    "state": "shadow",
+    "anchor": "R4 G1 裁 shadow 政策+A6X-R1 观察池收档（不作有效性主张）"
+   },
+   {
+    "id": "OPT-14",
+    "state": "deferred_not_started",
+    "anchor": "缓立（用户 2026-10-16 裁③维持；failcert n=2 证据薄；未立项口径披露）"
+   },
+   {
+    "id": "OPT-15",
+    "state": "UNCLOSED",
+    "anchor": "E2C VERDICT published（交付态非项级闭合）+E3 红线+E4 终读（机制复现 TRUE+J2 C 板无害负结果+v1 修正方向挂账）；UNCLOSED 不外推红线维持（G8 更新口径）"
+   },
+   {
+    "id": "OPT-16",
+    "state": "published",
+    "anchor": "唯一走满六态项（planned→…→published，2026-10-08；EXEC-R1 OPT16-LAYOUT-R5-VERDICT sha16 e944fe8f）"
+   },
+   {
+    "id": "OPT-17",
+    "state": "partial",
+    "anchor": "R4 G1 R4C-04：只收 v1/partial；旧报告全量迁移出批未做（G12 披露）"
+   },
+   {
+    "id": "OPT-18",
+    "state": "engineering_closed_accept",
+    "anchor": "R10 全链收官（engineering acceptance；production sign-off 维持 false）"
+   },
+   {
+    "id": "OPT-19",
+    "state": "p2_not_started",
+    "anchor": "P2 远期未启（路线图明示不抢主线）"
+   },
+   {
+    "id": "OPT-20",
+    "state": "p2_not_started",
+    "anchor": "P2 远期未启"
+   },
+   {
+    "id": "OPT-21",
+    "state": "p2_not_started",
+    "anchor": "P2 远期未启"
+   }
+  ],
+  "anchor_basis": "V5-RELEASE-REVIEW-R1-REPORT.md §1.2 六态清单（21 项）+各批收口档案"
+ },
+ "panel_2_gate_readings": {
+  "criterion_1_original_caliber": {
+   "n_sat": 4,
+   "require": 5,
+   "reading": "4/5",
+   "pass": false,
+   "registered_side_by_side": "并记=SCOREBOARD-B 主值 4/4+六板全量 4/6（G3 案 C 结构性豁免口径）"
+  },
+  "criterion_2_clean_boards": {
+   "n_clean": 4,
+   "require": 5,
+   "reading": "4/5",
+   "pass": false,
+   "genuine_outstanding": 0
+  },
+  "routable_domain_main": {
+   "numerator": 4,
+   "denominator": 4,
+   "reading": "4/4",
+   "pass": true,
+   "sat_boards": [
+    "badgeleds-do-electronics",
+    "pmod-crypto",
+    "thatmicpre-v2",
+    "thin-pod"
+   ]
+  },
+  "six_board_full": {
+   "numerator": 4,
+   "denominator": 6,
+   "reading": "4/6",
+   "failed_in_domain": [
+    "pmod-bme280",
+    "tmp108"
+   ]
+  },
+  "wd_direct_read": {
+   "numerator": 4,
+   "denominator": 4,
+   "reading": "4/4"
+  },
+  "r2_routable_domain_historical": {
+   "reading": "6/6",
+   "pass": true,
+   "world": "executor 0.5.0(+R1/NUMBA 性能件)/route_check 0.3.0/drc 0.2.0/run_p5_board 0.4.0/kicad_export 0.4.0",
+   "note": "09-23 旧引擎世代历史对照（OPT-01 纪律；经 0.7.0→0.9.0 漂移实证降级，不得挪用补数）"
+  },
+  "suite_full": {
+   "collected": 3884,
+   "passed": 3880,
+   "xfailed": 4,
+   "failed": 0,
+   "errors": 0,
+   "exit_code": 0,
+   "reading": "0F/0E（C1 清面）"
+  },
+  "a_board_restored": {
+   "five_fields": {
+    "failed_nets": 0,
+    "negotiation_rows": 1434,
+    "ok_nets": 57,
+    "routes": 0,
+    "status": null
+   },
+   "canonical_sha256": "be49db64d61faab29aec7539d448f874784de2f325f0d3bee58b4c9ae8c619a0",
+   "runs": 2,
+   "milestone_c2": true,
+   "reading": "读数归位（C2 清面）"
+  },
+  "judge_qualification": {
+   "all_passed": true,
+   "gates": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": true,
+    "G5": true
+   },
+   "schema": "pcbflow.v4_2-jq-qualification-gate/1",
+   "judge_line_signoff": false,
+   "note": "R7-E3 qual-r2 G1..G5 all_passed=true（qualified）；sign-off=false 维持（L3 线）"
+  }
+ },
+ "panel_3_signoff": {
+  "milestone_signoff": false,
+  "milestone_signoff_note": "M6 签署门未走完；签署面=M1..M5 全绿+披露档定稿（M0 批复④口径，签署时仍呈裁）",
+  "production_signoff": false,
+  "production_signoff_note": "L2 永久门外：外部 SI/PI/热/EMC/DFM+板厂叠层+实物 bring-up（W STATUS.md:9/:34）",
+  "chain_C1_to_C9": [
+   {
+    "id": "C1",
+    "name": "套件 0F（G2 清）+白名单件提交面（G10 提交面留 C6）",
+    "status": "cleared",
+    "evidence": "EXEC-PYFIX-R1 收口（3884=3880P+4xf 0F/0E EXIT=0）sha=a1d7065d74b3cc06…"
+   },
+   {
+    "id": "C2",
+    "name": "A 板读数归位（G4 清）",
+    "status": "cleared",
+    "evidence": "EXEC-AENG-R2 收口（milestone_c2=true；五字段双跑字节等）sha=b271209cf64bbc08…"
+   },
+   {
+    "id": "C3",
+    "name": "OPT-15 披露面定型（G8 更新）",
+    "status": "cleared",
+    "evidence": "EXEC-R9-E4 收口（机制复现 TRUE+J2 负结果+v1 挂账；UNCLOSED 维持）sha=6e357ba02b02656c…"
+   },
+   {
+    "id": "C4",
+    "name": "G3 三选一落册（M2）",
+    "status": "cleared",
+    "evidence": "M0 批复②=案 C 结构性豁免（exec-release-review/DISPATCH-LOG.md M0 节）"
+   },
+   {
+    "id": "C5",
+    "name": "证据包成包（G5 清）",
+    "status": "this_batch",
+    "evidence": "本批 v5-release-pack/ 四件套（evidence-manifest+DISCLOSURE-DRAFT+MANIFEST-PANELS+RELEASE-NOTES-DRAFT）"
+   },
+   {
+    "id": "C7",
+    "name": "状态同步（G9 清）",
+    "status": "this_batch",
+    "evidence": "本批 C7：state/v7-hier gen3 终态登记+canvas-toolchain 头部刷新+STATE-INDEX 摘要行同步"
+   },
+   {
+    "id": "C6",
+    "name": "治理提交面（G6/G7/G10 清）",
+    "status": "pending_user",
+    "evidence": "workspace porcelain 提交面呈裁（沿 f0fedf3 先例一并收编+judge 件专笔入库）——待用户裁"
+   },
+   {
+    "id": "C8",
+    "name": "发布形态+tag（第一段已裁三两段式；落 tag 待 C6）",
+    "status": "pending_C6",
+    "evidence": "M0 批复③=案三两段式；tag 名预告 v5.0-milestone-1（annotated，route-v5 本仓+workspace 证据仓，零外发零 push）"
+   },
+   {
+    "id": "C9",
+    "name": "sign-off 签署（M6）",
+    "status": "pending_M1_M5",
+    "evidence": "待 M1..M5 全绿+披露档定稿后呈裁签署（M0 批复④口径）"
+   }
+  ],
+  "gaps_status_after_this_batch": {
+   "cleared_by_this_batch": [
+    "G5",
+    "G9"
+   ],
+   "cleared_earlier": [
+    "G2",
+    "G4",
+    "G8",
+    "G3(裁决落册)",
+    "G1(定义档闭合=M0)"
+   ],
+   "pending": [
+    "G6/G7/G10=C6 治理提交面",
+    "G3-B 侧=扩板集后续批候选（另裁另排）",
+    "G11/G12/G13=披露口径已入 DISCLOSURE-DRAFT",
+    "G14=维持登记（本包未收编 frozen-root）"
+   ]
+  }
+ },
+ "evidence_manifest": "v5-release-pack/evidence-manifest.json（读数绑定表五锚逐行）",
+ "redlines": {
+  "UNCLOSED_no_extrapolation": "OPT-15 UNCLOSED 维持",
+  "narrow_domain_no_extrapolation": "OPT-08 1/17 等窄域主张零外推（DISCLOSURE-DRAFT §5 清单）",
+  "no_signoff_claim": "三层 sign-off（L1/L2/L3）全部 false 态如实登记"
+ }
+}

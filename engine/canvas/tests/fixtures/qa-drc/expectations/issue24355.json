@@ -1,0 +1,26 @@
+{
+ "board": "issue24355/issue24355",
+ "source_file": "qa/tests/pcbnew/drc/test_drc_hole_clearance_issue24355.cpp",
+ "load_line": 96,
+ "assertions": [
+  {
+   "lines": "142",
+   "quote": "BOOST_CHECK_EQUAL( holeClearanceCount, 2 );",
+   "expect": {
+    "family": "hole_clearance",
+    "op": "==",
+    "count": 2
+   },
+   "note": "源文件 lines 52-53 注释：'Expected: 2 DRCE_HOLE_CLEARANCE violations (one per shared copper layer; per-layer pad violation behavior is intentional in DRC_TEST_PROVIDER_COPPER_CLEARANCE::testPadClearances).'"
+  }
+ ],
+ "cpp_severity_setup": {
+  "forced_error": [
+   "DRCE_HOLE_CLEARANCE"
+  ],
+  "ignore_rest": "其余全部码 IGNORE（lines 122-124 循环置 IGNORE，line 125 目标码 ERROR）",
+  "lines": "122-125"
+ },
+ "family_note": "KiCad DRCE_HOLE_CLEARANCE=孔-铜间距族；v5.drc 同族判定=hole_track_blocked/hole_via_blocked 谓词族（无逐层计数口径，按对计数，粒度差异披露）。",
+ "pinned_commit": "3d83cce19567965def8a8397381f067e1a2e77ff"
+}

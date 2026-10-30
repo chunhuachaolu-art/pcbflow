@@ -1,0 +1,38 @@
+{
+ "schema_version": "3.0",
+ "profile_id": "smoke-2l",
+ "project_id": "smoke-2l",
+ "layers": [
+  {
+   "name": "F.Cu",
+   "role": "signal"
+  },
+  {
+   "name": "B.Cu",
+   "role": "signal"
+  }
+ ],
+ "kicad_cli": {
+  "drc_batch_severity": "severity-error",
+  "drc_final_severity": "severity-all",
+  "refill_policy": "none"
+ },
+ "critical_net_set": [
+  "CLK_MAIN",
+  "DIFF_P",
+  "DIFF_N"
+ ],
+ "physics_required": [],
+ "external_required": [],
+ "bring_up_required": false,
+ "measurement_conventions": null,
+ "thresholds": {
+  "min_track_width_mm": 0.2,
+  "via_cost": 2
+ },
+ "anchors": [
+  "U1",
+  "J1"
+ ],
+ "keepouts": []
+}

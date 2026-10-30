@@ -1,0 +1,34 @@
+{
+ "file": "pcbflow 全量测试基线快照（入库件）。刷新纪律：重跑全量后整件重写并在 recorded_by 注明来源，禁止手改数值；机器对账由 tests/test_baseline_snapshot.py 消费（REPAIR-P1 W-2，2026-09-22 起生效）。",
+ "recorded_at": "2026-09-25T13:18:22+08:00",
+ "command": "python -m pytest -q --basetemp=.pytest-tmp-align",
+ "working_directory": "E:/ZCodeData/.zcode/workspace/default/tools/pcbflow",
+ "environment": {
+  "python": "3.12.10",
+  "env": "PYTHONUTF8=1 PYTHONIOENCODING=utf-8",
+  "note": "与 toolchain_lock.json 主环境口径一致；pytest.ini（REPAIR-P1 W-1）basetemp=仓内 .pytest-tmp；REPAIR-P3 起仓库以 editable 安装（pyproject.toml）承载 import pcbflow；P4 批=G0 profile 化+calibration_cli 入常驻；P5 批=W-1 签核缺口清单守卫 10 条入常驻（scripts/repair_p5_gap_checklist.py 生成器+tests/test_repair_p5_gap_checklist.py），仓库合入验收边界成文 STATUS.md；G1+ 批=ProjectManifest 对象化+out_dirs D 级 pin 消化+known_open R-17 过渡机制（守卫扩展）+test_manifest_g1plus 29 条常驻；G2G3 批=W-G2 ManifestError 结构化+装载校验（_validate_manifest_config）+test_manifest_g2 28 条常驻+W-G4 keepout 两 pin 派生消化（basetemp=专用 .pytest-tmp-g2g3，R-21 基线重登独占窗）；KORETIRE 批（R-24）=孤儿四件追认入库（beb66bd）+known_open 撤账回 0F 唯一合入门（两钉值程序化换现役锚 3bfc9407/cbe90c4d+盘上清单清空；basetemp=专用 .pytest-tmp-koretire）"
+ },
+ "result": {
+  "passed": 3568,
+  "failed": 0,
+  "errors": 0,
+  "xfailed": 4,
+  "warnings": 3,
+  "total_collected": 3884,
+  "duration_s": 2700,
+  "exit_code": 0
+ },
+ "failed_list": [],
+ "error_list": [],
+ "xfailed_note": "4 条历史 xfail（P1 口径负对照）维持",
+ "known_open": [],
+ "known_open_note": "已知失败唯一合法形态二选一：xfail(strict=True) 带理由，或本列表登记且被 tests/test_baseline_snapshot.py 与盘上清单 known_open.json 精确匹配（REPAIR-P1 W-3 纪律）。R-24（2026-09-25，51ff3f8）撤账清空后维持空表；align-r1（2026-09-25）维持 0F 形态。",
+ "protected_files_sha256": {
+  "pcbflow/cli.py": "3bfc940701d1be82029877583a0a41f49741228f2e89a321b7dafa98d179aae8",
+  "pcbflow/config.py": "8ad12b3fab12f19546034b5421aa77053f4115b91b36b87b9dfabc9075fdcf82",
+  "toolchain_lock.json": "d43dad89c1559ff034abd1ac01b2c95fdd9141faa48b0e7afd896d9301690b3d"
+ },
+ "protected_files_note": "config.py 经 align-r1（2026-09-25）授权变更 cbe90c4d->8ad12b3f（O-1/D-3 None 合同面收紧：_validate_manifest_config 非 dict 入参→ManifestError('config',[]) 结构化拒绝+模块 docstring 注记；登记=out/align-r1/anchor-hashes-post-align.json；等价证据=config 大写快照 81 键 sha 914180f9 恒等+test_manifest_g1plus/g2 全绿；钉值连锁 23 件程序化换新〔test_metrics_r2_official+22 锚定测试〕）；cli.py 零触碰（3bfc9407 维持）；toolchain_lock.json 零漂移。前值沿革=out/repair-g2g3/anchor-hashes-post-g2g3.json（G2G3：7b4974d8→cbe90c4d）",
+ "preceding_reading": "阶段0 3275P+4xf/3279（2026-09-13）→ SEC-PERF 3281P+4xf/3285（2026-09-19）→ P1 3300P+4xf/3304（2026-09-22）→ P2 3377P+6xf/3383（2026-09-22）→ P3 3393P+6xf/3399（2026-09-23）→ P3S 3410P+4xf/3414（2026-09-23）→ P4 run#2 终读 3482 collected/3478P+4xf/0F/0E/EXIT=0（≈2660s）→ P5 收口 3492/3488P+4xf/0F（2026-09-23）→ G1+ R-17 known_open 过渡定稿 3533 collected/3527P+4xf+2F=在册对/EXIT=1（2026-09-24，run#3 终读）→ G2G3 run#1 3561 collected/3553P+4xf+4F 全归因（baseline 守卫×2 重登前置=保护锚 config 变更+计数门 3561≠3533+在飞件×2=known_open 在册对；out/repair-g2g3/full-run1.txt）→ KORETIRE run#1 3561/3555P+4xf+2F 全归因（守卫×2=重登前置：三方清单 baseline 2 条 vs 盘上清空不等；原 known_open 对两用例已转绿；out/orphan-intake-koretire/full-run1.txt，2424s） → R-24 known_open 撤账 0F 形态 3561/3557P+4xf/EXIT=0（2026-09-25 run#2 终读，51ff3f8） → align-r1 run#1 3572 collected/3508P+4xf+21F+39E=60 红全归因（58=config 锚连锁〔22 件钉值程序化换新+定向复跑绿〕+2=baseline 重登前置设计内）→重登（collect-only 独立实测 3572=199 文件求和闭合；增量 +11=test_manifest_g2 O-1/D-3 守卫 9+v4exp model scenario_id 守卫 2）→run#2 终读 0F/0E/EXIT=0 → EXEC-PYFIX-R1（2026-10-17）collect-only 重冻结 total_collected 3572→3884（+312=10-01 起套件增测未随写基线；collect 实测=out/v4.2-judge-qual-r1 批后 pytest --collect-only 3884；result 其余键维持 align-r1 run#2 终读原值，全量重写另批）",
+ "recorded_by": "ALIGN-R1（2026-09-25）两步法定稿：run#1（out/align-r1/full-run1.txt）60 红全数归因（58 锚连锁=本批 config 授权变更连带，22 件测试钉值程序化换新锚+24 件定向复跑仅余 baseline 前置 2F；2=重登前置）→collect-only 独立对账 3572=199 文件→重登本件（0F 理论终态）→run#2 终读实测背书（out/align-r1/full-run2.txt；终读计数=进度块数学闭合 3568=3572-4xf、EXIT=0；duration_s≈2700 为轮询粒度近似〔完成时刻 14:02:33 实测、启动时刻未精确记录〕，非精确起止口径）。四项内容=口径对齐（None 合同面收紧 O-1/D-3+canonical 形态地图+铜族指针）+可读化注释（13 大函数 docstring+2 移位修复）+性能（PERF-A1 corpus 线 root 级查询索引化，12MB 板 parse 3.80→2.96s=-22%，226 板对拍 MATCH+find 族消费方回归绿）+安全（SEC-B-04 scenario_id 字符集门+开放项呈报）；主报告=out/align-r1/ALIGN-R1-REPORT-2026-09-25.md；EXEC-PYFIX-R1（2026-10-17）仅重冻结 total_collected=3884（collect-only 实测，修复 test_baseline_snapshot 既有红；result 其余键维持 align-r1 run#2 终读）"
+}

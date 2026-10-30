@@ -1,0 +1,53 @@
+Layered licensing
+=================
+
+This repository mixes hardware design data with plain code and
+documentation, so licensing is split into two layers:
+
+Layer 1 — Board design content: CERN-OHL-P-2.0 (see LICENSE.BOARD)
+------------------------------------------------------------------
+Applies to ALL hardware design files and design documentation:
+
+  kicad/stm32h743-coreboard-revc/            (whole project directory)
+    *.kicad_sch, *.kicad_pcb, *.kicad_pro, *.kicad_sym,
+    coreboard.pretty/*.kicad_mod, fp-lib-table, sym-lib-table,
+    revc.netlist
+  bom/*.csv                                  (public bill of materials)
+  pinmap/*.md                                (pin-map / design-reference
+                                              documentation)
+
+These are the hardware design and its documentation in the sense of the
+CERN Open Hardware Licence. CERN-OHL-P-2.0 is a permissive licence; the
+full text (authoritative copy from https://ohwr.org/cern_ohl_p_v2.txt)
+is shipped verbatim in LICENSE.BOARD.
+
+Layer 2 — Code and repository metadata: Apache-2.0 (see LICENSE.SCRIPTS)
+------------------------------------------------------------------------
+Applies to verification/packaging code and repository-level documents:
+
+  tools/*.py                                 (verification scripts)
+  README.md, LICENSE, LICENSE.BOARD, LICENSE.SCRIPTS
+
+The full Apache License 2.0 text (authoritative copy from
+https://www.apache.org/licenses/LICENSE-2.0.txt) is shipped verbatim in
+LICENSE.SCRIPTS.
+
+Rule of thumb
+-------------
+If a file describes the board (schematic, PCB, symbols, footprints,
+project config, netlist, BOM, pin maps) it is under CERN-OHL-P-2.0.
+If it is a program or repo housekeeping content (scripts, README,
+licence files) it is under Apache-2.0. Individual files may carry their
+own SPDX identifier; where a file states a licence explicitly, that
+statement wins.
+
+Third-party property
+--------------------
+Vendor datasheets referenced by the design documents (ISSI
+IS42S16160J, Winbond W9825G6KH) remain the property of their respective
+owners. They are deliberately NOT redistributed in this repository;
+obtain them from the vendors' official channels (see README.md,
+"Disclosures"). The custom footprint coreboard.pretty/
+Texas-VSON-7-HR.kicad_mod carries its own public provenance attribution
+(LSF open library / TI datasheet) inside the file and is licensed as
+board content under Layer 1.

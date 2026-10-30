@@ -1,0 +1,27 @@
+{
+ "board": "issue22267",
+ "source_file": "qa/tests/pcbnew/drc/test_drc_regressions.cpp",
+ "load_line": 370,
+ "assertions": [
+  {
+   "lines": "389",
+   "quote": "BOOST_REQUIRE_MESSAGE( !violations.empty(), \"Expected at least one hole-to-hole violation\" );",
+   "expect": {
+    "family": "hole_to_hole",
+    "op": ">=",
+    "count": 1
+   }
+  }
+ ],
+ "cpp_severity_setup": {
+  "ignore": [
+   "DRCE_UNCONNECTED_ITEMS",
+   "DRCE_LIB_FOOTPRINT_ISSUES",
+   "DRCE_LIB_FOOTPRINT_MISMATCH"
+  ],
+  "lines": "377-379",
+  "count_scope": "仅统计 DRCE_DRILLED_HOLES_TOO_CLOSE（line 385 过滤）"
+ },
+ "family_note": "KiCad DRCE_DRILLED_HOLES_TOO_CLOSE=孔-孔族；v5.drc 同族=hole_inherent_pairs（margin 可传板声明值 0.4301mm）。pro 声明 min_hole_to_hole=0.4301。",
+ "pinned_commit": "3d83cce19567965def8a8397381f067e1a2e77ff"
+}

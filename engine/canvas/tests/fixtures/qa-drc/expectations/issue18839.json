@@ -1,0 +1,30 @@
+{
+ "board": "issue18839",
+ "source_file": "qa/tests/pcbnew/drc/test_drc_regressions.cpp",
+ "load_line": "65 (tests 列表项)",
+ "assertions": [
+  {
+   "lines": "65,100-104",
+   "quote": "\"issue18839\",  // False positive board edge clearance between concentric arcs ... violations found (expected 0)",
+   "expect": {
+    "family": "total_error",
+    "op": "==",
+    "count": 0
+   }
+  }
+ ],
+ "cpp_severity_setup": {
+  "ignore": [
+   "DRCE_INVALID_OUTLINE",
+   "DRCE_UNCONNECTED_ITEMS",
+   "DRCE_COPPER_SLIVER",
+   "DRCE_STARVED_THERMAL",
+   "DRCE_LIB_FOOTPRINT_ISSUES",
+   "DRCE_LIB_FOOTPRINT_MISMATCH"
+  ],
+  "lines": "75-88",
+  "count_scope": "ERROR 级全部 DRC 码合计（handler 只收 severity==ERROR，line 94-100）"
+ },
+ "family_note": "板边=圆弧轮廓；v5 唯一轮廓源=矩形 workspace（bbox 口径），弧轮廓属 v5 建模面外（披露，不算败）。",
+ "pinned_commit": "3d83cce19567965def8a8397381f067e1a2e77ff"
+}

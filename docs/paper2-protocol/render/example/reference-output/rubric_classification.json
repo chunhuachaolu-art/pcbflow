@@ -1,0 +1,180 @@
+{
+ "artifact": "rubric-classification-demo",
+ "declared_date": "2026-09-12",
+ "input": "demo_reader_raw.json (synthetic flags)",
+ "keyword_tables_vs_classifier": "equal",
+ "priority_as_implemented": [
+  "existence_blackdot",
+  "contact",
+  "existence_other(explicit)",
+  "semantic_confusion",
+  "existence_other(generic-fallback)",
+  "other"
+ ],
+ "results": [
+  {
+   "expected_family": "existence_blackdot",
+   "family": "existence_blackdot",
+   "flag_id": "EXAMPLE-B-001",
+   "match": true,
+   "matched": {
+    "blackdot_terms": [
+     "黑点",
+     "圆点",
+     "实心圆",
+     "黑色实心"
+    ],
+    "contact_doubt_patterns": [
+     "P2",
+     "P3",
+     "P4"
+    ],
+    "contact_terms": [
+     "接触"
+    ],
+    "explicit_existence": [
+     "性质",
+     "不明"
+    ],
+    "generic_existence": [
+     "G7"
+    ],
+    "uncertainty_terms": [
+     "无法",
+     "不明"
+    ]
+   }
+  },
+  {
+   "expected_family": "contact",
+   "family": "contact",
+   "flag_id": "EXAMPLE-B-002",
+   "match": true,
+   "matched": {
+    "contact_doubt_patterns": [
+     "P2",
+     "P3",
+     "P4"
+    ],
+    "contact_terms": [
+     "接触"
+    ],
+    "generic_existence": [
+     "G6"
+    ],
+    "uncertainty_terms": [
+     "无法"
+    ]
+   }
+  },
+  {
+   "expected_family": "existence_other",
+   "family": "existence_other",
+   "flag_id": "EXAMPLE-B-003",
+   "match": true,
+   "matched": {
+    "explicit_existence": [
+     "性质",
+     "不明",
+     "关注现象",
+     "无法排除"
+    ],
+    "uncertainty_terms": [
+     "无法",
+     "不明"
+    ]
+   }
+  },
+  {
+   "expected_family": "existence_other",
+   "family": "existence_other",
+   "flag_id": "EXAMPLE-B-004",
+   "match": true,
+   "matched": {
+    "generic_existence": [
+     "G2",
+     "G8"
+    ],
+    "uncertainty_terms": [
+     "无法"
+    ]
+   }
+  },
+  {
+   "expected_family": "semantic_confusion",
+   "family": "semantic_confusion",
+   "flag_id": "EXAMPLE-B-005",
+   "match": true,
+   "matched": {
+    "generic_existence": [
+     "G3",
+     "G7"
+    ],
+    "semantic_terms": [
+     "设计含义",
+     "无法归类",
+     "图层归属"
+    ],
+    "uncertainty_terms": [
+     "无法"
+    ]
+   }
+  },
+  {
+   "expected_family": "other",
+   "family": "other",
+   "flag_id": "EXAMPLE-B-006",
+   "match": true,
+   "matched": {
+    "contact_terms": [
+     "叠压"
+    ],
+    "text_primary": [
+     "文字",
+     "丝印",
+     "字形",
+     "辨读"
+    ]
+   }
+  },
+  {
+   "expected_family": "other",
+   "family": "other",
+   "flag_id": "EXAMPLE-B-007",
+   "match": true,
+   "matched": {}
+  },
+  {
+   "expected_family": "existence_blackdot",
+   "family": "existence_blackdot",
+   "flag_id": "EXAMPLE-B-008",
+   "match": true,
+   "matched": {
+    "blackdot_terms": [
+     "黑点",
+     "小黑点"
+    ],
+    "explicit_existence": [
+     "存在性",
+     "不明"
+    ],
+    "uncertainty_terms": [
+     "不明"
+    ]
+   }
+  }
+ ],
+ "rubric_json": "abstain-rubric-r13-r16.json",
+ "rubric_json_sha256": "34c6dad252d86b881c18dca35e48c79bf1c5eac2eae0e4bb5c2c2d684bbeb0ca",
+ "summary": {
+  "all_match_expected": true,
+  "by_family": {
+   "contact": 1,
+   "existence_blackdot": 2,
+   "existence_other": 2,
+   "other": 2,
+   "semantic_confusion": 1
+  },
+  "total_flags": 8
+ }
+}

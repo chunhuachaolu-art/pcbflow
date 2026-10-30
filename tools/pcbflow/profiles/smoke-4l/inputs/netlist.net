@@ -1,0 +1,4 @@
+(export (version smoke)
+  (design (source "smoke-4l")
+    (comp (ref "U1") (value "MCU_A"))
+    (comp (ref "U2") (value "IO_EXP"))))

@@ -1,0 +1,27 @@
+{
+  "schema": "pcbflow.v4exp.board/1",
+  "scenario_id": "fix-clock-blocked",
+  "split": "development",
+  "family": "synthetic",
+  "seed": 3,
+  "board": {"bbox_mm": [0.0, 0.0, 20.0, 12.0], "layers": ["F.Cu", "B.Cu"]},
+  "rules": {
+    "grid_mm": 0.25,
+    "clearance_mm": 0.3,
+    "width_mm": {"default": 0.3, "clock": 0.4},
+    "via": {"pad_mm": 0.6, "hole_mm": 0.3},
+    "allowed_layers": {"default": ["F.Cu", "B.Cu"], "clock": ["F.Cu"]}
+  },
+  "pads": [
+    {"pad_id": "CA", "net_id": "n1", "x_mm": 5.0, "y_mm": 6.0, "w_mm": 1.2, "h_mm": 1.2, "layer": "F.Cu"},
+    {"pad_id": "CB", "net_id": "n1", "x_mm": 15.0, "y_mm": 6.0, "w_mm": 1.2, "h_mm": 1.2, "layer": "F.Cu"}
+  ],
+  "nets": [
+    {"net_id": "n1", "net_class": "clock", "endpoints": ["CA", "CB"]}
+  ],
+  "keepouts": [
+    {"keepout_id": "k-fcu-all", "rect_mm": [-2.0, -2.0, 22.0, 14.0], "layers": ["F.Cu"]}
+  ],
+  "relations": [],
+  "label": "unsatisfiable"
+}

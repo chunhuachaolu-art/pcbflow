@@ -1,0 +1,79 @@
+{
+ "schema_version": "3.0",
+ "artifact_kind": "artifact_graph_spec",
+ "project_id": "smoke-2l",
+ "profile_id": "smoke-2l",
+ "revision": "smoke-r1",
+ "nodes": [
+  {
+   "artifact_id": "board",
+   "kind": "board",
+   "path": "inputs/board.kicad_pcb",
+   "sha256": null,
+   "status": "present",
+   "revision": "smoke-r1",
+   "stage_label": null,
+   "inputs": []
+  },
+  {
+   "artifact_id": "constraints",
+   "kind": "constraints",
+   "path": "inputs/constraints.json",
+   "sha256": null,
+   "status": "present",
+   "revision": "smoke-r1",
+   "stage_label": "compile",
+   "inputs": []
+  },
+  {
+   "artifact_id": "coverage",
+   "kind": "coverage",
+   "path": null,
+   "sha256": null,
+   "status": "present",
+   "revision": "smoke-r1",
+   "stage_label": "compile",
+   "inputs": ["constraints"]
+  },
+  {
+   "artifact_id": "registry",
+   "kind": "net_registry",
+   "path": null,
+   "sha256": null,
+   "status": "present",
+   "revision": "smoke-r1",
+   "stage_label": "enum",
+   "inputs": ["constraints"]
+  },
+  {
+   "artifact_id": "feedforward_plan",
+   "kind": "feedforward_plan",
+   "path": null,
+   "sha256": null,
+   "status": "present",
+   "revision": "smoke-r1",
+   "stage_label": "feedforward",
+   "inputs": ["coverage", "registry"]
+  },
+  {
+   "artifact_id": "decision_ledger",
+   "kind": "decision_ledger",
+   "path": null,
+   "sha256": null,
+   "status": "present",
+   "revision": "smoke-r1",
+   "stage_label": "ledger",
+   "inputs": ["feedforward_plan"]
+  },
+  {
+   "artifact_id": "gate_records",
+   "kind": "gate_record",
+   "path": null,
+   "sha256": null,
+   "status": "present",
+   "revision": "smoke-r1",
+   "stage_label": "gate",
+   "inputs": ["decision_ledger"]
+  }
+ ]
+}

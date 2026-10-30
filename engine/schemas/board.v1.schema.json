@@ -1,0 +1,640 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "v5.board.v1",
+  "title": "v5.board.v1 板抽象 schema（V5.0-DEV-TASKBOOK §3.1）",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "board_id",
+    "stackup",
+    "workspace",
+    "zones",
+    "partitions",
+    "nets",
+    "hard_rules",
+    "principle_registry",
+    "provenance"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "v5.board.v1"
+    },
+    "board_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "via_model": {
+      "type": "object",
+      "required": [
+        "drill_mm",
+        "annular_mm"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "drill_mm": {
+          "type": "number",
+          "minimum": 0
+        },
+        "annular_mm": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "holes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "pos_mm",
+          "drill_mm",
+          "plated",
+          "shape"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "pos_mm": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "number"
+            }
+          },
+          "drill_mm": {
+            "type": "number",
+            "minimum": 0
+          },
+          "plated": {
+            "type": "boolean"
+          },
+          "shape": {
+            "enum": [
+              "circle",
+              "oval"
+            ]
+          },
+          "size_mm": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "net_classes": {
+      "type": "object",
+      "description": "V5-R7 兼容键：per-netclass 间距/线宽 {name→{clearance_mm, width_mm, members[]}}。缺省=缺省类（hard_rules.R5.min_clearance_mm 标量语义，零漂移）。有效间距=网对两侧所属类 clearance 的 max（同 KiCad 口径；多类成员网取其类 max；无类网=缺省类）。schema_loader 无 patternProperties 面（topology 同例），per-class 结构由消费面单源核验 fail-closed（v5.drc.normalize_net_classes；成员网存在性=route_check._BoardView/kicad_export._validate）。"
+    },
+    "outline_mm": {
+      "type": "object",
+      "description": "V5-R7 兼容键：真实板轮廓（Edge_Cuts）。缺省键=workspace 矩形（零漂移）。outer=外环；holes=内孔环（切槽/挖孔）；环=元素顺序链（element[i].end_mm 与 element[i+1].start_mm 链接容差 1e-4mm，末元素闭合回首）。开口/自交轮廓=bad outline，消费侧 fail-closed（与 kicad-cli 同口径）。",
+      "required": [
+        "outer",
+        "holes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "outer": {
+          "$ref": "#/definitions/outline_loop"
+        },
+        "holes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/outline_loop"
+          }
+        }
+      }
+    },
+    "stackup": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "preferred_direction",
+          "available"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "signal",
+              "plane"
+            ]
+          },
+          "preferred_direction": {
+            "enum": [
+              "h",
+              "v",
+              "any"
+            ]
+          },
+          "available": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "workspace": {
+      "type": "object",
+      "required": [
+        "x_min",
+        "y_min",
+        "x_max",
+        "y_max"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "x_min": {
+          "type": "number"
+        },
+        "y_min": {
+          "type": "number"
+        },
+        "x_max": {
+          "type": "number"
+        },
+        "y_max": {
+          "type": "number"
+        }
+      }
+    },
+    "zones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "zone_id",
+          "kind",
+          "rect",
+          "layers"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "keepout",
+              "sensitive",
+              "corridor"
+            ]
+          },
+          "rect": {
+            "type": "object",
+            "required": [
+              "x_min",
+              "y_min",
+              "x_max",
+              "y_max"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "x_min": {
+                "type": "number"
+              },
+              "y_min": {
+                "type": "number"
+              },
+              "x_max": {
+                "type": "number"
+              },
+              "y_max": {
+                "type": "number"
+              }
+            }
+          },
+          "layers": {
+            "enum": [
+              "all",
+              "signal"
+            ]
+          },
+          "capacity": {
+            "type": "number",
+            "minimum": 0
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "partitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "partition_id",
+          "ptype",
+          "geometry",
+          "layer_policy",
+          "width_prior",
+          "current_a",
+          "speed_class"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "partition_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "ptype": {
+            "enum": [
+              "PWR",
+              "CLK",
+              "HS",
+              "BUS",
+              "DIFF",
+              "MISC",
+              "ANA",
+              "ROUTED"
+            ]
+          },
+          "geometry": {
+            "type": "object",
+            "required": [
+              "endpoints"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "endpoints": {
+                "type": "array",
+                "minItems": 2,
+                "items": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "centerline": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "occupancy_mm": {
+                "type": "number",
+                "minimum": 0
+              },
+              "copper_band": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "number"
+                }
+              },
+              "pad_terminals": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "endpoint",
+                    "shape",
+                    "size_mm",
+                    "layers"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "endpoint": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "shape": {
+                      "enum": [
+                        "circle",
+                        "rect"
+                      ]
+                    },
+                    "size_mm": {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "number",
+                        "minimum": 0
+                      }
+                    },
+                    "layers": {
+                      "type": [
+                        "string",
+                        "array"
+                      ],
+                      "minItems": 1,
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "layer_policy": {
+            "type": "string",
+            "minLength": 1
+          },
+          "width_prior": {
+            "type": "object",
+            "required": [
+              "w_min",
+              "w_max"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "w_min": {
+                "type": "number",
+                "minimum": 0
+              },
+              "w_max": {
+                "type": "number",
+                "minimum": 0
+              }
+            }
+          },
+          "current_a": {
+            "type": "number",
+            "minimum": 0
+          },
+          "speed_class": {
+            "type": "string",
+            "minLength": 1
+          },
+          "planned_width": {
+            "type": "number",
+            "minimum": 0
+          },
+          "bottleneck": {
+            "type": "object",
+            "required": [
+              "span",
+              "usable_width"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "span": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "number"
+                }
+              },
+              "usable_width": {
+                "type": "number",
+                "minimum": 0
+              }
+            }
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "nets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "net_id",
+          "partitions"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "net_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "net_class": {
+            "type": "string",
+            "minLength": 1
+          },
+          "partitions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "hard_rules": {
+      "type": "object",
+      "required": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "R1": {
+          "type": "object",
+          "required": [
+            "k_a",
+            "floor_mm"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "k_a": {
+              "type": "number"
+            },
+            "floor_mm": {
+              "type": "number"
+            }
+          }
+        },
+        "R2": {
+          "type": "object",
+          "required": [
+            "min_distance_mm",
+            "max_parallel_mm"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "min_distance_mm": {
+              "type": "number"
+            },
+            "max_parallel_mm": {
+              "type": "number"
+            }
+          }
+        },
+        "R3": {
+          "type": "object",
+          "required": [
+            "unsplittable"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "unsplittable": {
+              "type": "boolean"
+            }
+          }
+        },
+        "R4": {
+          "type": "object",
+          "required": [
+            "return_via_required",
+            "max_distance_mm"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "return_via_required": {
+              "type": "boolean"
+            },
+            "max_distance_mm": {
+              "type": "number"
+            }
+          }
+        },
+        "R5": {
+          "type": "object",
+          "required": [
+            "min_clearance_mm"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "min_clearance_mm": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "R6": {
+          "type": "object",
+          "required": [
+            "plane_forbidden",
+            "keepout_zones_forbidden"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "plane_forbidden": {
+              "type": "boolean"
+            },
+            "keepout_zones_forbidden": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "principle_registry": {
+      "type": "array",
+      "items": {
+        "$ref": "principle_registry.v1.schema.json#/definitions/principle"
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "source_type",
+        "source_uri",
+        "source_sha256",
+        "adapter",
+        "board_sha256"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "source_type": {
+          "enum": [
+            "kicad_pcb",
+            "v2_derived",
+            "synthetic"
+          ]
+        },
+        "source_uri": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "adapter": {
+          "type": "string",
+          "minLength": 1
+        },
+        "board_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "topology": {
+      "type": "object",
+      "description": "V5-R1 per-partition 显式 Steiner 拓扑（partition_id → {nodes, edges, terminal_count, total_mm, provenance}）。结构/耦合校验=消费面 fail-closed（route_check._BoardView 构造核+executor._edge_sequences+链审计）：schema_loader 无 patternProperties 面，per-key 结构不在此表达。"
+    }
+  },
+  "definitions": {
+    "outline_loop": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "type",
+          "start_mm",
+          "end_mm"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "enum": [
+              "segment",
+              "arc"
+            ]
+          },
+          "start_mm": {
+            "$ref": "#/definitions/mm_point"
+          },
+          "mid_mm": {
+            "$ref": "#/definitions/mm_point"
+          },
+          "end_mm": {
+            "$ref": "#/definitions/mm_point"
+          }
+        }
+      }
+    },
+    "mm_point": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "number"
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+ "schema_version": "3.0",
+ "artifact_kind": "constraints",
+ "project_id": "smoke-2l",
+ "entries": [
+  {
+   "id": "C-0001",
+   "kind": "diff_pair",
+   "nets": [
+    "DIFF_P",
+    "DIFF_N"
+   ],
+   "rule": "intra_pair_gap_le_track_width"
+  },
+  {
+   "id": "C-0002",
+   "kind": "length_match",
+   "nets": [
+    "DIFF_P",
+    "DIFF_N"
+   ],
+   "tolerance_mm": 0.5
+  },
+  {
+   "id": "C-0003",
+   "kind": "critical_net_return",
+   "nets": [
+    "CLK_MAIN"
+   ],
+   "rule": "unbroken_reference"
+  }
+ ]
+}

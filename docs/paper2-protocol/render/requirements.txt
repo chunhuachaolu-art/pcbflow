@@ -1,0 +1,13 @@
+# PAPER-P2-3 render/ runtime dependencies (Python 3.10+)
+#
+# Reference environment used for the shipped example outputs:
+#   Python 3.12.10, PyMuPDF 1.27.2, Pillow 12.2.0, numpy 2.5.0,
+#   kicad-cli 10.0.5 (external binary, see note).
+PyMuPDF>=1.24
+Pillow>=10.0
+numpy>=1.26
+
+# External tool (not pip-installable):
+#   kicad-cli (KiCad >= 7 CLI; reference renders in the dev repo and the
+#   example outputs of this package were produced with kicad-cli 10.0.5).
+#   Locate via --kicad-cli / env KICAD_CLI / PATH.

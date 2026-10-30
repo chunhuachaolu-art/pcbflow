@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "v5.failcert.v1",
+  "title": "v5.failcert.v1 失败证书 schema（V5.0-DEV-TASKBOOK §3.6）",
+  "type": "object",
+  "required": ["cert_version", "board_provenance", "status", "scope", "check"],
+  "additionalProperties": false,
+  "properties": {
+    "cert_version": {"const": "v5.failcert.v1"},
+    "board_provenance": {"$ref": "board.v1.schema.json#/properties/provenance"},
+    "status": {"enum": ["UNSAT", "UNKNOWN"]},
+    "scope": {
+      "type": "object",
+      "required": ["nets"],
+      "additionalProperties": false,
+      "properties": {
+        "nets": {"type": "array", "items": {"type": "string"}},
+        "region": {"type": "string"}
+      }
+    },
+    "unsat_core": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["constraint", "data", "arithmetic"],
+        "additionalProperties": false,
+        "properties": {
+          "constraint": {"type": "string", "minLength": 1},
+          "data": {"type": "object"},
+          "arithmetic": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "unknown_boundary": {
+      "type": "object",
+      "required": ["achieved", "blocked_at", "budget"],
+      "additionalProperties": false,
+      "properties": {
+        "achieved": {
+          "type": "object", "required": ["nets_connected", "nets_total"],
+          "additionalProperties": false,
+          "properties": {
+            "nets_connected": {"type": "integer", "minimum": 0},
+            "nets_total": {"type": "integer", "minimum": 0},
+            "cost": {"type": "number"}
+          }
+        },
+        "blocked_at": {
+          "type": "object", "required": ["description"],
+          "additionalProperties": false,
+          "properties": {"description": {"type": "string", "minLength": 1}}
+        },
+        "budget": {
+          "type": "object", "required": ["consumed", "limit"],
+          "additionalProperties": false,
+          "properties": {
+            "consumed": {"type": "object"},
+            "limit": {"type": "object"}
+          }
+        }
+      }
+    },
+    "check": {
+      "type": "object",
+      "required": ["procedure"],
+      "additionalProperties": false,
+      "properties": {
+        "procedure": {"type": "string", "minLength": 1},
+        "recheck": {"enum": ["PASS", "FAIL"]}
+      }
+    }
+  }
+}

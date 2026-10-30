@@ -1,0 +1,71 @@
+{
+ "version": "1.0.1",
+ "_disambiguation": "主审维护的 subject→规范缺陷 id 注册表（A6 改进件；用户裁定 2026-09，三席真实重放命名词汇分裂的计票聚簇修复）。匹配语义见 v5/defect_vocab.py：票内 rule 折叠空白后与 entry.rule 严格相等（区分大小写、rule 缺失一律不映射），subject 折叠空白后逐 pattern re.search；entries 按 priority 升序（缺省 100）、同值按登记序稳定排序，首个命中即返回。消歧总则：① 同网名不同缺陷纯靠 rule 消歧——'P8' 在 R1 下归 p8-width-r1、在 自相矛盾 下归 p8-interval-contradiction；'P4' 在 R5 下归 p4-north-pads-r5、在 R2 下归 p4-ana-r2。② 同为 R5 的三向（p3-pad-r5 / p4-north-pads-r5 / p7p9-clearance-r5）靠 pattern 的 ^ 锚定 + priority 序 + 对方网名/焊盘措辞消歧：裸 'P7' 归 p7p9-clearance-r5（真实席位4 note 指认对方网名为 P9），而 'P7 与 P3' / 'P7 与 P4' 因点名对方网名归 p3 / p4；裸 'P3' / 'P4'（R5）分别归 p3-pad-r5 / p4-north-pads-r5（均为既布铜对端点焊盘的 R5 重叠/间距措辞）。全部 pattern 以 ^ 锚定 subject 开头，防长句内网名误命中。未命中返回 None 保持原 subject——不发明新 id。纪律：只增不改——新措辞追加 pattern 或追加条目，不改既有 canonical_id 与 pattern 语义；改语义必须升 version。",
+ "entries": [
+  {
+   "canonical_id": "p8-width-r1",
+   "rule": "R1",
+   "priority": 10,
+   "subject_patterns": ["^P8$"],
+   "note": "播种 D1：P8 电源网络计划宽 0.5mm 低于 R1 下限 max(0.4×2.0A, 0.3)=0.8mm。覆盖真实措辞 1 种：'P8'（seat1/seat3/seat4 各 1 条，rule=R1 与自相矛盾条目消歧）。"
+  },
+  {
+   "canonical_id": "p8-interval-contradiction",
+   "rule": "自相矛盾",
+   "priority": 11,
+   "subject_patterns": ["^P8$"],
+   "note": "播种 D1b：P8 计划宽 0.5 不在其自身声明的允许区间 [0.8,1.6] 内。覆盖真实措辞 1 种：'P8'（三席各 1 条，rule=自相矛盾 消歧）。"
+  },
+  {
+   "canonical_id": "p3-pad-r5",
+   "rule": "R5",
+   "priority": 20,
+   "subject_patterns": [
+    "^P9\\s*与\\s*P3",
+    "^P7\\s*与\\s*P3",
+    "^P3\\s*端点焊盘",
+    "^P3\\s*焊盘",
+    "^P3\\s*[、，,]\\s*P9",
+    "^P3\\s*[、，,]\\s*P7",
+    "^P3$"
+   ],
+   "note": "GT1：P3 端点焊盘(16,36) 与既布 P9 铜带 y∈[36.0,36.2] 几何重叠短路、与 P7 底缘净距 0.45mm<0.5mm。覆盖真实措辞 6 种：'P9 与 P3'、'P7 与 P3'（seat1）、'P3 端点焊盘(16,36)'（seat3 ×2）、'P3'（seat4）、'P3、P9'、'P3、P7'（seat2-dsf，顿号对写法）。与 p7p9-clearance-r5 的裸 'P7' 消歧：本条 priority 更高且 '^P3$' 严格锚定，不吞 P3 措辞之外的任何 P7 写法。"
+  },
+  {
+   "canonical_id": "p4-north-pads-r5",
+   "rule": "R5",
+   "priority": 21,
+   "subject_patterns": [
+    "^P9\\s*与\\s*P4",
+    "^P7\\s*与\\s*P4",
+    "^P4\\s*北端",
+    "^P4\\s*端点焊盘",
+    "^P9\\s*[、，,]\\s*P4",
+    "^P7\\s*[、，,]\\s*P4",
+    "^P4$"
+   ],
+   "note": "GT2：P4 北端 y=36 端排焊盘（y 35.85–36.15）/铜带顶缘与既布 P9 重叠短路、与 P7 底缘净距 0.45mm<0.5mm。覆盖真实措辞 7 种：'P9 与 P4'、'P7 与 P4'（seat1）、'P4 北端（铜带顶缘 y=36.0 及端点焊盘(32.6,36)）'、'P4 北端端点焊盘(32.6,36)'（seat3 ×2）、'P4'（seat4，rule=R5 与 p4-ana-r2 的 R2 'P4' 靠 rule 消歧）、'P9、P4'、'P7、P4'（seat2-dsf，顿号对写法）。"
+  },
+  {
+   "canonical_id": "p7p9-clearance-r5",
+   "rule": "R5",
+   "priority": 22,
+   "subject_patterns": [
+    "^P7\\s*与\\s*P9",
+    "^P9\\s*与\\s*P7",
+    "^P7\\s*/\\s*P9",
+    "^P7\\s*[、，,]\\s*P9",
+    "^P9\\s*[、，,]\\s*P7",
+    "^P7$"
+   ],
+   "note": "播种 D2：既布固定网络 P7/P9 铜缘间距 0.4mm<0.5mm（端点焊盘处 0.3mm）。覆盖真实措辞 5 种：'P7 与 P9'（seat1）、'P7/P9'（seat3+seat5-gpt6）、'P7'（seat4 裸名；其 note 指认对方网名为 P9——裸 'P7' 归本条是注册表裁定）、'P7、P9'（seat2-dsf 顿号）。'P7 与 P3' / 'P7 与 P4' / 顿号对 'P3、P7'、'P7、P4' 因点名对方网名不落本条（'^P7$' 严格锚定 + priority 序双保险）。"
+  },
+  {
+   "canonical_id": "p4-ana-r2",
+   "rule": "R2",
+   "priority": 30,
+   "subject_patterns": ["^P4$"],
+   "note": "GT3：P4 铜带西缘 x=30.95 距 ANA 东边界 x=28 仅 2.95mm<3mm，且平行段 y∈[8,15] 长 7mm>5mm。覆盖真实措辞 1 种：'P4'（seat1/seat4 各 1 条，rule=R2 与 p4-north-pads-r5 的 R5 'P4' 靠 rule 消歧）。"
+  }
+ ]
+}

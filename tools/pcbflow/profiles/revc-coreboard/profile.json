@@ -1,0 +1,746 @@
+{
+ "check_cmd": {
+  "a3_dir": "out/revc-a3",
+  "fc2_dir": "out/revc-fc2",
+  "fd1_out_default": "out/revc-fd1",
+  "ff1_dir": "out/revc-ff1"
+ },
+ "compile": {
+  "net_total_spec_claim": 160,
+  "project_id": "stm32h743-coreboard-revc"
+ },
+ "config": {
+  "audit": {
+   "body_inflate_mm": 0.25,
+   "channel_half_mm": 0.175,
+   "decap_limit_mm": 3.0,
+   "decap_target_mm": 2.0,
+   "escape_depth_mm": 3.0,
+   "fatal_min_blocked_pads": 4,
+   "grid_cell_mm": 0.5,
+   "loop_cap_radius_mm": 6.0,
+   "loop_limit_mm2": 240.0,
+   "loop_target_mm2": 150.0,
+   "signal_layers": [
+    "F.Cu",
+    "In2.Cu"
+   ],
+   "stitch_grid_mm": 8.0,
+   "track_pitch_mm": 0.35,
+   "transit_band_mm": 3.0
+  },
+  "audit_gates": {
+   "fp_max": 0.1,
+   "layer_util_red": 0.85,
+   "layer_util_yellow": 0.6,
+   "orientation_min": 0.6,
+   "recall_min": 0.7,
+   "v3_escape_min": 15
+  },
+  "cplace": {
+   "body_inflate_mm": 0.25,
+   "channel_util_yellow": 0.9,
+   "corridor_eps_mm": 0.05,
+   "crossing_yellow": 1,
+   "crystal_keepout_mm": 3.0,
+   "decap_limit_mm": 3.0,
+   "detour_yellow": 1.5,
+   "loop_h_limit_mm": 12.0,
+   "loop_w_limit_mm": 20.0,
+   "max_sweeps": 60,
+   "min_bend_spacing_mm": 1.0,
+   "quant_mm": 0.05,
+   "rot_step_deg": 90,
+   "sideways_eps_mm": 0.1,
+   "sideways_per_ref": 20,
+   "steps_mm": [
+    0.5,
+    1.0,
+    2.0
+   ],
+   "symm_dev_yellow_mm": 0.5,
+   "target_tol_mm": 0.05,
+   "usb_pair_limit_mm": 35.0,
+   "usb_shell_keepout_mm": 5.0,
+   "via_yellow": 40,
+   "zone_from_label_margin_mm": 2.0
+  },
+  "gate0": {
+   "constraint_count": [
+    40,
+    60
+   ],
+   "nine_groups": [
+    "G_USB",
+    "G_FMC_D",
+    "G_FMC_C",
+    "G_FMC_A",
+    "G_EMMC",
+    "G_SD",
+    "G_QSPI",
+    "G_ETH",
+    "G_LTDC"
+   ]
+  },
+  "out_dirs": {
+   "audit": "out/revc-a3",
+   "check": "out/revc-fd1",
+   "compile": "out/revc-a1",
+   "coplace": "out/revc-b1",
+   "editor": "out/revc-b2",
+   "enum": "out/revc-a2",
+   "feedforward": "out/revc-ff1",
+   "keepout_iter": "out/revc-it",
+   "kit_ff_plan": "out/revc-fd3/feedforward-plan.json",
+   "kit_route_plan": "out/revc-fc3/route-plan.json",
+   "residual": "out/revc-fc2",
+   "route": "out/revc-fc1",
+   "signoff": "out/revc-fd1"
+  },
+  "paths": {
+   "audit_opens_csv_name": "opens.csv",
+   "audit_p3_board_name": "stm32h743-coreboard-revc.kicad_pcb",
+   "audit_p3_dir": [
+    "snapshots",
+    "p3-placement-gates-pass"
+   ],
+   "audit_p3_placement_csv_name": "placement.csv",
+   "board_name": "stm32h743-coreboard-revc.kicad_pcb",
+   "length_report_name": "length-report.py",
+   "netlist_name": "revc.netlist",
+   "placement_spec": [
+    "design",
+    "coreboard",
+    "reports",
+    "placement-spec-v1.md"
+   ],
+   "revc_dir": [
+    "design",
+    "coreboard",
+    "kicad",
+    "stm32h743-coreboard-revc"
+   ],
+   "routing_spec": [
+    "design",
+    "coreboard",
+    "reports",
+    "routing-spec-v1.md"
+   ],
+   "seed_rel": [
+    "revc-a3",
+    "skeleton-seed.json"
+   ]
+  }
+ },
+ "enum": {
+  "anchor_lock": "③ 自动优化锁死，永不自动移动；移动须人工批准并重过布局门/架构预检/受影响约束（SPEC §①/§③）",
+  "anchors": [
+   [
+    "J1",
+    "STORAGE 2x20 排针（存储/扩展总线出板）",
+    "placement §1.1 机械锚点 + §4.1 网表归属"
+   ],
+   [
+    "J2",
+    "COMM-ETH 2x20 排针",
+    "placement §1.1"
+   ],
+   [
+    "J3",
+    "DISPLAY-AUDIO 2x20 排针",
+    "placement §1.1"
+   ],
+   [
+    "J4",
+    "CAN-ADC-DBG 2x20 排针",
+    "placement §1.1"
+   ],
+   [
+    "J5",
+    "USB-C（VBUS/DP/DM/外壳）",
+    "placement §1.1 机械锚点（TBD-P3 位置待批）"
+   ],
+   [
+    "U1",
+    "MCU STM32H743IIT6 LQFP-176",
+    "SPEC §① 锚件清单 + placement §1.2 主体对"
+   ],
+   [
+    "U2",
+    "SDRAM W9825G6KH-6 TSOP-II-54",
+    "SPEC §① 锚件清单 + placement §1.2 主体对"
+   ],
+   [
+    "Y1",
+    "HSE 25MHz 晶振",
+    "SPEC §① 锚件清单（晶振）+ placement §6.1 保护区"
+   ],
+   [
+    "Y2",
+    "LSE 32.768kHz 晶振",
+    "SPEC §① 锚件清单（晶振）+ placement §6.1 保护区"
+   ],
+   [
+    "U6",
+    "USBLC6-2SC6 USB ESD 保护",
+    "SPEC §① 锚件清单（USB 保护）"
+   ]
+  ],
+  "bus_rules": [
+   {
+    "bus_id": "BUS_USB",
+    "pattern": "^USB_",
+    "spec_source": "routing-spec §2 USB_DIFF 行 + §4.1",
+    "symmetry_class": "usb_pair",
+    "symmetry_constraint": "C-0028",
+    "title": "USB2.0 高速差分（MCU→U6→J5，两段）"
+   },
+   {
+    "bus_id": "BUS_FMC",
+    "pattern": "^FMC_",
+    "spec_source": "routing-spec §2 FMC_* 五行 + §4.2/4.3；placement §3 U1↔U2 通道",
+    "symmetry_class": "fmc_byte_lanes",
+    "symmetry_constraint": "C-0029",
+    "title": "FMC SDRAM 总线（U1↔U2 主通道）"
+   },
+   {
+    "bus_id": "BUS_SDMMC2",
+    "pattern": "^SDMMC2_",
+    "spec_source": "routing-spec §2 SDMMC2 行 + §4.4",
+    "symmetry_class": null,
+    "symmetry_constraint": "C-0031",
+    "title": "SDMMC2/eMMC（U1→J1，存储在底板）"
+   },
+   {
+    "bus_id": "BUS_SDMMC1",
+    "pattern": "^(SDMMC1_|SD_CD$)",
+    "spec_source": "routing-spec §2 SDMMC1 行",
+    "symmetry_class": null,
+    "symmetry_constraint": null,
+    "title": "SDMMC1/SD 卡（U1→J1，含 SD_CD=AMB-4 已批归属）"
+   },
+   {
+    "bus_id": "BUS_QSPI",
+    "pattern": "^QSPI_",
+    "spec_source": "routing-spec §2 QSPI 行",
+    "symmetry_class": null,
+    "symmetry_constraint": null,
+    "title": "QSPI（U1→J1，存储在底板；见 STR-1）"
+   },
+   {
+    "bus_id": "BUS_ETH",
+    "pattern": "^ETH_",
+    "spec_source": "routing-spec §2 ETH_RMII 行",
+    "symmetry_class": null,
+    "symmetry_constraint": null,
+    "title": "RMII 以太网（U1→J2，PHY 在底板）"
+   },
+   {
+    "bus_id": "BUS_LTDC",
+    "pattern": "^LTDC_",
+    "spec_source": "routing-spec §2 LTDC 行（成员数见 AMB-2 已批裁决）",
+    "symmetry_class": null,
+    "symmetry_constraint": null,
+    "title": "LTDC RGB 显示（U1→J3）"
+   }
+  ],
+  "class_of_group": {
+   "G_EMMC": [
+    "SDMMC2"
+   ],
+   "G_ETH": [
+    "ETH_RMII"
+   ],
+   "G_FMC_A": [
+    "FMC_ADDR"
+   ],
+   "G_FMC_C": [
+    "FMC_CTRL"
+   ],
+   "G_FMC_D": [
+    "FMC_DATA_L",
+    "FMC_DATA_H"
+   ],
+   "G_LTDC": [
+    "LTDC"
+   ],
+   "G_QSPI": [
+    "QSPI"
+   ],
+   "G_SD": [
+    "SDMMC1"
+   ],
+   "G_USB": [
+    "USB_DIFF"
+   ]
+  },
+  "group_topology": {
+   "G_EMMC": "C-0031 CK 先行锁定",
+   "G_ETH": "参照 ETH_REF_CLK",
+   "G_FMC_A": "参照 FMC_SDCLK",
+   "G_FMC_C": "参照 FMC_SDCLK；C-0030 时钟 p2p",
+   "G_FMC_D": "C-0029 字节通道对称（D0-7+NBL0 / D8-15+NBL1）",
+   "G_LTDC": "参照 LTDC_PCLK",
+   "G_QSPI": "参照 QSPI_CLK",
+   "G_SD": "参照 SDMMC1_CK",
+   "G_USB": "C-0028 整对同层/成对换层≤1/过孔数相等"
+  },
+  "power_edges": [
+   {
+    "bridge_desc": "500mA 保险丝",
+    "bridge_ref": "F1",
+    "from": "VBUS_RAW",
+    "source": "netlist（F1 两端网）+ routing-spec §7.1（5V 来源 USB/排针）",
+    "to": "5V_USB"
+   },
+   {
+    "bridge_desc": "AO3401A×2 电源切换（Q1/Q2 三端跨 5V_USB/5V/5V_HDR）",
+    "bridge_ref": [
+     "Q1",
+     "Q2"
+    ],
+    "from": "5V_USB",
+    "source": "netlist；切换方向语义待原理图评审确认",
+    "to": "5V"
+   },
+   {
+    "bridge_desc": "AO3401A×2（同上，排针侧供电臂）",
+    "bridge_ref": [
+     "Q1",
+     "Q2"
+    ],
+    "from": "5V_USB",
+    "source": "netlist",
+    "to": "5V_HDR"
+   },
+   {
+    "bridge_desc": "TPS62085 buck",
+    "bridge_ref": "U3",
+    "from": "5V",
+    "source": "routing-spec §7.1/§7.4 + netlist（U3 两端网）",
+    "to": "SW_NODE"
+   },
+   {
+    "bridge_desc": "2.2uH 功率电感",
+    "bridge_ref": "L1",
+    "from": "SW_NODE",
+    "source": "netlist（L1 两端网）+ routing-spec §7.1",
+    "to": "3V3"
+   },
+   {
+    "bridge_desc": "LP5907-3.3 LDO",
+    "bridge_ref": "U4",
+    "from": "3V3",
+    "source": "netlist（U4 输入 3V3/输出 VDDA）+ routing-spec §6.6",
+    "to": "VDDA"
+   },
+   {
+    "bridge_desc": "磁珠（ADC 基准滤波）",
+    "bridge_ref": "FB1",
+    "from": "VDDA",
+    "source": "netlist（FB1 两端网）",
+    "to": "VREF+"
+   },
+   {
+    "bridge_desc": "RTC 备电链（充电/超级电容）",
+    "bridge_ref": null,
+    "from": "VBAT",
+    "source": "netlist（CRTC/R9/D1 归属）；routing/placement spec 均未条款化 → 待评审补源",
+    "to": "VBAT_CHG"
+   }
+  ],
+  "priorities": {
+   "anchor_lock": {
+    "ranks": [
+     "anchors 表 10 件锁死",
+     "分区固定件（电源链等）区内可调"
+    ],
+    "source": "SPEC §①/§③ + placement §1 层级"
+   },
+   "bus_order": {
+    "ranks": [
+     "BUS_USB",
+     "BUS_FMC",
+     "BUS_SDMMC2",
+     "BUS_QSPI",
+     "BUS_ETH",
+     "BUS_SDMMC1",
+     "BUS_LTDC",
+     "LOOSE"
+    ],
+    "source": "routing-spec §9 L113（USB→FMC→SDMMC2→QSPI→ETH→其余）；SDMMC1/LTDC 属「其余」，按 §2 表行序追加（派生，见 findings STR-2）",
+    "tie_break": "同 rank 按 ref 字典序"
+   },
+   "commit_batch_order": {
+    "ranks": [
+     "每批 ≤10 网按 bus_order→net_order 切批",
+     "批内按 ref 字典序"
+    ],
+    "source": "SPEC §1.1 + pcbagent §4.2 继承契约"
+   },
+   "layer_preference": {
+    "note": "软层偏好，不等同于硬禁层；各类允许层以 §2 表行+C-0036/37/38 为准",
+    "ranks": [
+     "F.Cu=逃逸≤3mm+关键短距（软）",
+     "In2.Cu=主干",
+     "B.Cu=批准电源短跳",
+     "In1.Cu=GND 禁信号"
+    ],
+    "source": "routing-spec §5"
+   },
+   "net_order": {
+    "ranks": [
+     "时钟/参考网先行（FMC_SDCLK/SDMMC2_CK/QSPI_CLK/ETH_REF_CLK/LTDC_PCLK）",
+     "组内成员按自然序号",
+     "其余按 ref 字典序"
+    ],
+    "source": "routing-spec §4.3/§4.4（C-0030 p2p、C-0031 ck_first）"
+   },
+   "objective_order": {
+    "ranks": [
+     "硬约束（违反即停）",
+     "软目标固定字典序：交叉数→拥塞→过孔→绕行比→对称偏差"
+    ],
+    "source": "SPEC §1.1/§③；权重版本化入 config.py（③ 期实现时锁定）"
+   },
+   "rollback_escalation": {
+    "note": "同一节点回退 ≤2 次升级人工",
+    "ranks": [
+     "④局部修",
+     "③重优",
+     "②改架构",
+     "①/⓪改结构/约束"
+    ],
+    "source": "SPEC §0/§3"
+   },
+   "stage_order": {
+    "ranks": [
+     "⓪约束编译",
+     "①结构枚举",
+     "②架构预检",
+     "③联合布局",
+     "④细布",
+     "⑤交错检查",
+     "⑥签核"
+    ],
+    "source": "SPEC §0 七级流水线"
+   }
+  },
+  "three_orders": {
+   "pcbagent_planner_order": {
+    "note": "pcbagent planner 无独立网络类层级，直接消费 KiCad net_classes（routing §9 建类）；与 §9 执行顺序不是同一排序",
+    "sequence": "局部规则区感知；同封装位互换按（所在格拥塞贡献降序，ref 字典序）枚举",
+    "source": "tools/pcbagent/SPEC.md（swap 枚举顺序条款）"
+   },
+   "pcbflow_optimization_order": {
+    "sequence": "§1.1 作用域：硬约束先行 + 软目标固定字典序；候选按稳定键排序",
+    "source": "SPEC §1.1/§③（③ 期实现）"
+   },
+   "routing_spec_execution_order": {
+    "sequence": [
+     "USB",
+     "FMC",
+     "SDMMC2",
+     "QSPI",
+     "ETH",
+     "其余",
+     "等长后处理",
+     "清理",
+     "铺铜",
+     "验收"
+    ],
+    "source": "routing-spec §9 L113"
+   }
+  }
+ },
+ "feedforward": {
+  "a3_dir_rel": "out/revc-a3",
+  "a3_frozen_products": [
+   "audit.json",
+   "constraints.json",
+   "coverage-structures.json",
+   "coverage.json",
+   "envelope-audit.json",
+   "envelope-enum.json",
+   "envelope.json",
+   "impedance_targets.json",
+   "net-identity-map.json",
+   "net-registry.json",
+   "pin-swap.json",
+   "run-manifest-audit.json",
+   "run-manifest-enum.json",
+   "run_manifest.json",
+   "skeleton-seed.json",
+   "structures.json"
+  ],
+  "b1_dir_rel": "out/revc-b1",
+  "b1_frozen_products": [
+   "conversion.json",
+   "envelope-coplace.json",
+   "layer-plan.json",
+   "layout.json",
+   "placement.csv",
+   "run-manifest-coplace.json",
+   "skeletons.geojson"
+  ],
+  "ff_out_dir_rel": "out/revc-ff1",
+  "freeze_id": "FF0-REVC-0001",
+  "plan_id": "FF-REVC-0001"
+ },
+ "net_registry": {
+  "bus_role_fallback": "signal",
+  "bus_role_rules": [
+   {
+    "any": [
+     {
+      "net_suffix": [
+       "CLK",
+       "_CK",
+       "PCLK"
+      ]
+     }
+    ],
+    "role": "clock"
+   },
+   {
+    "any": [
+     {
+      "net_regex": "^FMC_A(?:\\d+)$"
+     },
+     {
+      "net_prefix": [
+       "FMC_BA"
+      ]
+     }
+    ],
+    "role": "address"
+   },
+   {
+    "any": [
+     {
+      "net_regex": "^(FMC_D\\d+|FMC_NBL\\d|SDMMC[12]_D\\d|QSPI_IO\\d)$"
+     },
+     {
+      "net_prefix": [
+       "LTDC_R",
+       "LTDC_G",
+       "LTDC_B",
+       "ETH_RXD",
+       "ETH_TXD"
+      ]
+     },
+     {
+      "net_eq": "ETH_CRS_DV"
+     }
+    ],
+    "role": "data"
+   },
+   {
+    "any": [
+     {
+      "net_prefix": [
+       "LTDC_HSYNC",
+       "LTDC_VSYNC",
+       "LTDC_DE"
+      ]
+     },
+     {
+      "net_in": [
+       "FMC_SDNCAS",
+       "FMC_SDNRAS",
+       "FMC_SDNWE",
+       "FMC_SDNE0",
+       "FMC_SDCKE0",
+       "SDMMC2_CMD",
+       "SDMMC1_CMD",
+       "QSPI_NCS",
+       "ETH_TX_EN",
+       "ETH_MDC",
+       "ETH_MDIO",
+       "SD_CD"
+      ]
+     }
+    ],
+    "role": "control"
+   }
+  ],
+  "role_rules": [
+   {
+    "any": [
+     {
+      "net_eq": "GNDA"
+     }
+    ],
+    "role": "ground_return_analog",
+    "rule_id": "rule:gnda_exact(C-0042)"
+   },
+   {
+    "any": [
+     {
+      "net_eq": "GND"
+     }
+    ],
+    "role": "ground_return",
+    "rule_id": "rule:gnd_exact"
+   },
+   {
+    "any": [
+     {
+      "net_eq": "SW_NODE"
+     }
+    ],
+    "role": "power_switch_node",
+    "rule_id": "rule:sw_node_exact(C-0033)"
+   },
+   {
+    "any": [
+     {
+      "net_eq": "FB_NODE"
+     }
+    ],
+    "role": "power_feedback",
+    "rule_id": "rule:fb_node_exact(PWR_SW_raw)"
+   },
+   {
+    "any": [
+     {
+      "net_eq": "EMMC_VSEL"
+     }
+    ],
+    "role": "power_enable",
+    "rule_id": "rule:emmc_vsel(C-0045)"
+   },
+   {
+    "any": [
+     {
+      "cls_prefix": "PWR"
+     },
+     {
+      "net_eq": "VDDA"
+     }
+    ],
+    "role": "power_rail",
+    "rule_id": "rule:pwr_class(C-0042)"
+   },
+   {
+    "any": [
+     {
+      "net_prefix": [
+       "HSE_",
+       "LSE_"
+      ]
+     }
+    ],
+    "role": "crystal_node",
+    "rule_id": "rule:xo_prefix(C-0032)"
+   },
+   {
+    "any": [
+     {
+      "cls_eq": "ANLG"
+     }
+    ],
+    "role": "analog_sensitive",
+    "rule_id": "rule:anlg_class"
+   },
+   {
+    "any": [
+     {
+      "net_suffix": [
+       "DM"
+      ]
+     },
+     {
+      "net_contains": "_DM"
+     }
+    ],
+    "role": "differential_negative",
+    "rule_id": "rule:dm_suffix"
+   },
+   {
+    "any": [
+     {
+      "net_suffix": [
+       "DP"
+      ]
+     },
+     {
+      "net_contains": "_DP"
+     }
+    ],
+    "role": "differential_positive",
+    "rule_id": "rule:dp_suffix"
+   },
+   {
+    "any": [
+     {
+      "net_suffix": [
+       "CLK",
+       "_CK"
+      ]
+     },
+     {
+      "net_in": [
+       "LTDC_PCLK",
+       "FMC_SDCLK"
+      ]
+     }
+    ],
+    "role": "clock",
+    "rule_id": "rule:clk_suffix"
+   },
+   {
+    "any": [
+     {
+      "net_eq": "NRST"
+     }
+    ],
+    "role": "reset",
+    "rule_id": "rule:nrst_exact"
+   },
+   {
+    "any": [
+     {
+      "net_in": [
+       "SWCLK",
+       "SWDIO",
+       "BOOT0"
+      ]
+     },
+     {
+      "net_prefix": [
+       "BTN_",
+       "LED"
+      ]
+     }
+    ],
+    "role": "test_or_configuration",
+    "rule_id": "rule:dbg_prefix"
+   },
+   {
+    "any": [
+     {
+      "net_prefix": [
+       "GPIO_"
+      ]
+     }
+    ],
+    "role": "ordinary_gpio",
+    "rule_id": "rule:gpio_prefix"
+   }
+  ]
+ },
+ "note": "REPAIR-P4 W-1（G0）冻结的 revc-coreboard 项目事实声明：活配置（路径/网表/叠层/阈值/目录 pin/规则表）自源码抽离；冻结证据指针与批准叙述仍留源码（G1 Project Manifest 域）。装载器=pcbflow/profile_loader.py（fail-closed）。",
+ "profile_id": "revc-coreboard",
+ "schema_version": "pcbflow-g0-profile/1.0",
+ "signoff_cmd": {
+  "a3_dir": "out/revc-a3",
+  "b1_dir": "out/revc-b1",
+  "fc1_dir": "out/revc-fc1",
+  "fc2_dir": "out/revc-fc2",
+  "fd1_out_default": "out/revc-fd1",
+  "fd3_bom_power_rel": "out/revc-fd3/approvals/sources/bom-power-derive.json",
+  "ff1_dir": "out/revc-ff1",
+  "ff2_dir": "out/revc-ff2"
+ }
+}

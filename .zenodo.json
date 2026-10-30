@@ -1,0 +1,12 @@
+{
+  "title": "pcbflow: a personal attempt at LLM for EDA (final archive)",
+  "upload_type": "software",
+  "description": "<p>Solo research project (Sep–Oct 2026) asking where a large language model actually helps in a PCB routing pipeline. Contains a from-scratch deterministic router (V5 engine), a seven-stage KiCad design-flow compiler, an STM32H743 4-layer SoM core board (not fabricated; production_signoff_ready=false) and six Chinese technical reports covering about one hundred pre-registered experiment batches.</p><p><b>Main finding:</b> the LLM was most useful as an evaluator of routing results (reading structured verdict data and attributing failures); almost every other role produced negative or null results under matched controls. Negative results are published on purpose.</p><p>Third-party corpus boards are not redistributed; see tools/pcbflow/datasets-manifests/SOURCES.json.</p>",
+  "creators": [
+    {"name": "Zhao, Danqi", "affiliation": "Heilongjiang Institute of Technology"}
+  ],
+  "license": "Apache-2.0",
+  "keywords": ["PCB routing", "EDA", "LLM", "LLM for EDA", "KiCad", "negative results", "pre-registration"],
+  "language": "zho",
+  "version": "1.0.0"
+}

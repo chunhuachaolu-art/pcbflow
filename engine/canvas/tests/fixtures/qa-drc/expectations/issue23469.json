@@ -1,0 +1,65 @@
+{
+ "board": "issue23469/issue23469",
+ "source_file": "qa/tests/pcbnew/drc/test_drc_issue23469.cpp",
+ "load_line": 56,
+ "assertions": [
+  {
+   "lines": "126",
+   "quote": "BOOST_CHECK_EQUAL( countViolationsForRef( edgeViolations, wxString( \"J1\" ), false ), 0 );",
+   "expect": {
+    "family": "edge_clearance",
+    "op": "==",
+    "count": 0,
+    "filter": "items_of_footprint_J1"
+   },
+   "phase": "1_with_custom_rules(.kicad_dru)"
+  },
+  {
+   "lines": "131",
+   "quote": "BOOST_CHECK_EQUAL( countViolationsForRef( holeViolations, wxString( \"J1\" ), true ), 0 );",
+   "expect": {
+    "family": "hole_clearance",
+    "op": "==",
+    "count": 0,
+    "filter": "both_items_of_footprint_J1"
+   },
+   "phase": "1_with_custom_rules"
+  },
+  {
+   "lines": "153",
+   "quote": "BOOST_REQUIRE_GT( countViolationsForRef( edgeViolations, wxString( \"J1\" ), false ), 0 );",
+   "expect": {
+    "family": "edge_clearance",
+    "op": ">",
+    "count": 0,
+    "filter": "items_of_footprint_J1"
+   },
+   "phase": "2_without_custom_rules(board 缺省 edge=0.5mm)"
+  },
+  {
+   "lines": "154",
+   "quote": "BOOST_REQUIRE_GT( countViolationsForRef( holeViolations, wxString( \"J1\" ), true ), 0 );",
+   "expect": {
+    "family": "hole_clearance",
+    "op": ">",
+    "count": 0,
+    "filter": "both_items_of_footprint_J1"
+   },
+   "phase": "2_without_custom_rules"
+  }
+ ],
+ "cpp_severity_setup": {
+  "ignore": [
+   "DRCE_INVALID_OUTLINE",
+   "DRCE_UNCONNECTED_ITEMS",
+   "DRCE_COPPER_SLIVER",
+   "DRCE_STARVED_THERMAL",
+   "DRCE_LIB_FOOTPRINT_ISSUES",
+   "DRCE_LIB_FOOTPRINT_MISMATCH"
+  ],
+  "lines": "61-67",
+  "count_scope": "EDGE_CLEARANCE / HOLE_CLEARANCE 分别收集（lines 69-75 handler）"
+ },
+ "family_note": "phase1 依赖 .kicad_dru 表达式规则引擎（A.Reference 条件豁免）——v5.drc 无表达式规则面，phase1 v5 侧=面外披露；phase2 板缺省口径（edge 0.5mm）=v5 check_edge_clearance(margin_mm=0.5) 同面可判。phase2 需无 dru 运行（kicad-cli 侧以临时去 dru staging 副本实现，不触原件）。",
+ "pinned_commit": "3d83cce19567965def8a8397381f067e1a2e77ff"
+}

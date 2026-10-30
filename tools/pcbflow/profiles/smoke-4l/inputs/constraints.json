@@ -1,0 +1,35 @@
+{
+ "schema_version": "3.0",
+ "artifact_kind": "constraints",
+ "project_id": "smoke-4l",
+ "entries": [
+  {
+   "id": "C-1001",
+   "kind": "bus_length_match",
+   "nets": [
+    "BUS_A_CLK",
+    "BUS_A_DATA0",
+    "BUS_A_DATA1"
+   ],
+   "tolerance_mm": 1.0
+  },
+  {
+   "id": "C-1002",
+   "kind": "plane_reference",
+   "nets": [
+    "BUS_A_CLK",
+    "BUS_A_DATA0",
+    "BUS_A_DATA1"
+   ],
+   "reference_layer": "In1.Cu"
+  },
+  {
+   "id": "C-1003",
+   "kind": "power_rail_width",
+   "nets": [
+    "PWR_RAIL_MAIN"
+   ],
+   "min_width_mm": 0.5
+  }
+ ]
+}

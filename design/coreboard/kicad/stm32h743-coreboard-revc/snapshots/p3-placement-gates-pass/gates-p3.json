@@ -1,0 +1,90 @@
+{
+ "gates": {
+  "G1_channel": {
+   "u1_south_tip_mm": 36.325,
+   "u2_fmc_north_edge_mm": 44.621,
+   "channel_mm": 8.296,
+   "require_mm": 7.6,
+   "pass": true
+  },
+  "G2_decap": {
+   "pins": 18,
+   "over_3.0mm": 0,
+   "target_rate": 0.944,
+   "pass": true,
+   "worst": [
+    [
+     2.08,
+     "81",
+     "VCAP1",
+     "C1"
+    ],
+    [
+     1.86,
+     "125",
+     "VCAP2",
+     "C2"
+    ],
+    [
+     1.4,
+     "91",
+     "3V3",
+     "C6"
+    ],
+    [
+     1.4,
+     "103",
+     "3V3",
+     "C7"
+    ],
+    [
+     1.37,
+     "114",
+     "3V3",
+     "C8"
+    ]
+   ]
+  },
+  "G2_xtal_usb": {
+   "xtal_mm": [
+    {
+     "Y1": 3.78
+    },
+    {
+     "Y2": 1.89
+    }
+   ],
+   "usb_mm": [
+    30.5,
+    30.5
+   ],
+   "xtal_pass": true,
+   "usb_pass": true,
+   "pass": true
+  },
+  "G2_buck_loop": {
+   "w_mm": 7.52,
+   "h_mm": 11.12,
+   "pass": true
+  },
+  "G3_smallpart_gap": {
+   "pairs": 0,
+   "pass": true,
+   "violations": [],
+   "ic_gap_violations": []
+  },
+  "G4_orientation": {
+   "pass": true,
+   "violations": {}
+  },
+  "G5_xtal_keepout": {
+   "pass": true,
+   "violations": []
+  },
+  "G6_zone_purity": {
+   "pass": true,
+   "violations": []
+  }
+ },
+ "all_pass": true
+}

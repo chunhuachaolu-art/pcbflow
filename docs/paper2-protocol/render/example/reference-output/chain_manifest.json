@@ -1,0 +1,79 @@
+{
+ "artifact": "paper2-protocol-example-chain-manifest",
+ "board": {
+  "label": "bm1",
+  "provenance": "PCBBenchmarks CC-BY-SA subset board bm1 (Arduino-Mega-like benchmark); dev-repo corpus path datasets/pcbbenchmarks-r1/raw/bm1/bm1.routed.kicad_pcb; upstream license CC-BY-SA (attribution Arduino; see bm1.license.txt in the source corpus)",
+  "source_file_name": "bm1.routed.kicad_pcb",
+  "source_sha256": "5a8d7670f6051e49f7d0160a43dcdf516bdf4212270d6c14307e93a2016531e5"
+ },
+ "chain": [
+  "render",
+  "blind_read_format",
+  "rubric_classify"
+ ],
+ "declared_date": "2026-09-12",
+ "model_calls": 0,
+ "steps": {
+  "blind_read_format": {
+   "demo_reader_raw_sha256": "bf74c28407b6441904c33f02c3a7f29bd3cdd1f63cafa47430cafe89aca568ed",
+   "reader_input_manifest_sha256": "c05549107247189dc5b181e9e2d3461d92bcce05dbe1bfee430fb82f6109dad3",
+   "synthetic_flags": true
+  },
+  "render": {
+   "board_px_bounds": {
+    "bottom": [
+     2815,
+     2326,
+     5380,
+     3676
+    ],
+    "top": [
+     2653,
+     2326,
+     5379,
+     3676
+    ]
+   },
+   "crop_box": {
+    "bottom": [
+     2695,
+     2206,
+     5501,
+     3797
+    ],
+    "top": [
+     2533,
+     2206,
+     5500,
+     3797
+    ]
+   },
+   "determinism_scope": "raster onward byte-deterministic; kicad-cli PDF bytes are run-local provenance (see render-evidence files)",
+   "instrument": {
+    "compose_margin_pt": 40.0,
+    "crop_margin_px": 120,
+    "kicad_cli_basename": "kicad-cli.exe",
+    "kicad_cli_version": "10.0.5",
+    "pipeline": "kicad-cli pcb export pdf --mode-single --scale 1 --check-zones --drill-shape-opt 2 [--mirror] -> fitz 40pt compose -> dpi640 rasterize -> row-background board bounds -> +120px crop",
+    "raster_dpi": 640
+   },
+   "png_sha256": {
+    "bottom": "1e10abe7751eaa078dba89103e13b8c3b98cfb36fdbe85a4561df7ba28d20b2d",
+    "top": "18582b25ca36f0410d2f5752957396d48758204fa53e4bc4670c7630dfb590de"
+   },
+   "views": [
+    "top",
+    "bottom"
+   ]
+  },
+  "rubric_classify": {
+   "all_match_expected": true,
+   "classification_sha256": "9ab273ba9443583f5afd69ad23328436e72138f7140d52627d010dafcf189767",
+   "rubric_json_sha256": "34c6dad252d86b881c18dca35e48c79bf1c5eac2eae0e4bb5c2c2d684bbeb0ca"
+  }
+ },
+ "zero_write_declarations": [
+  "dataset tree not written (board rendered from an in-run copy)",
+  "kicad-cli .kicad_prl sidecars confined to the run work dir (sidecar listing per view in the render-evidence files)"
+ ]
+}

@@ -1,0 +1,95 @@
+{
+ "schema_version": "3.0",
+ "project_id": "smoke-4l",
+ "profile_id": "smoke-4l",
+ "eda": {
+  "name": "kicad",
+  "version": null
+ },
+ "inputs": {
+  "board": "inputs/board.kicad_pcb",
+  "schematic": null,
+  "netlist": "inputs/netlist.net",
+  "placement": null,
+  "stackup": "inputs/stackup.json",
+  "constraints": "inputs/constraints.json",
+  "structures": null,
+  "toolchain_lock": "../../toolchain_lock.json",
+  "identity_map": null
+ },
+ "backtest": {
+  "opens": null,
+  "reference_layout": null,
+  "reference_route": null,
+  "drc_baseline": null,
+  "datasets": null
+ },
+ "policy": {
+  "profile": null,
+  "core_policy": null,
+  "feedforward_policy": null,
+  "optimization_policy": null,
+  "model_policy": null
+ },
+ "external_authority": {
+  "impedance": null,
+  "si": null,
+  "pi": null,
+  "thermal": null,
+  "emc": null,
+  "dfm": null
+ },
+ "params": [
+  {
+   "name": "route_grid_mm",
+   "kind": "float",
+   "domain": {
+    "values": [0.0],
+    "min": 0.4,
+    "max": 0.8,
+    "step": 0.1
+   },
+   "unit": "mm",
+   "source": "scope:route.grid"
+  },
+  {
+   "name": "via_penalty",
+   "kind": "integer",
+   "domain": {
+    "values": [0],
+    "min": 1,
+    "max": 10
+   },
+   "unit": null,
+   "source": "scope:route.cost_model"
+  }
+ ],
+ "critical_nets": [
+  "BUS_A_CLK",
+  "BUS_A_DATA0",
+  "BUS_A_DATA1",
+  "PWR_RAIL_MAIN"
+ ],
+ "dataset_splits": {
+  "train": ["board-a", "board-b"],
+  "validation": ["board-c"],
+  "holdout": ["board-d"],
+  "external_eval": []
+ },
+ "outputs": {
+  "root": "out/v3-smoke-4l",
+  "preserve_history": true
+ },
+ "toolchain": {
+  "lock_path": "../../toolchain_lock.json",
+  "executable_allowlist": [
+   "kicad-cli"
+  ],
+  "backend_declarations": []
+ },
+ "path_base": "manifest_dir",
+ "compatibility": {
+  "mode": "explicit_manifest",
+  "warning": false
+ }
+}

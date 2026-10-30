@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "candidate-event.v1.schema.json",
+  "title": "OPT-07 R4-B candidate registration/admission event contract (candidate-event.v1)",
+  "description": "EXEC-R4-B 候选侧最小确定性 adapter 登记件：candidate_reason 受控非空词表/affected_nets/expected_cert_change（证书字段+当前值+离散自由度+可复核预测依据+父证书 hash）/source_fail_event。不给原候选载荷强塞未知键；无证书/错绑/无变化一律拒扩；baseline 显式 registered_not_extension 不算证书扩展。event_id=sha256(canonical(payload-{event_id,runtime}))。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "event_id",
+    "candidate_id",
+    "candidate_reason",
+    "affected_nets",
+    "expected_cert_change",
+    "source_fail_event",
+    "admission",
+    "bindings",
+    "event_seq"
+  ],
+  "properties": {
+    "schema_version": {"const": "candidate-event.v1"},
+    "event_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "candidate_id": {"type": "string", "minLength": 1},
+    "candidate_reason": {"enum": ["baseline", "cert_extension_route_order", "cert_extension_edge_order", "cert_extension_layer_assignment"]},
+    "affected_nets": {"type": "array", "items": {"type": "string"}},
+    "expected_cert_change": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind"],
+      "properties": {
+        "kind": {"enum": ["cert_field_change", "not_applicable"]},
+        "candidate_reason_context": {"type": "string"},
+        "cert_kind": {"enum": ["capacity_ledger", "blocker_selection"]},
+        "cert_field": {"type": "string", "minLength": 1},
+        "current_value": {},
+        "proposed_change": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["freedom", "discrete_value", "prediction_basis", "cert_sha256_parent"],
+          "properties": {
+            "freedom": {"enum": ["route_order_permutation", "edge_order_permutation", "layer_assignment"]},
+            "discrete_value": {},
+            "prediction_basis": {"type": "string", "minLength": 1},
+            "cert_sha256_parent": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"kind": {"const": "cert_field_change"}}},
+          "then": {"required": ["cert_kind", "cert_field", "current_value", "proposed_change"]}
+        },
+        {
+          "if": {"properties": {"kind": {"const": "not_applicable"}}},
+          "then": {"properties": {"candidate_reason_context": {"type": "string"}}}
+        }
+      ]
+    },
+    "source_fail_event": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "admission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision", "reason", "cert_status", "checks"],
+      "properties": {
+        "decision": {"enum": ["admitted", "rejected", "registered_not_extension"]},
+        "reason": {"enum": ["all_checks_passed", "baseline_registered_not_extension", "parent_missing", "parent_unverified", "board_mismatch", "world_mismatch", "cert_not_available", "cert_unknown", "no_change", "unprovable_freedom", "baseline_not_extension"]},
+        "cert_status": {"enum": ["verified", "not_available", "unknown", "not_applicable", "corrupt"]},
+        "checks": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["parent_event_present", "parent_event_verified", "board_binding_match", "world_binding_match", "cert_verified", "expected_change_actionable"],
+          "properties": {
+            "parent_event_present": {"type": "boolean"},
+            "parent_event_verified": {"type": "boolean"},
+            "board_binding_match": {"type": "boolean"},
+            "world_binding_match": {"type": "boolean"},
+            "cert_verified": {"type": "boolean"},
+            "expected_change_actionable": {"type": "boolean"}
+          }
+        },
+        "cert_kind": {"enum": ["capacity_ledger", "blocker_selection"]},
+        "cert_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "note": {"type": "string"},
+        "verify_errors": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "bindings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["board_sha256", "world_id", "candidate_sha256"],
+      "properties": {
+        "executor_version": {"type": "string"},
+        "board_id": {"type": ["string", "null"]},
+        "board_sha256": {"type": ["string", "null"]},
+        "candidate_sha256": {"type": ["string", "null"]},
+        "world_id": {"type": "string"},
+        "routes_schema_version": {"type": "string"},
+        "parent_world_id": {"type": "string"}
+      }
+    },
+    "event_seq": {"type": "integer", "minimum": 1},
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "event_seq_written": {"type": "integer", "minimum": 1},
+        "wall_t": {"type": "string"},
+        "mono_t": {"type": "number"},
+        "pid": {"type": "integer"},
+        "process_identity": {"type": "object"}
+      }
+    }
+  }
+}

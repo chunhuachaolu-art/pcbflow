@@ -1,0 +1,36 @@
+{
+ "schema": "pcbflow.v4exp.board/1",
+ "scenario_id": "fix-ripup-rollback",
+ "split": "development",
+ "family": "synthetic",
+ "seed": 11,
+ "board": {
+  "bbox_mm": [0.0, 0.0, 20.0, 12.0],
+  "layers": ["F.Cu", "B.Cu"]
+ },
+ "rules": {
+  "grid_mm": 0.25,
+  "clearance_mm": 0.3,
+  "width_mm": {"default": 0.3},
+  "via": {"pad_mm": 0.6, "hole_mm": 0.3},
+  "allowed_layers": {"default": ["F.Cu"]}
+ },
+ "pads": [
+  {"pad_id": "PA1", "net_id": "n1", "x_mm": 1.0, "y_mm": 10.5, "w_mm": 0.6, "h_mm": 0.6, "layer": "F.Cu"},
+  {"pad_id": "PB1", "net_id": "n1", "x_mm": 19.0, "y_mm": 1.5, "w_mm": 0.6, "h_mm": 0.6, "layer": "F.Cu"},
+  {"pad_id": "PA2", "net_id": "n2", "x_mm": 19.0, "y_mm": 10.5, "w_mm": 0.6, "h_mm": 0.6, "layer": "F.Cu"},
+  {"pad_id": "PB2", "net_id": "n2", "x_mm": 1.0, "y_mm": 1.5, "w_mm": 0.6, "h_mm": 0.6, "layer": "F.Cu"}
+ ],
+ "nets": [
+  {"net_id": "n1", "net_class": "default", "endpoints": ["PA1", "PB1"]},
+  {"net_id": "n2", "net_class": "default", "endpoints": ["PA2", "PB2"]}
+ ],
+ "keepouts": [
+  {"keepout_id": "k-wall-left", "rect_mm": [-2.0, 5.3, 9.3, 6.7], "layers": ["F.Cu", "B.Cu"]},
+  {"keepout_id": "k-wall-right", "rect_mm": [10.7, 5.3, 22.0, 6.7], "layers": ["F.Cu", "B.Cu"]},
+  {"keepout_id": "k-margin-bottom", "rect_mm": [-2.0, -2.0, 22.0, 0.0], "layers": ["F.Cu", "B.Cu"]},
+  {"keepout_id": "k-margin-top", "rect_mm": [-2.0, 12.0, 22.0, 14.0], "layers": ["F.Cu", "B.Cu"]},
+  {"keepout_id": "k-margin-left", "rect_mm": [-2.0, -2.0, 0.0, 14.0], "layers": ["F.Cu", "B.Cu"]},
+  {"keepout_id": "k-margin-right", "rect_mm": [20.0, -2.0, 22.0, 14.0], "layers": ["F.Cu", "B.Cu"]}
+ ]
+}

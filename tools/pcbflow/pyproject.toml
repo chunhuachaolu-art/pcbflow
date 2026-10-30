@@ -1,0 +1,49 @@
+# REPAIR-P3 W-1 包声明落地（exec/REPAIR-P3-PACKAGING-SCHEMA-TASKBOOK-2026-09-13.md，2026-09-22）。
+# 仓库首个包声明件；此前全仓无 pyproject/setup.py/setup.cfg（任务书 §2 证据）。
+#
+# pytest 配置不并入本件 [tool.pytest.ini_options]：REPAIR-P1 W-1 的 pytest.ini
+# 继续作为唯一 pytest 配置源（basetemp(E)/testpaths/失败隔离纪律头注释都在那里，
+# pytest 优先级也是 pytest.ini > pyproject.toml）；收集对账等价=本件验收门。
+#
+# W-2 sys.path 渐退规则（2026-09-22 成文，增量约束）：
+#   - 新增测试/模块禁止 sys.path.insert/append hack——本包 editable 安装
+#     （pip install -e .）后 `import pcbflow` 直接可用，无需挂路径；
+#   - 存量 178 处 sys.path hack 不强制迁移（等价无害，收敛走自然淘汰）；
+#   - scripts/sNN_* 历史脚本与 53 个 calibration_rN_* 一律不动（冻结面）。
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pcbflow"
+# 与 pcbflow/__init__.py __version__ 同值；升版=两处同批改（P3 纪律：__version__
+# 变更登记为发布前动作，本件只做镜像声明）。
+version = "0.1.0"
+description = "七级 PCB 设计流编译器（SPEC v1.1）：compile/enum/audit/co-place/route/check/signoff"
+requires-python = ">=3.12"
+# 核心零第三方依赖（pcbflow/schemas.py 设计目标：stdlib-only；如实声明为空）。
+dependencies = []
+
+[project.optional-dependencies]
+# test: 基线套件需要的两个库（jsonschema 仅测试交叉验证用；本体零依赖）。
+test = ["pytest", "jsonschema"]
+# render: 与 artifact-release/paper2-protocol/render/requirements.txt 逐条对账
+# （floor 钉一致：PyMuPDF>=1.24、Pillow>=10.0、numpy>=1.26）。
+render = ["PyMuPDF>=1.24", "Pillow>=10.0", "numpy>=1.26"]
+# engine: pcbagent 兄弟仓（非 PyPI 包，不可 pip 声明，故为空列表+路径约定）。
+# 路径约定 = WORKSPACE_ROOT/tools/pcbagent（本仓根的兄弟目录；
+# pcbflow/route_grid.py load_adapter() 的挂载口径，config.WORKSPACE_ROOT 解析）。
+# 缺席时的 fail-closed 预检见 pcbflow/pcbagent_dep.py（W-3）。
+engine = []
+
+[tool.setuptools]
+# 子包全部实测带 __init__.py（v4exp/v4_1/v4_2/experimental）；显式列举不发现，
+# 防未来杂散顶层目录（如 out/ 下临时包）被误收。
+packages = [
+    "pcbflow",
+    "pcbflow.v4exp",
+    "pcbflow.v4_1",
+    "pcbflow.v4_2",
+    "pcbflow.experimental",
+]

@@ -1,0 +1,51 @@
+{
+ "schema_version": "3.0",
+ "profile_id": "smoke-4l",
+ "project_id": "smoke-4l",
+ "layers": [
+  {
+   "name": "F.Cu",
+   "role": "signal"
+  },
+  {
+   "name": "In1.Cu",
+   "role": "plane"
+  },
+  {
+   "name": "In2.Cu",
+   "role": "signal"
+  },
+  {
+   "name": "B.Cu",
+   "role": "power"
+  }
+ ],
+ "kicad_cli": {
+  "drc_batch_severity": "severity-error",
+  "drc_final_severity": "severity-all",
+  "refill_policy": "kicad-cli-refill"
+ },
+ "critical_net_set": [
+  "BUS_A_CLK",
+  "BUS_A_DATA0",
+  "BUS_A_DATA1",
+  "PWR_RAIL_MAIN"
+ ],
+ "physics_required": [
+  "PHY-IMP-1"
+ ],
+ "external_required": [],
+ "bring_up_required": false,
+ "measurement_conventions": {
+  "differential_impedance": "IPC-2141-first-order"
+ },
+ "thresholds": {
+  "diff_impedance_ohm_target": 90.0,
+  "diff_impedance_ohm_tolerance": 5.0
+ },
+ "anchors": [
+  "U1",
+  "U2"
+ ],
+ "keepouts": []
+}

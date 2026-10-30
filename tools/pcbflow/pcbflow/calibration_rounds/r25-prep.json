@@ -1,0 +1,14 @@
+{
+ "domain": "development",
+ "engine_entry": null,
+ "guards": {
+  "no_overwrite": true,
+  "source_frozen": true
+ },
+ "kind": "prep",
+ "prep_skeleton_note": "G0 版骨架：登记 prep 轮次配置与源脚本装载校验；指引派生任务解释器与 prep-record 参数化构建=下版（诚实边界：prep 实际落盘由 prep 脚本 main() 幂等自持，本工具不代写冻结域）",
+ "record_rel": "out/v3-tl2/calibration/r25-prep-record.json",
+ "round_id": "r25",
+ "schema_version": "pcbflow-calibration-round/1.0",
+ "source_script": "scripts/s88_calibration_r25_prep.py"
+}

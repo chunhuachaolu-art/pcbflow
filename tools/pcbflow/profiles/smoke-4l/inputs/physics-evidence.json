@@ -1,0 +1,40 @@
+{
+ "schema_version": "3.0",
+ "artifact_kind": "physics_evidence_bundle",
+ "project_id": "smoke-4l",
+ "profile_id": "smoke-4l",
+ "provenance": {
+  "source": "synthetic",
+  "grade": "screening_contract_data",
+  "statement": "合成 smoke 级合同数据：IPC-2141/IPC-2221 一阶闭式筛查口径（datasheet/推导级）。未运行 openEMS，未运行 scikit-rf，无 lab_measurement 实测，无 vendor_tool 输出；本 bundle 不构成物理签核或 required 级 authority 证据，只用于打通 TL-3 required 链合同。"
+ },
+ "inputs_expected": [
+  "stackup",
+  "constraints",
+  "board",
+  "netlist"
+ ],
+ "items": [
+  {
+   "item_id": "PHY-IMP-1",
+   "track": "physics_screening",
+   "net_or_relation": "BUS_A_CLK/BUS_A_DATA0/BUS_A_DATA1 差分对（critical_net_set，参考层 In1.Cu）",
+   "authority": "datasheet_derived",
+   "fidelity": "screening",
+   "measurement_convention": "IPC-2141-first-order",
+   "calculator": "ipc2141_first_order_diff_ohm",
+   "geometry": {
+    "trace_width_mm": 0.3,
+    "trace_gap_mm": 0.2,
+    "dielectric_layer": "prepreg-1",
+    "dielectric_thickness_mm": 0.21,
+    "epsilon_r": 4.2,
+    "copper_thickness_mm": 0.035,
+    "geometry_source": "synthetic_assumption_for_smoke"
+   },
+   "uncertainty_ohm": 9.0,
+   "uncertainty_basis": "IPC-2141 一阶闭式典型误差按标称阻抗 ±10% 声明（合成 smoke 级声明；一阶公式对受控阻抗精度不足为公知口径）",
+   "note": "PHY-IMP-1 的 screening 级合成证据：数值由闭式公式从声明的合成几何推导，目标/容差取 profile.thresholds；required 级 authority（openems/scikit_rf/vendor_tool/lab_measurement）证据不存在，人工 required-scope 批准挂起。"
+  }
+ ]
+}

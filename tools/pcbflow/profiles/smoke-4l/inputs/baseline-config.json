@@ -1,0 +1,15 @@
+{
+ "schema_version": "3.0",
+ "artifact_kind": "autotune_baseline_config",
+ "project_id": "smoke-4l",
+ "profile_id": "smoke-4l",
+ "config_id": "BASE-smoke-4l-r1",
+ "values": {
+  "route_grid_mm": 0.5,
+  "via_penalty": 5
+ },
+ "provenance": {
+  "source": "declared_current_profile_params",
+  "note": "声明为当前生效参数（immutable 输入文件）：编排零写盘，adoption 获 Human disposition 前后旧配置恒不变；本文件不因 autotune 结果被改写。"
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "board": "issue14008",
+ "source_file": "qa/tests/pcbnew/drc/test_drc_regressions.cpp",
+ "load_line": "62 (tests 列表项)",
+ "assertions": [
+  {
+   "lines": "62,100-104",
+   "quote": "\"issue14008\",  // Net-tie clearance error ... violations found (expected 0)",
+   "expect": {
+    "family": "total_error",
+    "op": "==",
+    "count": 0
+   }
+  }
+ ],
+ "cpp_severity_setup": {
+  "ignore": [
+   "DRCE_INVALID_OUTLINE",
+   "DRCE_UNCONNECTED_ITEMS",
+   "DRCE_COPPER_SLIVER",
+   "DRCE_STARVED_THERMAL",
+   "DRCE_LIB_FOOTPRINT_ISSUES",
+   "DRCE_LIB_FOOTPRINT_MISMATCH"
+  ],
+  "lines": "75-88",
+  "count_scope": "ERROR 级全部 DRC 码合计（handler 只收 severity==ERROR，line 94-100）"
+ },
+ "family_note": "回归板期望 0。net-tie 焊盘组同网豁免=KiCad 连接性语义，v5 check_clearance same_net_exempt 同向。",
+ "pinned_commit": "3d83cce19567965def8a8397381f067e1a2e77ff"
+}

@@ -1,0 +1,53 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-08-23T15:34:05",
+    "ignored_checks": [
+        {
+            "description": "Global label only appears once in the schematic",
+            "key": "single_global_label"
+        },
+        {
+            "description": "Four connection points are joined together",
+            "key": "four_way_junction"
+        },
+        {
+            "description": "SPICE model issue",
+            "key": "simulation_model_issue"
+        },
+        {
+            "description": "Assigned footprint doesn't match footprint filters",
+            "key": "footprint_filter"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.5",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/d93e670a-9a7a-4439-b869-034fa0fb1538",
+            "violations": [
+                {
+                    "description": "符号 'TPS62085' 与来源库 'coreboard-lib' 中的符号存在差异",
+                    "items": [
+                        {
+                            "description": "符号 U3 [TPS62085]",
+                            "pos": {
+                                "x": 0.5969,
+                                "y": 1.8034
+                            },
+                            "uuid": "f18a53dc-a2ef-422c-8729-8fde79171658"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_mismatch"
+                }
+            ]
+        }
+    ],
+    "source": "stm32h743-coreboard-revc.kicad_sch"
+}
